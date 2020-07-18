@@ -154,5 +154,17 @@ namespace DataSurgeLite.Properties {
                 this["EncryptionKey"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ToolbarWarning {
+            get {
+                return ((bool)(this["ToolbarWarning"]));
+            }
+            set {
+                this["ToolbarWarning"] = value;
+            }
+        }
     }
 }

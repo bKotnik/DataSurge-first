@@ -3,69 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:DataSurgeLite"
+        xmlns:local="clr-namespace:DataSurgeLite.User_controls"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Icon="logo_icon.ico"
         Title="DataSurge" Height="557.732" Width="1026.289" MinWidth="700" MinHeight="485" x:Name="mainWindow">
-
-    <!--ANIMATION-->
-    <Window.Resources>
-        <Storyboard x:Key="Storyboard1" RepeatBehavior="Forever">
-            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" SpeedRatio="0.8" Storyboard.TargetName="ellipse" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)">
-                <SplineDoubleKeyFrame KeyTime="00:00:2" Value="360"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
-
-        <Storyboard x:Key="Storyboard2" RepeatBehavior="Forever">
-            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" SpeedRatio="0.9" Storyboard.TargetName="ellipse2" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)">
-                <SplineDoubleKeyFrame KeyTime="00:00:2" Value="360"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
-
-        <Storyboard x:Key="Storyboard3" RepeatBehavior="Forever">
-            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" SpeedRatio="1" Storyboard.TargetName="ellipse3" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)">
-                <SplineDoubleKeyFrame KeyTime="00:00:2" Value="360"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
-
-        <Storyboard x:Key="Storyboard4" RepeatBehavior="Forever">
-            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" SpeedRatio="1.1" Storyboard.TargetName="ellipse4" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)">
-                <SplineDoubleKeyFrame KeyTime="00:00:2" Value="360"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
-
-        <Storyboard x:Key="Storyboard5" RepeatBehavior="Forever">
-            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" SpeedRatio="1.2" Storyboard.TargetName="ellipse5" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)">
-                <SplineDoubleKeyFrame KeyTime="00:00:2" Value="360"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
-
-        <Storyboard x:Key="Storyboard6" RepeatBehavior="Forever">
-            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" SpeedRatio="1.3" Storyboard.TargetName="ellipse6" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)">
-                <SplineDoubleKeyFrame KeyTime="00:00:2" Value="360"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
-
-        <Storyboard x:Key="Storyboard7" RepeatBehavior="Forever">
-            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" SpeedRatio="1.4" Storyboard.TargetName="ellipse7" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)">
-                <SplineDoubleKeyFrame KeyTime="00:00:2" Value="360"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
-    </Window.Resources>
-
-    <Window.Triggers>
-        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
-            <BeginStoryboard Storyboard="{DynamicResource Storyboard1}"/>
-            <BeginStoryboard Storyboard="{DynamicResource Storyboard2}"/>
-            <BeginStoryboard Storyboard="{DynamicResource Storyboard3}"/>
-            <BeginStoryboard Storyboard="{DynamicResource Storyboard4}"/>
-            <BeginStoryboard Storyboard="{DynamicResource Storyboard5}"/>
-            <BeginStoryboard Storyboard="{DynamicResource Storyboard6}"/>
-            <BeginStoryboard Storyboard="{DynamicResource Storyboard7}"/>
-        </EventTrigger>
-    </Window.Triggers>
-    <!--IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII-->
 
     <Grid x:Name="MainGrid">
 
@@ -83,109 +25,122 @@
         </Grid.RowDefinitions>
 
         <!--orodna vrstica-->
-        <Menu Grid.Row="0" Background="#E8E8E8" Grid.ColumnSpan="6"  Grid.RowSpan="3" Foreground="Black">
+        <Grid Grid.Row="0" Background="#E8E8E8" Grid.ColumnSpan="6"  Grid.RowSpan="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="40"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
 
-            <MenuItem Header="_File" x:Name="toolbarFile">
-                <MenuItem Header="_New" x:Name="toolbarNew" Click="OpenAddNew" Foreground="Black">
-                    <MenuItem.Icon>
-                        <Image x:Name="new_icon" MaxWidth="15" MaxHeight="15" />
-                    </MenuItem.Icon>
-                </MenuItem>
-
-                <MenuItem Header="_Import" x:Name="toolbarImport"
-                          Click="btn_import" Foreground="Black">
-                    <MenuItem.Icon>
-                        <Image x:Name="import_icon" MaxWidth="15" MaxHeight="15" />
-                    </MenuItem.Icon>
-                </MenuItem>
-
-                <MenuItem Header="_Export" x:Name="toolbarExport" Foreground="Black"
-                          Click="btn_export">
-                    <MenuItem.Icon>
-                        <Image x:Name="export_icon" MaxWidth="15" MaxHeight="15" />
-                    </MenuItem.Icon>
-                </MenuItem>
-
-                <MenuItem Header="_Exit" Click="CloseApp" x:Name="toolbarExit" Foreground="Black">
-                    <MenuItem.Icon>
-                        <Image x:Name="xOrodna_icon" MaxWidth="15" MaxHeight="15" />
-                    </MenuItem.Icon>
-                </MenuItem>
-            </MenuItem>
-
-            <MenuItem Header="_Edit" x:Name="toolbarEdit">
-                <MenuItem Header="_Edit entry" x:Name="toolbarEditEntry" Click="OpenEditEntry" Foreground="Black">
-                    <MenuItem.Icon>
-                        <Image x:Name="editOrodna_icon" MaxWidth="15" MaxHeight="15" />
-                    </MenuItem.Icon>
-                </MenuItem>
-
-                <MenuItem Header="Find and Replace" x:Name="toolbarFR" Click="OpenFindReplace" Foreground="Black">
-                    <MenuItem.Icon>
-                        <Image x:Name="findReplace_icon" MaxHeight="19" MaxWidth="19"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-            </MenuItem>
-
-            <MenuItem Header="_View" x:Name="toolbarView" VerticalContentAlignment="Center">
-                <MenuItem Header="Color Picker" x:Name="toolbarColorPicker" Click="ColorPicker" Foreground="Black">
-                    <MenuItem.Icon>
-                        <Image x:Name="colorPicker_icon" MaxWidth="20" MaxHeight="20" />
-                    </MenuItem.Icon>
-                </MenuItem>
-
-                <MenuItem Header="_Full Screen" x:Name="toolbarFullscr" Click="FullScreen" Foreground="Black">
-                    <MenuItem.Icon>
-                        <Image x:Name="fullScreenOrodna_icon" MaxWidth="20" MaxHeight="20" />
-                    </MenuItem.Icon>
-                </MenuItem>
-
-                <MenuItem Header="_Language" x:Name="toolbarLanguage" Foreground="Black">
-                    <MenuItem.Icon>
-                        <Image x:Name="language_icon" MaxWidth="18" MaxHeight="18"/>
-                    </MenuItem.Icon>
-                    <MenuItem Header="_Eng" StaysOpenOnClick="True" 
-                              IsCheckable="True" x:Name="eng" Checked="TranslateSlo">
+            <!--TOOLBAR-->
+            <Menu Foreground="Black" Grid.Column="0" Background="#E8E8E8">
+                <MenuItem Header="_File" x:Name="toolbarFile">
+                    <MenuItem Header="_New" x:Name="toolbarNew" Click="OpenAddNew" Foreground="Black">
+                        <MenuItem.Icon>
+                            <Image x:Name="new_icon" MaxWidth="15" MaxHeight="15" />
+                        </MenuItem.Icon>
                     </MenuItem>
-                    <MenuItem Header="_Slo" StaysOpenOnClick="True" x:Name="slo"
+
+                    <MenuItem Header="_Import" x:Name="toolbarImport"
+                          Click="btn_import" Foreground="Black">
+                        <MenuItem.Icon>
+                            <Image x:Name="import_icon" MaxWidth="15" MaxHeight="15" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                    <MenuItem Header="_Export" x:Name="toolbarExport" Foreground="Black"
+                          Click="btn_export">
+                        <MenuItem.Icon>
+                            <Image x:Name="export_icon" MaxWidth="15" MaxHeight="15" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                    <MenuItem Header="_Exit" Click="CloseApp" x:Name="toolbarExit" Foreground="Black">
+                        <MenuItem.Icon>
+                            <Image x:Name="xOrodna_icon" MaxWidth="15" MaxHeight="15" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+
+                <MenuItem Header="_Edit" x:Name="toolbarEdit">
+                    <MenuItem Header="_Edit entry" x:Name="toolbarEditEntry" Click="OpenEditEntry" Foreground="Black">
+                        <MenuItem.Icon>
+                            <Image x:Name="editOrodna_icon" MaxWidth="15" MaxHeight="15" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                    <MenuItem Header="Find and Replace" x:Name="toolbarFR" Click="OpenFindReplace" Foreground="Black">
+                        <MenuItem.Icon>
+                            <Image x:Name="findReplace_icon" MaxHeight="19" MaxWidth="19"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+
+                <MenuItem Header="_View" x:Name="toolbarView" VerticalContentAlignment="Center">
+                    <MenuItem Header="Color Picker" x:Name="toolbarColorPicker" Click="ColorPicker" Foreground="Black">
+                        <MenuItem.Icon>
+                            <Image x:Name="colorPicker_icon" MaxWidth="20" MaxHeight="20" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                    <MenuItem Header="_Full Screen" x:Name="toolbarFullscr" Click="FullScreen" Foreground="Black">
+                        <MenuItem.Icon>
+                            <Image x:Name="fullScreenOrodna_icon" MaxWidth="20" MaxHeight="20" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                    <MenuItem Header="_Language" x:Name="toolbarLanguage" Foreground="Black">
+                        <MenuItem.Icon>
+                            <Image x:Name="language_icon" MaxWidth="18" MaxHeight="18"/>
+                        </MenuItem.Icon>
+                        <MenuItem Header="_Eng" StaysOpenOnClick="True" 
+                              IsCheckable="True" x:Name="eng" Checked="TranslateSlo">
+                        </MenuItem>
+                        <MenuItem Header="_Slo" StaysOpenOnClick="True" x:Name="slo"
                               IsCheckable="True" Checked="TranslateEng"></MenuItem>
+                    </MenuItem>
+
                 </MenuItem>
 
-            </MenuItem>
+                <MenuItem Header="_Tools" x:Name="toolbarTools">
+                    <MenuItem Header="Settings" x:Name="toolbarSettings" Click="OpenSettings" Foreground="Black">
+                        <MenuItem.Icon>
+                            <Image x:Name="settings_icon" Width="17" Height="17"></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Decrypt" x:Name="toolbarDecrypt" Foreground="Black">
+                        <MenuItem.Icon>
+                            <Image x:Name="decrypt_icon" MaxHeight="18" MaxWidth="18"></Image>
+                        </MenuItem.Icon>
 
-            <MenuItem Header="_Tools" x:Name="toolbarTools">
-                <MenuItem Header="Settings" x:Name="toolbarSettings" Click="OpenSettings" Foreground="Black">
-                    <MenuItem.Icon>
-                        <Image x:Name="settings_icon" Width="17" Height="17"></Image>
-                    </MenuItem.Icon>
-                </MenuItem>
-                <MenuItem Header="Decrypt" x:Name="toolbarDecrypt" Foreground="Black">
-                    <MenuItem.Icon>
-                        <Image x:Name="decrypt_icon" MaxHeight="18" MaxWidth="18"></Image>
-                    </MenuItem.Icon>
-
-                    <MenuItem Header="Decrypt" ToolTip="{DynamicResource ToolTipDecrypt1}" Click="DecryptImportedData"/>
-                    <MenuItem Header="Decrypt and Overwrite" ToolTip="{DynamicResource ToolTipDecrypt2}" 
+                        <MenuItem Header="Decrypt" ToolTip="{DynamicResource ToolTipDecrypt1}" Click="DecryptImportedData"/>
+                        <MenuItem Header="Decrypt and Overwrite" ToolTip="{DynamicResource ToolTipDecrypt2}" 
                               Click="DecryptOverwriteImportedData"/>
-                </MenuItem>
-                <MenuItem Header="Encrypt" Click="EncryptToolbar" 
+                    </MenuItem>
+                    <MenuItem Header="Encrypt" Click="EncryptToolbar"
                           ToolTip="{StaticResource ToolTipEncrypt}">
-                    <MenuItem.Icon>
-                        <Image x:Name="encrypt_icon" MaxHeight="18" MaxWidth="18"></Image>
-                    </MenuItem.Icon>
-                </MenuItem>
-            </MenuItem>
-
-            <MenuItem Header="_Help" x:Name="toolbarHelp">
-                <MenuItem Header="_View Help" x:Name="toolbarViewHelp" Click="ViewHelp" Foreground="Black">
-                    <MenuItem.Icon>
-                        <Image x:Name="HelpOrodna_icon" MaxWidth="15" MaxHeight="15" />
-                    </MenuItem.Icon>
+                        <MenuItem.Icon>
+                            <Image x:Name="encrypt_icon" MaxHeight="18" MaxWidth="18"></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
                 </MenuItem>
 
-            </MenuItem>
+                <MenuItem Header="_Help" x:Name="toolbarHelp">
+                    <MenuItem Header="_View Help" x:Name="toolbarViewHelp" Click="ViewHelp" Foreground="Black">
+                        <MenuItem.Icon>
+                            <Image x:Name="HelpOrodna_icon" MaxWidth="15" MaxHeight="15" />
+                        </MenuItem.Icon>
+                    </MenuItem>
 
-        </Menu>
+                </MenuItem>
+            </Menu>
+
+            <TextBlock Grid.Column="1" Text="!" HorizontalAlignment="Center"
+                       FontSize="22" FontWeight="Heavy" Margin="0 -5 0 0"
+                       Foreground="{DynamicResource ExitColor}" x:Name="toolbarWarning"
+                       ToolTip="{StaticResource ToolTip!}" Visibility="Visible">
+            </TextBlock>
+
+        </Grid>
 
         <!--stranski meni-->
         <Grid Grid.Row="1" Grid.Column="0" Background="{DynamicResource BackgroundColor}" Grid.RowSpan="2">
@@ -252,35 +207,6 @@
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-
-            <!--Ellipses for animation-->
-            <Ellipse x:Name="ellipse" Width="50" Style="{DynamicResource animationEllipse}"
-                 Grid.ColumnSpan="2" Panel.ZIndex="300" Visibility="Hidden">
-            </Ellipse>
-
-            <Ellipse x:Name="ellipse2" Style="{DynamicResource animationEllipse}" 
-                 Grid.ColumnSpan="2" Panel.ZIndex="300" Visibility="Hidden">
-            </Ellipse>
-
-            <Ellipse x:Name="ellipse3" Style="{DynamicResource animationEllipse}"
-                 Grid.ColumnSpan="2" Panel.ZIndex="300" Visibility="Hidden">
-            </Ellipse>
-
-            <Ellipse x:Name="ellipse4" Style="{DynamicResource animationEllipse}" 
-                 Grid.ColumnSpan="2" Panel.ZIndex="300" Visibility="Hidden">
-            </Ellipse>
-
-            <Ellipse x:Name="ellipse5" Style="{DynamicResource animationEllipse}"
-                 Grid.ColumnSpan="2" Panel.ZIndex="300" Visibility="Hidden">
-            </Ellipse>
-
-            <Ellipse x:Name="ellipse6" Style="{DynamicResource animationEllipse}"
-                 Grid.ColumnSpan="2" Panel.ZIndex="300" Visibility="Hidden">
-            </Ellipse>
-
-            <Ellipse x:Name="ellipse7" Style="{DynamicResource animationEllipse}" 
-                 Grid.ColumnSpan="2" Panel.ZIndex="300" Visibility="Hidden">
-            </Ellipse>
 
             <ListView Name="lvDataMain" Grid.Column="1" Style="{DynamicResource listViewStyle}" 
                       SelectionMode="Extended" ItemContainerStyle="{DynamicResource listViewItemStyle}"

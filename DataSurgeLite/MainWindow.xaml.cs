@@ -61,6 +61,13 @@ namespace DataSurgeLite
             colorPicker_icon.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\resources\\color_picker_icon.ico", UriKind.Absolute));
             // 
 
+            //check toolbar warning !
+            if (Properties.Settings.Default.ToolbarWarning == false)
+                toolbarWarning.Visibility = Visibility.Hidden;
+            else
+                toolbarWarning.Visibility = Visibility.Visible;
+            //check toolbar warning !
+
             Utility.ListData = new ObservableCollection<DataClass>();
             Utility.preferences = new PreferencesClass();
 
@@ -345,7 +352,7 @@ namespace DataSurgeLite
 
         private void addNew(object sender, RoutedEventArgs e)
         {
-            AddNew add_new_window = new AddNew();
+            AddNew add_new_window = new AddNew(this);
 
             add_new_window.ShowDialog();
 
@@ -411,6 +418,11 @@ namespace DataSurgeLite
                 using (stream)
                 {
                     xs.Serialize(stream, Utility.ListData);
+
+                    //show ! in toolbar
+                    toolbarWarning.Visibility = Visibility.Visible;
+                    Properties.Settings.Default.ToolbarWarning = true;
+                    Properties.Settings.Default.Save();
                 }
             }
 
@@ -436,7 +448,7 @@ namespace DataSurgeLite
             {
                 Utility.indexOfSelectedItem = Utility.ListData.IndexOf((DataClass)lvDataMain.SelectedItem); // get index of selected item
 
-                Edit editWindow = new Edit();
+                Edit editWindow = new Edit(this);
                 editWindow.ShowDialog();
             }
         }
@@ -466,7 +478,7 @@ namespace DataSurgeLite
         /*FILE*/
         private void OpenAddNew(object sender, RoutedEventArgs e)
         {
-            AddNew add_new_window = new AddNew();
+            AddNew add_new_window = new AddNew(this);
 
             add_new_window.ShowDialog();
         }
@@ -496,7 +508,7 @@ namespace DataSurgeLite
             {
                 Utility.indexOfSelectedItem = Utility.ListData.IndexOf((DataClass)lvDataMain.SelectedItem); // get index of selected item
 
-                Edit editWindow = new Edit();
+                Edit editWindow = new Edit(this);
                 editWindow.ShowDialog();
             }
         }
@@ -646,6 +658,11 @@ namespace DataSurgeLite
                     {
                         XmlSerializer xs = new XmlSerializer(typeof(ObservableCollection<DataClass>));
                         xs.Serialize(stream, Utility.ListData);
+
+                        //show ! in toolbar
+                        toolbarWarning.Visibility = Visibility.Visible;
+                        Properties.Settings.Default.ToolbarWarning = true;
+                        Properties.Settings.Default.Save();
                     }
                 }
 
@@ -666,6 +683,7 @@ namespace DataSurgeLite
         // encrypt data.xml file (from toolbar)
         private void EncryptToolbar(object sender, RoutedEventArgs e)
         {
+            Mouse.OverrideCursor = Cursors.Wait;
             // overwrite data.xml with empty string
             File.WriteAllText(Environment.CurrentDirectory + "\\Data.xml", string.Empty);
 
@@ -688,6 +706,11 @@ namespace DataSurgeLite
                 {
                     XmlSerializer xs = new XmlSerializer(typeof(ObservableCollection<DataClass>));
                     xs.Serialize(stream, Utility.ListData);
+
+                    //hide ! in toolbar
+                    toolbarWarning.Visibility = Visibility.Hidden;
+                    Properties.Settings.Default.ToolbarWarning = false;
+                    Properties.Settings.Default.Save();
                 }
             }
 
@@ -695,6 +718,8 @@ namespace DataSurgeLite
             {
                 _ = MessageBox.Show("Error occurred when trying to serialize data", "Error serializing", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+
+            Mouse.OverrideCursor = null;
         }
 
         /*HELP*/
@@ -704,6 +729,14 @@ namespace DataSurgeLite
             var file = System.IO.Path.Combine(path, "Help.txt");
             Process.Start(file);
         }
+
+        // to change ! visibility from other windows
+        public void setToolbarWarningVisibility (Visibility visibility)
+        {
+            toolbarWarning.Visibility = visibility;
+        }
+
+        /* TOOLBAR MENU */
 
         // HIDE COLUMNS - LISTVIEW MENU
         private void HideColumn(object sender, RoutedEventArgs e)

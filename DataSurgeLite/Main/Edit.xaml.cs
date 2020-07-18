@@ -13,9 +13,12 @@ namespace DataSurgeLite.Main
     /// </summary>
     public partial class Edit : Window
     {
-        public Edit()
+        private readonly MainWindow _mainWindow;
+
+        public Edit(MainWindow mainWindow)
         {
             InitializeComponent();
+            _mainWindow = mainWindow;
 
             EmailForm.Text = Utility.ListData[Utility.indexOfSelectedItem].Email;
             UsernameForm.Text = Utility.ListData[Utility.indexOfSelectedItem].Username;
@@ -102,6 +105,11 @@ namespace DataSurgeLite.Main
                 {
                     xs.Serialize(stream, Utility.ListData);
                     Status.Visibility = Visibility.Visible;
+
+                    // show ! in toolbar
+                    _mainWindow.setToolbarWarningVisibility(Visibility.Visible);
+                    Properties.Settings.Default.ToolbarWarning = true;
+                    Properties.Settings.Default.Save();
                 }
             }
 

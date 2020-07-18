@@ -23,9 +23,12 @@ namespace DataSurgeLite.Side_menu
     /// </summary>
     public partial class AddNew : Window
     {
-        public AddNew()
+        private readonly MainWindow _mainWindow;
+
+        public AddNew(MainWindow mainWindow)
         {
             InitializeComponent();
+            _mainWindow = mainWindow;
             showPassIcon.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\resources\\show_password_icon.ico", UriKind.Absolute));
         }
 
@@ -86,6 +89,11 @@ namespace DataSurgeLite.Side_menu
                     {
                         XmlSerializer xs = new XmlSerializer(typeof(ObservableCollection<DataClass>));
                         xs.Serialize(stream, Utility.ListData);
+
+                        // show ! in toolbar
+                        _mainWindow.setToolbarWarningVisibility(Visibility.Visible);
+                        Properties.Settings.Default.ToolbarWarning = true;
+                        Properties.Settings.Default.Save();
                     }
                 }
 
