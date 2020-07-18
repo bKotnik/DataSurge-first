@@ -13,9 +13,15 @@ INSTALLATION:
 
 *Application should be run as administrator for it to work properly*
 
-*DataSurgeLite does not encrypt data except user (master password and email)
+*DataSurgeLite does not encrypt data by default except user (master password and email)
 
-*DataSurgeLite has an additional function "Decrypt" under Tools
+*DataSurgeLite has an additional function "Decrypt" and "Encrypt" under Tools
 	-Under Decrypt there are 2 options:
 					   -Decrypt (decrypts imported data)
 					   -Decrypt and Overwrite (decrypts and overwrites imported data)
+
+	-Encrypt encrypts all your current data
+	-you can decrypt it by using "decrypt" under tools->decrypt
+	-or you can decrypt and overwrite it by clicking "decrypt and overwrite" under tools->decrypt
+	-when you add or edit an entry, that entry WILL NOT be encrypted. You have to click on encrypt AGAIN
+	-when you delete/edit an entry, you have to encrypt your data AGAIN
