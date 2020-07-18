@@ -17,8 +17,8 @@ INSTALLATION:
 
 *DataSurgeLite has an additional function "Decrypt" and "Encrypt" under Tools
 	-Under Decrypt there are 2 options:
-					   -Decrypt (decrypts imported data)
-					   -Decrypt and Overwrite (decrypts and overwrites imported data)
+					   -Decrypt (decrypts data)
+					   -Decrypt and Overwrite (decrypts and overwrites data)
 
 	-Encrypt encrypts all your current data
 	-you can decrypt it by using "decrypt" under tools->decrypt
