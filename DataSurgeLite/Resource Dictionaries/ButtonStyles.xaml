@@ -1,0 +1,329 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:DataSurgeLite.Resource_Dictionaries">
+    
+    <!--NO STYLE BUTTON WITH BORDER-->
+    <Style x:Key="noStyleBtnBorder" TargetType="Button">
+        <Setter Property="OverridesDefaultStyle" Value="true"/>
+        <Setter Property="Foreground" Value="{DynamicResource MainColor}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Name="border" BorderThickness="1" BorderBrush="{DynamicResource MainColor}"
+                            Background="{TemplateBinding Background}">
+
+                        <Grid>
+                            <ContentPresenter HorizontalAlignment="Center"
+                                                  VerticalAlignment="Top" Name="contentShadow"
+                                                  Style="{DynamicResource ShadowStyle}">
+                            </ContentPresenter>
+                            <ContentPresenter HorizontalAlignment="Center"
+                                                  VerticalAlignment="Top" Name="content"/>
+                        </Grid>
+
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="Background" Value="{DynamicResource MainColor}"/>
+                <Setter Property="Foreground" Value="{DynamicResource TextColor}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--NO STYLE BUTTON FOR IMAGES-->
+    <Style x:Key="noStyleBtn" TargetType="Button">
+        <Setter Property="OverridesDefaultStyle" Value="true"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Name="border"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            Padding="{TemplateBinding Padding}"
+                            Background="{TemplateBinding Background}">
+
+                        <Grid>
+                            <ContentPresenter HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center" Name="content"/>
+                        </Grid>
+
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="Background" Value="{DynamicResource LightGray15Color}"/>
+                <Setter Property="Padding" Value="2"/>
+                <Setter Property="Cursor" Value="Hand"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--STRANSKI MENI GUMBI-->
+    <Style x:Key="SideMenuBtnStyle" TargetType="{x:Type Button}">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Name="border"
+                            Padding="0, 10, 0, 10"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            Background="{TemplateBinding Background}">
+
+                        <Grid>
+                            <ContentPresenter HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center" Name="content"/>
+                        </Grid>
+
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextColor}"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource MainColor50}"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="TextBlock.FontWeight" Value="Bold"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource MainColor}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--LISTVIEW MENI GUMBI-->
+    <Style x:Key="ListViewBtnStyle" TargetType="{x:Type Button}">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center" Name="content"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Background" Value="{DynamicResource BackgroundColor}"/>
+        <Setter Property="Foreground" Value="{DynamicResource MainColor}"/>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=GridViewColumnHeader}, Path=IsMouseOver}" Value="true">
+                <Setter Property="Foreground" Value="{DynamicResource SecondaryColor}"/>
+                <Setter Property="Cursor" Value="Hand"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--MAIN BUTTON STYLE-->
+    <Style x:Key="MainBtnStyle" TargetType="{x:Type Button}">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Margin" Value="0 40 0 0"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Name="border"
+                                            BorderThickness="1"
+                                            Padding="4, 2"
+                                            BorderBrush="{DynamicResource MainColor}"
+                                            CornerRadius="2"
+                                            Background="{TemplateBinding Background}">
+
+                        <Grid>
+                            <ContentPresenter HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center" Name="content"/>
+                        </Grid>
+
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="{DynamicResource SecondaryColor}"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource MainColor50}"/>
+                <Setter Property="Foreground" Value="{DynamicResource SecondaryColor}"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="TextBlock.FontWeight" Value="Bold"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--ADD NEW BUTTON STYLE - stranski meni-->
+    <Style x:Key="AddNewBtnStyle" TargetType="{x:Type Button}">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Name="border"
+                            Padding="0, 10, 0, 10"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            Background="{TemplateBinding Background}">
+
+                        <Grid>
+                            <ContentPresenter HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center" Name="content"/>
+                        </Grid>
+
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Background" Value="{DynamicResource MainColor50}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextColor}"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="TextBlock.FontWeight" Value="Bold"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Foreground" Value="{DynamicResource SecondaryColor}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource MainColor}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--LOGOUT BUTTON STYLE-->
+    <Style x:Key="LogoutBtnStyle" TargetType="{x:Type Button}">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Name="border"
+                            Padding="4, 2"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            Background="{TemplateBinding Background}">
+
+                        <Grid>
+                            <ContentPresenter HorizontalAlignment="Left"
+                                              VerticalAlignment="Center" Name="content"/>
+                        </Grid>
+
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Background" Value="{DynamicResource MainColor50}"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource MainColor}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="true">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource MainColor}"/>
+                <Setter Property="BorderThickness" Value="2"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--DELETE ICON BUTTON STYLE-->
+    <Style x:Key="DeleteIconBtnStyle" TargetType="{x:Type Button}">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+
+                        <Grid>
+                            <ContentPresenter HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center" Name="contentShadow"
+                                                  Style="{DynamicResource ShadowStyle}">
+                            </ContentPresenter>
+                            <ContentPresenter HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center" Name="content"/>
+                        </Grid>
+
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Cursor" Value="Hand"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--FORGOTTEN PASSWORD BUTTON STYLE-->
+    <Style x:Key="ForgottenBtnStyle" TargetType="{x:Type Button}">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Name="border"
+                                            BorderThickness="0"
+                                            Padding="4, 2"
+                                            Background="{TemplateBinding Background}">
+
+                        <Grid>
+                            <ContentPresenter HorizontalAlignment="Left"
+                                                  VerticalAlignment="Center" Name="content">
+                            </ContentPresenter>
+                        </Grid>
+
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextColor}"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Foreground" Value="{DynamicResource MainColor}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--EXIT BUTTON STYLE-->
+    <Style x:Key="ExitBtnStyle" TargetType="{x:Type Button}">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Margin" Value="0 40 0 0"/>
+        <Setter Property="Height" Value="30" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Name="border"
+                            BorderThickness="1"
+                            Padding="4, 2"
+                            BorderBrush="{DynamicResource ExitColor}"
+                            CornerRadius="2"
+                            Background="{TemplateBinding Background}">
+
+                        <Grid>
+                            <ContentPresenter HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center" Name="content"/>
+                        </Grid>
+
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="{DynamicResource ExitColor}"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource ExitColor}"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="TextBlock.FontWeight" Value="Bold"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>

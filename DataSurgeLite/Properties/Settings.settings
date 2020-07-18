@@ -1,0 +1,39 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="DataSurgeLite.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="MainColor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#059401</Value>
+    </Setting>
+    <Setting Name="MainColor50" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#50059401</Value>
+    </Setting>
+    <Setting Name="MainColor42" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#42059401</Value>
+    </Setting>
+    <Setting Name="MainColor95" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#95059401</Value>
+    </Setting>
+    <Setting Name="SecondaryColor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#FFFFFFFF</Value>
+    </Setting>
+    <Setting Name="ExitColor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#810510</Value>
+    </Setting>
+    <Setting Name="TitleColor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#4db5a7</Value>
+    </Setting>
+    <Setting Name="TextColor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#E8E8E8</Value>
+    </Setting>
+    <Setting Name="BackgroundColor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#090c0f</Value>
+    </Setting>
+    <Setting Name="WarningColor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#f9b302</Value>
+    </Setting>
+    <Setting Name="EncryptionKey" Type="System.String" Scope="User">
+      <Value Profile="(Default)">123456</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,53 @@
+﻿<Window x:Class="DataSurgeLite.Confirmation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DataSurgeLite"
+        mc:Ignorable="d"
+        Title="Confirmation" MaxWidth="400" MaxHeight="200" MinHeight="200" MinWidth="400">
+
+    <Grid Background="{DynamicResource BackgroundColor}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBox Grid.Row="0" Text="Enter your master password to confirm changes:"
+                   Foreground="{DynamicResource TextColor}" VerticalAlignment="Bottom" Margin="20 0 0 0"
+                   FontWeight="Bold" FontSize="13" Style="{DynamicResource ReadOnlyTextBox}">
+        </TextBox>
+
+        <PasswordBox x:Name="confirmPasswordBox" Grid.Row="1" Background="{DynamicResource BackgroundColorMasterPassword}"
+                     BorderBrush="{DynamicResource MainColor}" Height="35"  
+                     Foreground="{DynamicResource MainColor}" Width="338"
+                     VerticalContentAlignment="Center" HorizontalAlignment="Left" 
+                     Margin="23 0 0 0" FontSize="14" KeyDown="enterConfirm">
+        </PasswordBox>
+
+        <TextBlock Grid.Row="2" Text="Incorrect password!" Foreground="Red"
+                   Margin="25 0 0 0" x:Name="incorrectPass" Visibility="Hidden">
+        </TextBlock>
+
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="btnConfirm" Content="Confirm changes" Height="30" FontWeight="Bold" 
+                Width="125" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="23 0 0 0" 
+                Style="{DynamicResource MainBtnStyle}" Click="Confirm" Grid.Column="0">
+            </Button>
+
+            <Button x:Name="btnExit" Content="Cancel" Height="30" FontWeight="Bold"
+                Width="125" HorizontalAlignment="Right" VerticalAlignment="Center"
+                Style="{DynamicResource ExitBtnStyle}" Click="Exit" Grid.Column="1"
+                Margin="0 0 23 0">
+            </Button>
+        </Grid>
+
+    </Grid>
+</Window>
