@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29411.108
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataSurge", "DataSurge\DataSurge.csproj", "{0FBD16B5-7DF0-4D1B-A1F1-1F8D5523D52F}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "DataSurgeSetup", "DataSurgeSetup\DataSurgeSetup.vdproj", "{B94D4FCE-6DB8-497E-A7F7-8C2106D647D3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0FBD16B5-7DF0-4D1B-A1F1-1F8D5523D52F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FBD16B5-7DF0-4D1B-A1F1-1F8D5523D52F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FBD16B5-7DF0-4D1B-A1F1-1F8D5523D52F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FBD16B5-7DF0-4D1B-A1F1-1F8D5523D52F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B94D4FCE-6DB8-497E-A7F7-8C2106D647D3}.Debug|Any CPU.ActiveCfg = Debug
+		{B94D4FCE-6DB8-497E-A7F7-8C2106D647D3}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DDFAB928-455F-4C6E-B005-11274A787236}
+	EndGlobalSection
+EndGlobal

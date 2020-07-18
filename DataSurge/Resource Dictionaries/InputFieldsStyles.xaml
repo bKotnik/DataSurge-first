@@ -1,0 +1,62 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:DataSurge.Resource_Dictionaries">
+
+    <!--SELECTION BRUSH-->
+    <Style TargetType="PasswordBox">
+        <Setter Property="SelectionBrush" Value="{DynamicResource SelectionBrushColor}"/>
+    </Style>
+    <Style TargetType="TextBox">
+        <Setter Property="SelectionBrush" Value="{DynamicResource SelectionBrushColor}"/>
+    </Style>
+
+    <!--for passwords (hidden until mouse over)-->
+    <Style x:Key="ReadOnlyTextBoxPassword" TargetType="TextBox">
+        <Setter Property="IsReadOnly" Value="True" />
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="IsTabStop" Value="False"/>
+        <Setter Property="Foreground" Value="Transparent"/>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="BorderBrush" Value="Transparent"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="Foreground" Value="Black"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--normal readonly text box-->
+    <Style x:Key="ReadOnlyTextBox" TargetType="TextBox">
+        <Setter Property="IsReadOnly" Value="True" />
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="IsTabStop" Value="False"/>
+        <Setter Property="SelectionBrush" Value="{DynamicResource SelectionBrushColor}"/>
+        <Setter Property="Foreground" Value="{DynamicResource SecondaryColor}"/>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="BorderBrush" Value="Transparent"/>
+                <Setter Property="BorderThickness" Value="0"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--text box with green border (like in edit window)-->
+    <Style x:Key="GreenBorderTextBox" TargetType="TextBox">
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource MainColor}"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="MinWidth" Value="200"/>
+        <Setter Property="Height" Value="35"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundColor}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextColor}"/>
+        <Setter Property="SelectionBrush" Value="{DynamicResource SelectionBrushColor}"/>
+    </Style>
+
+</ResourceDictionary>

@@ -1,0 +1,425 @@
+﻿<Window x:Class="DataSurge.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DataSurge.User_controls"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Icon="logo_icon.ico"
+        Title="DataSurge" Height="557.732" Width="1026.289" MinWidth="700" MinHeight="485" x:Name="mainWindow">
+
+    <Grid x:Name="MainGrid">
+
+        <Grid.ColumnDefinitions>
+            <!--stranski meni-->
+            <ColumnDefinition Width="125"></ColumnDefinition>
+            <!--glavno-->
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="22"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <!--orodna vrstica-->
+        <Grid Grid.Row="0" Background="#E8E8E8" Grid.ColumnSpan="6"  Grid.RowSpan="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="40"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <!--TOOLBAR-->
+            <Menu Foreground="Black" Grid.Column="0" Background="#E8E8E8">
+                <MenuItem Header="_File" x:Name="toolbarFile">
+                    <MenuItem Header="_New" x:Name="toolbarNew" Click="OpenAddNew" Foreground="Black">
+                        <MenuItem.Icon>
+                            <Image x:Name="new_icon" MaxWidth="15" MaxHeight="15" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                    <MenuItem Header="_Import" x:Name="toolbarImport"
+                          Click="btn_import" Foreground="Black">
+                        <MenuItem.Icon>
+                            <Image x:Name="import_icon" MaxWidth="15" MaxHeight="15" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                    <MenuItem Header="_Export" x:Name="toolbarExport" Foreground="Black"
+                          Click="btn_export">
+                        <MenuItem.Icon>
+                            <Image x:Name="export_icon" MaxWidth="15" MaxHeight="15" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                    <MenuItem Header="_Exit" Click="CloseApp" x:Name="toolbarExit" Foreground="Black">
+                        <MenuItem.Icon>
+                            <Image x:Name="xOrodna_icon" MaxWidth="15" MaxHeight="15" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+
+                <MenuItem Header="_Edit" x:Name="toolbarEdit">
+                    <MenuItem Header="_Edit entry" x:Name="toolbarEditEntry" Click="OpenEditEntry" Foreground="Black">
+                        <MenuItem.Icon>
+                            <Image x:Name="editOrodna_icon" MaxWidth="15" MaxHeight="15" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                    <MenuItem Header="Find and Replace" x:Name="toolbarFR" Click="OpenFindReplace" Foreground="Black">
+                        <MenuItem.Icon>
+                            <Image x:Name="findReplace_icon" MaxHeight="19" MaxWidth="19"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+
+                <MenuItem Header="_View" x:Name="toolbarView" VerticalContentAlignment="Center">
+                    <MenuItem Header="Color Picker" x:Name="toolbarColorPicker" Click="ColorPicker" Foreground="Black">
+                        <MenuItem.Icon>
+                            <Image x:Name="colorPicker_icon" MaxWidth="20" MaxHeight="20" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                    <MenuItem Header="_Full Screen" x:Name="toolbarFullscr" Click="FullScreen" Foreground="Black">
+                        <MenuItem.Icon>
+                            <Image x:Name="fullScreenOrodna_icon" MaxWidth="20" MaxHeight="20" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                    <MenuItem Header="_Language" x:Name="toolbarLanguage" Foreground="Black">
+                        <MenuItem.Icon>
+                            <Image x:Name="language_icon" MaxWidth="18" MaxHeight="18"/>
+                        </MenuItem.Icon>
+                        <MenuItem Header="_Eng" StaysOpenOnClick="True" 
+                              IsCheckable="True" x:Name="eng" Checked="TranslateSlo">
+                        </MenuItem>
+                        <MenuItem Header="_Slo" StaysOpenOnClick="True" x:Name="slo"
+                              IsCheckable="True" Checked="TranslateEng"></MenuItem>
+                    </MenuItem>
+
+                </MenuItem>
+
+                <MenuItem Header="_Tools" x:Name="toolbarTools">
+                    <MenuItem Header="Settings" x:Name="toolbarSettings" Click="OpenSettings" Foreground="Black">
+                        <MenuItem.Icon>
+                            <Image x:Name="settings_icon" Width="17" Height="17"></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Decrypt" x:Name="toolbarDecrypt" Foreground="Black">
+                        <MenuItem.Icon>
+                            <Image x:Name="decrypt_icon" MaxHeight="18" MaxWidth="18"></Image>
+                        </MenuItem.Icon>
+
+                        <MenuItem Header="Decrypt" ToolTip="{DynamicResource ToolTipDecrypt1}" Click="DecryptImportedData"/>
+                        <MenuItem Header="Decrypt and Overwrite" ToolTip="{DynamicResource ToolTipDecrypt2}" 
+                              Click="DecryptOverwriteImportedData"/>
+                    </MenuItem>
+                    <MenuItem Header="Encrypt" Click="EncryptToolbar"
+                          ToolTip="{StaticResource ToolTipEncrypt}">
+                        <MenuItem.Icon>
+                            <Image x:Name="encrypt_icon" MaxHeight="18" MaxWidth="18"></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+
+                <MenuItem Header="_Help" x:Name="toolbarHelp">
+                    <MenuItem Header="_View Help" x:Name="toolbarViewHelp" Click="ViewHelp" Foreground="Black">
+                        <MenuItem.Icon>
+                            <Image x:Name="HelpOrodna_icon" MaxWidth="15" MaxHeight="15" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                </MenuItem>
+            </Menu>
+
+            <TextBlock Grid.Column="1" Text="!" HorizontalAlignment="Center"
+                       FontSize="22" FontWeight="Heavy" Margin="0 -5 0 0"
+                       Foreground="{DynamicResource ExitColor}" x:Name="toolbarWarning"
+                       ToolTip="{StaticResource ToolTip!}" Visibility="Visible">
+            </TextBlock>
+
+        </Grid>
+
+        <!--stranski meni-->
+        <Grid Grid.Row="1" Grid.Column="0" Background="{DynamicResource BackgroundColor}" Grid.RowSpan="2">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"></RowDefinition>
+                <RowDefinition Height="60"></RowDefinition>
+                <RowDefinition Height="60"></RowDefinition>
+                <RowDefinition Height="60"></RowDefinition>
+                <RowDefinition Height="60"></RowDefinition>
+                <RowDefinition Height="60"></RowDefinition>
+                <RowDefinition Height="75"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Button x:Name="btnPG" Content="PASSWORD &#xa;GENERATOR" Width="125" ToolTip="{DynamicResource ToolTipPG}"
+                    FontWeight="Bold" Click="click_PG" Grid.Row="0" Style="{DynamicResource SideMenuBtnStyle}"
+                    Focusable="False">
+            </Button>
+
+            <Button x:Name="btnImport" Content="IMPORT" Width="125" Grid.Row="1" Focusable="False"
+                    FontWeight="Bold" MinHeight="60" Click="btn_import" Style="{DynamicResource SideMenuBtnStyle}">
+            </Button>
+
+            <Button x:Name="btnExport" Content="EXPORT" Width="125" Grid.Row="2" Focusable="False"
+                    FontWeight="Bold" MinHeight="60" Click="btn_export" Style="{DynamicResource SideMenuBtnStyle}">
+            </Button>
+
+            <Button x:Name="btnCMP" Content="CHANGE MASTER &#xa;     PASSWORD" Width="125" ToolTip="{DynamicResource ToolTipCngMP}"
+                    FontWeight="Bold" MinHeight="60" Click="CngMasterPassword" Grid.Row="3" Style="{DynamicResource SideMenuBtnStyle}"
+                    Focusable="False">
+            </Button>
+
+            <Button x:Name="btnPM" Content="PASSWORD&#xa;MAGICIAN" Width="125" Grid.Row="4" ToolTip="{DynamicResource ToolTipPM}"
+                    FontWeight="Bold" MinHeight="60" Click="PasswordMagician" Style="{DynamicResource SideMenuBtnStyle}"
+                    Focusable="False">
+            </Button>
+
+            <Button x:Name="btnAddnew" Content="ADD NEW" Width="125" Style="{DynamicResource AddNewBtnStyle}"
+                    FontWeight="Bold" MinHeight="60" Grid.Row="5" Click="addNew" ToolTip="{DynamicResource ToolTipAddNew}"
+                    Focusable="False">
+            </Button>
+
+            <Grid Grid.Row="6" Grid.Column="0">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="btnLogout" Width="125" FontWeight="Bold" ToolTip="{DynamicResource ToolTipLogout}"
+                    MinHeight="60" Click="Logout" Margin="0 15 0 0" Style="{DynamicResource LogoutBtnStyle}">
+                    <Image x:Name="logout_icon" Width="45" Height="45"
+                           Margin="40 0 0 0">
+                    </Image>
+                </Button>
+
+            </Grid>
+
+        </Grid>
+
+        <!--meni podatkov-->
+
+        <Grid Grid.Row="2" Grid.Column="1" Background="{DynamicResource BackgroundColor}" x:Name="dataGrid">
+
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <ListView Name="lvDataMain" Grid.Column="1" Style="{DynamicResource listViewStyle}" 
+                      SelectionMode="Extended" ItemContainerStyle="{DynamicResource listViewItemStyle}"
+                      AllowDrop="True" MouseMove="lv_MouseMove" DragEnter="lv_DragEnter" Drop="lv_Drop"
+                      PreviewMouseLeftButtonDown="lv_PreviewMouseLeftButtonDown">
+                <ListView.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Edit" FontSize="12" Click="EditEntry"></MenuItem>
+                        <MenuItem Header="Delete" FontSize="12" Click="DeleteItem"></MenuItem>
+                        <MenuItem Header="Note details" FontSize="12" Click="OpenNoteEditor"></MenuItem>
+                    </ContextMenu>
+                </ListView.ContextMenu>
+                <ListView.View>
+                    <GridView AllowsColumnReorder="True" ColumnHeaderContainerStyle="{DynamicResource ColumnHeader}">
+
+                        <GridView.ColumnHeaderContextMenu>
+                            <ContextMenu Placement="Bottom" PlacementRectangle="75,30,0,0">
+                                <MenuItem Header="Show/Hide columns" FontWeight="Bold" StaysOpenOnClick="True"></MenuItem>
+
+                                <MenuItem Header="Emails" IsCheckable="True" StaysOpenOnClick="True" 
+                                          Click="HideColumn">
+                                </MenuItem>
+                                <MenuItem Header="Usernames" IsCheckable="True" StaysOpenOnClick="True" 
+                                          Click="HideColumn">
+                                </MenuItem>
+                                <MenuItem Header="Passwords" IsCheckable="True" StaysOpenOnClick="True" 
+                                          Click="HideColumn">
+                                </MenuItem>
+                                <MenuItem Header="Contacts/other" IsCheckable="True" StaysOpenOnClick="True" 
+                                          Click="HideColumn">
+                                </MenuItem>
+                                <MenuItem Header="Notes" IsCheckable="True" StaysOpenOnClick="True" 
+                                          Click="HideColumn">
+                                </MenuItem>
+                            </ContextMenu>
+                        </GridView.ColumnHeaderContextMenu>
+
+                        <!--EMAILS-->
+                        <GridViewColumn x:Name="emailColumn" Width="{Binding ElementName=helperField, Path=ActualWidth}">
+
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+
+                                        <TextBox Text="{Binding Email}" FontSize="14" HorizontalAlignment="Center"
+                                                 Style="{DynamicResource ReadOnlyTextBox}">
+                                        </TextBox>
+
+                                    </Grid>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+
+                            <Button Content="EMAILS" Height="30" x:Name="btnEmails"
+                                    FontWeight="Bold" Click="click_emails" Focusable="False"
+                                    Style="{DynamicResource ListViewBtnStyle}">
+                            </Button>
+                        </GridViewColumn>
+
+                        <!--USERNAMES-->
+                        <GridViewColumn x:Name="usernameColumn" Width="{Binding ElementName=helperField, Path=ActualWidth}">
+
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+
+                                        <TextBox Text="{Binding Username}" FontSize="14" HorizontalAlignment="Center"
+                                                 Style="{DynamicResource ReadOnlyTextBox}">
+                                        </TextBox>
+
+                                    </Grid>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+
+                            <Button Content="USERNAMES" Height="30" x:Name="btnUsernames" Focusable="False"
+                                    FontWeight="Bold" Click="click_usernames" Style="{DynamicResource ListViewBtnStyle}">
+                            </Button>
+                        </GridViewColumn>
+
+                        <!--PASSWORDS-->
+                        <GridViewColumn x:Name="passwordColumn" Width="{Binding ElementName=helperField, Path=ActualWidth}">
+
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+
+                                        <TextBox Text="{Binding Password}" FontSize="14" HorizontalAlignment="Center"
+                                                 Style="{DynamicResource ReadOnlyTextBox}">
+                                        </TextBox>
+
+                                    </Grid>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+
+                            <Button Content="PASSWORDS" Height="30" x:Name="btnPasswords" Focusable="False"
+                                    FontWeight="Bold" Click="click_passwords" Style="{DynamicResource ListViewBtnStyle}">
+                            </Button>
+                        </GridViewColumn>
+
+                        <!--CONTACTS/OTHER-->
+                        <GridViewColumn x:Name="otherColumn" Width="{Binding ElementName=helperField, Path=ActualWidth}">
+
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+
+                                        <TextBox Text="{Binding Other}" FontSize="14" HorizontalAlignment="Center"
+                                                 Style="{DynamicResource ReadOnlyTextBox}">
+                                        </TextBox>
+
+                                    </Grid>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+
+                            <Button Content="OTHER" Height="30" x:Name="btnOther" Focusable="False"
+                                    FontWeight="Bold" Click="click_other" Style="{DynamicResource ListViewBtnStyle}">
+                            </Button>
+                        </GridViewColumn>
+
+                        <!--NOTES-->
+                        <GridViewColumn x:Name="noteColumn" Width="{Binding ElementName=helperField, Path=ActualWidth}">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+
+                                        <TextBox Text="{Binding Note}" FontSize="14" 
+                                                   HorizontalAlignment="Center"
+                                                   Style="{DynamicResource ReadOnlyTextBox}">
+                                        </TextBox>
+
+                                    </Grid>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+
+                            <Button Content="NOTES" Height="30" x:Name="btnNotes" Focusable="False"
+                                    FontWeight="Bold" Click="click_note" Style="{DynamicResource ListViewBtnStyle}">
+                            </Button>
+                        </GridViewColumn>
+
+                        <!--EDIT-->
+                        <GridViewColumn x:Name="editColumn" Width="{Binding ElementName=helperField, Path=ActualWidth}" HeaderContainerStyle="{DynamicResource ColumnHeaderEdit}">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Grid Width="{Binding ElementName=helperField, Path=ActualWidth}">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Button x:Name="btnDelete" Click="DeleteItem" Grid.Column="2" HorizontalAlignment="Center"
+                                                Style="{DynamicResource DeleteIconBtnStyle}" ToolTip="Delete selected entry(s)"
+                                                Margin="0 5 0 0">
+                                            <Image x:Name="delete_icon" Source="{Binding DeletePath}"
+                                                   Width="18">
+                                            </Image>
+                                        </Button>
+
+                                        <Button x:Name="btnEdit" Grid.Column="3" HorizontalAlignment="Center"
+                                                Style="{DynamicResource DeleteIconBtnStyle}" ToolTip="Edit selected entry"
+                                                Click="EditEntry">
+                                            <Image x:Name="edit_icon" Source="{Binding EditPath}"
+                                                   Width="18">
+                                            </Image>
+                                        </Button>
+
+                                    </Grid>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+
+                            <Button Content="EDIT" Height="30" x:Name="editHeader"
+                                    FontWeight="Bold" IsEnabled="False" Style="{DynamicResource ListViewBtnStyle}">
+                            </Button>
+
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            <!--This is the hidden helper Grid which does the resizing -->
+            <Grid Visibility="Hidden">
+                <Grid.ColumnDefinitions>
+                    <!--Width is set to "Fill"-->
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="1.05*"/>
+                </Grid.ColumnDefinitions>
+
+                <!--This is the hidden helper Field which is used to bind to, using the "Fill" column of the helper grid-->
+                <Grid Grid.Column="1" x:Name="helperField"/>
+            </Grid>
+
+        </Grid>
+
+    </Grid>
+</Window>

@@ -1,0 +1,169 @@
+﻿<Window x:Class="DataSurge.Side_menu.AddNew"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DataSurge.Side_menu"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Add New" Height="450" Width="800" MinWidth="690" MinHeight="425">
+
+    <Grid Background="{DynamicResource BackgroundColor}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MinWidth="325"></ColumnDefinition>
+            <ColumnDefinition MinWidth="350"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="75"></RowDefinition>
+            <RowDefinition Height="75"></RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Add New Entry" Grid.ColumnSpan="2"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   FontSize="18" Foreground="{DynamicResource TitleColor}" FontWeight="Bold">
+        </TextBlock>
+
+        <Separator Grid.Row="0" Grid.ColumnSpan="2" Opacity="0.5"
+                   Foreground="{DynamicResource MainColor}" VerticalAlignment="Bottom">
+        </Separator>
+
+        <!--leva stran-->
+        <!--email-->
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Foreground="{DynamicResource TextColor}"
+                   Text="Email" VerticalAlignment="Bottom"
+                   Padding="0 0 170 0" HorizontalAlignment="Center">
+            </TextBlock>
+
+            <TextBox x:Name="enterEmail" Grid.Row="1" FontSize="14"
+                     MaxWidth="200" Style="{DynamicResource GreenBorderTextBox}"
+                     KeyDown="EnterEntry">
+            </TextBox>
+
+        </Grid>
+
+        <!--password-->
+        <Grid Grid.Row="2" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Foreground="{DynamicResource TextColor}"
+                   Text="Password" VerticalAlignment="Bottom"
+                   Padding="0 0 148 0" HorizontalAlignment="Center">
+            </TextBlock>
+
+            <PasswordBox x:Name="enterPass" Grid.Row="1" FontSize="14"
+                     HorizontalAlignment="Center" BorderBrush="{DynamicResource MainColor}" KeyDown="EnterEntry"
+                     VerticalContentAlignment="Center" MinWidth="200" MaxWidth="200"
+                     Height="35" Background="{DynamicResource BackgroundColor}" Foreground="{DynamicResource TextColor}">
+            </PasswordBox>
+            <TextBox x:Name="enterPassTxtBox" Grid.Row="1" FontSize="14" Visibility="Hidden"
+                     KeyDown="EnterEntry" MaxWidth="200" Style="{DynamicResource GreenBorderTextBox}">
+            </TextBox>
+            <Button Grid.Row="1"
+                    Style="{DynamicResource noStyleBtn}" HorizontalAlignment="Right"
+                    VerticalAlignment="Center" Margin="0 0 65 0" Click="showPass">
+                <Image x:Name="showPassIcon" Height="25" Width="25">
+                </Image>
+            </Button>
+
+        </Grid>
+
+        <!--desna stran-->
+        <!--username-->
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Foreground="{DynamicResource TextColor}"
+                   Text="Username" VerticalAlignment="Bottom"
+                   Padding="0 0 148 0" HorizontalAlignment="Center">
+            </TextBlock>
+
+            <TextBox x:Name="enterUsername" Grid.Row="1" FontSize="14"
+                     KeyDown="EnterEntry" MaxWidth="200" Style="{DynamicResource GreenBorderTextBox}">
+            </TextBox>
+
+        </Grid>
+
+        <!--contacts/other-->
+        <Grid Grid.Row="2" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Foreground="{DynamicResource TextColor}"
+                   Text="Other" VerticalAlignment="Bottom"
+                   Padding="0 0 170 0" HorizontalAlignment="Center">
+            </TextBlock>
+
+            <TextBox x:Name="enterOther" Grid.Row="1" FontSize="14"
+                     KeyDown="EnterEntry" MaxWidth="200" Style="{DynamicResource GreenBorderTextBox}">
+            </TextBox>
+
+        </Grid>
+
+        <!--note-->
+        <Grid Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Foreground="{DynamicResource TextColor}"
+                   Text="Note" VerticalAlignment="Bottom"
+                   HorizontalAlignment="Center">
+            </TextBlock>
+
+            <TextBox x:Name="EnterNote" Grid.Row="1" FontSize="14" MaxWidth="200"
+                     KeyDown="EnterEntry" Style="{DynamicResource GreenBorderTextBox}">
+            </TextBox>
+
+        </Grid>
+
+        <Button x:Name="btnAddNew" Content="ADD" Height="50" FontWeight="Bold" Grid.Row="4" Grid.ColumnSpan="2"
+                Width="175" VerticalAlignment="Center" HorizontalAlignment="Center"
+                Click="AddEntry" Style="{DynamicResource MainBtnStyle}">
+        </Button>
+
+        <Button x:Name="btnExit" Content="CANCEL" Height="30" FontWeight="Bold" Grid.Column="1"
+                Width="100" HorizontalAlignment="Right" Margin="0 0 5 5" VerticalAlignment="Bottom"
+                Style="{DynamicResource ExitBtnStyle}" Click="Exit" Grid.Row="4">
+        </Button>
+
+    </Grid>
+</Window>

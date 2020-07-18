@@ -23,5 +23,4 @@ INSTALLATION:
 	-Encrypt encrypts all your current data
 	-you can decrypt it by using "decrypt" under tools->decrypt
 	-or you can decrypt and overwrite it by clicking "decrypt and overwrite" under tools->decrypt
-	-when you add or edit an entry, that entry WILL NOT be encrypted. You have to click on encrypt AGAIN
-	-when you delete/edit an entry, you have to encrypt your data AGAIN
+	-when you add/delete/edit an entry, you have to encrypt your data AGAIN
