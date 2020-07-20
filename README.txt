@@ -7,7 +7,7 @@ INSTALLATION:
 
 3.	finish
 
-4.	Default location is Program Files/Microsoft
+4.	Default location is Program Files/Kecktz Solutions
 
 
 

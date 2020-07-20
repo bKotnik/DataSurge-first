@@ -15,13 +15,13 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_07DC4CE3D57B4542A8AB57CDAB52508C"
+        "MsmKey" = "8:_0AF263736843497A9C90ECB14B795FB9"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_0858971E804042AF88C86380652E8C0E"
+        "MsmKey" = "8:_0F53198D136A4DE28861D0AAAE4DE38F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -33,163 +33,151 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_174A8FAB51F640F7923323F1C88103F0"
+        "MsmKey" = "8:_18D5F44E960E40E0B461A6BD5D6F75E8"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_2039045261EE2A2517DA02D7004634A3"
+        "MsmKey" = "8:_1A3FADD92E3B420DB37E0DC3109B09BA"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_1EE0B9D533A6DE74E989567742446107"
         "OwnerKey" = "8:_D190F537DB324B39BCA923FAD2A4B39C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_2E36940FB9343B82E2399A3969C0D383"
+        "MsmKey" = "8:_20C6D87AF9D24E2CBC24A045749EE04A"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_30EE40AFDBCD45CFA328E7CA7A5DDA0D"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_38AA42FFF2ACB2BC50002BDBB58B0295"
         "OwnerKey" = "8:_D190F537DB324B39BCA923FAD2A4B39C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_2E36940FB9343B82E2399A3969C0D383"
-        "OwnerKey" = "8:_2039045261EE2A2517DA02D7004634A3"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_2E36940FB9343B82E2399A3969C0D383"
-        "OwnerKey" = "8:_88117C6D1039FE52550E09B22A41209F"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_2E36940FB9343B82E2399A3969C0D383"
-        "OwnerKey" = "8:_73F2952A449FB0535A9AB3D6DA5C708E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_41A2C2AD290B49A79FF4AD848A086E95"
+        "MsmKey" = "8:_3DCFE228F9C94F1295B22032EE3C425F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_535D18C7BD514ACCA10FAC00A64BD152"
+        "MsmKey" = "8:_3E37245A602446F396EC67A332A3E551"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_643A7D3AB6F549EF953ADA4D3CD439DA"
+        "MsmKey" = "8:_4539C36C0F264328BD5E0DE53328A024"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_663FC64E56214869972400F9ABB2A726"
+        "MsmKey" = "8:_472B8773401F4119B5F2662A2B399FAE"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_73F2952A449FB0535A9AB3D6DA5C708E"
+        "MsmKey" = "8:_4D4CA52A8A0E4AD4A3F1C39DA84DC5B1"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_5C7C42E9FD404ABA89E326418E13C247"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_5ED2CEBCF0DF4326A7C1A25345995DBB"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_64D02CCFC5544A579C4086C64FE2F1FF"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7CA5BF791E36ACF8ADD159E169DEFD79"
         "OwnerKey" = "8:_D190F537DB324B39BCA923FAD2A4B39C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_7821F2B9B99246FF975A5080812BD80D"
+        "MsmKey" = "8:_85578AD6164E400CA88107CB1C3531BA"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_7FDE6C03978340DC8288A04D100F2654"
+        "MsmKey" = "8:_9459008FEEB942F6A2AD51E235CE1140"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_81720B62C002448B91EAEB25FF27435C"
+        "MsmKey" = "8:_9643629D38E54C4F89C80F618FB689EC"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_874D75F5F83A48DCAADD8A8796697864"
+        "MsmKey" = "8:_AD44FB5CC0664F168C50BED66DF7EC71"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_87FA4B2470884E09BFB89EBD1AB6E772"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_88117C6D1039FE52550E09B22A41209F"
+        "MsmKey" = "8:_ADCE7847184AC98A1CB426E9F9068FC7"
         "OwnerKey" = "8:_D190F537DB324B39BCA923FAD2A4B39C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_912ACE2F564E414784AC23D233AC6924"
+        "MsmKey" = "8:_AEFC10FC50414F14A5844939CBF84DF6"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_96D50EDA974341A89C8E0CC9F9853D13"
+        "MsmKey" = "8:_C69C1FCDAED946FE9AD88E6CC5766121"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_9780C41967F74EAB8706EF0C9974BE9F"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B06CC73573A2E5000E14B5556605DF72"
+        "MsmKey" = "8:_C9913FD69E91A010E481352ED7FDC29B"
         "OwnerKey" = "8:_D190F537DB324B39BCA923FAD2A4B39C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_B35D6C5AA97E429E96A33739105C1CBD"
+        "MsmKey" = "8:_CE11654FAC90418CBE9F8729B9650F2A"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_BEF918991A994F09A7A9E5634747E6B0"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_C145D82D41C74DE7B8D499486278F43A"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_C79210984E7F4AD9AB108A65640D5142"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_CAEDEAD175C541E0AFAF8E05E3C4DC3C"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_CF7C5BEB004E43FA8D6452AABB014242"
+        "MsmKey" = "8:_CFA06926D84144488D564C063EA6FB4C"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -201,37 +189,49 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_E09F2AD340658233F2237F4539E3CDC5"
+        "MsmKey" = "8:_D6970A4F4C134DB0AE0550DA84436701"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E266E397E71749538EECA6C1C22B8DE3"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E3781FEF7FC343D5881ECAE939F7AFB8"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_EF6C5A42D0B0A875EEF27BFA727D28DC"
         "OwnerKey" = "8:_D190F537DB324B39BCA923FAD2A4B39C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_E127ED5B9DCF4B8A921A6A07BBCC7AAB"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_EF6C5A42D0B0A875EEF27BFA727D28DC"
+        "OwnerKey" = "8:_ADCE7847184AC98A1CB426E9F9068FC7"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_E65752EAB18F4602B42666765733400C"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_EF6C5A42D0B0A875EEF27BFA727D28DC"
+        "OwnerKey" = "8:_1EE0B9D533A6DE74E989567742446107"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_EE121212AC044A1E9B2C27C9949DA662"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_EF6C5A42D0B0A875EEF27BFA727D28DC"
+        "OwnerKey" = "8:_38AA42FFF2ACB2BC50002BDBB58B0295"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_EECF81023C504A058B19C70C2D9B326E"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_EFA9ACAA0CBB4B549BEE995B96955537"
+        "MsmKey" = "8:_F26CE189B7A049E58DBD660EBBAB8D36"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -244,37 +244,37 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B06CC73573A2E5000E14B5556605DF72"
+        "OwnerKey" = "8:_7CA5BF791E36ACF8ADD159E169DEFD79"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_E09F2AD340658233F2237F4539E3CDC5"
+        "OwnerKey" = "8:_C9913FD69E91A010E481352ED7FDC29B"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_2039045261EE2A2517DA02D7004634A3"
+        "OwnerKey" = "8:_ADCE7847184AC98A1CB426E9F9068FC7"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_88117C6D1039FE52550E09B22A41209F"
+        "OwnerKey" = "8:_1EE0B9D533A6DE74E989567742446107"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_73F2952A449FB0535A9AB3D6DA5C708E"
+        "OwnerKey" = "8:_38AA42FFF2ACB2BC50002BDBB58B0295"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_2E36940FB9343B82E2399A3969C0D383"
+        "OwnerKey" = "8:_EF6C5A42D0B0A875EEF27BFA727D28DC"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -308,6 +308,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
         "Release"
@@ -332,6 +340,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
     }
@@ -362,10 +378,10 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_07DC4CE3D57B4542A8AB57CDAB52508C"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0AF263736843497A9C90ECB14B795FB9"
             {
-            "SourcePath" = "8:..\\DataSurgeLite\\bin\\Debug\\resources\\help_icon.png"
-            "TargetName" = "8:help_icon.png"
+            "SourcePath" = "8:..\\DataSurge\\bin\\Debug\\resources\\settings_icon.png"
+            "TargetName" = "8:settings_icon.png"
             "Tag" = "8:"
             "Folder" = "8:_94E1080BE96444DCABA3F23A2B58C934"
             "Condition" = "8:"
@@ -382,10 +398,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0858971E804042AF88C86380652E8C0E"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0F53198D136A4DE28861D0AAAE4DE38F"
             {
-            "SourcePath" = "8:..\\DataSurgeLite\\bin\\Debug\\resources\\edit_icon.ico"
-            "TargetName" = "8:edit_icon.ico"
+            "SourcePath" = "8:..\\DataSurge\\bin\\Debug\\resources\\logo_icon.ico"
+            "TargetName" = "8:logo_icon.ico"
             "Tag" = "8:"
             "Folder" = "8:_94E1080BE96444DCABA3F23A2B58C934"
             "Condition" = "8:"
@@ -433,12 +449,12 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_174A8FAB51F640F7923323F1C88103F0"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_18D5F44E960E40E0B461A6BD5D6F75E8"
             {
-            "SourcePath" = "8:..\\DataSurgeLite\\bin\\Debug\\Help.txt"
-            "TargetName" = "8:Help.txt"
+            "SourcePath" = "8:..\\DataSurge\\bin\\Debug\\resources\\color_picker_icon.ico"
+            "TargetName" = "8:color_picker_icon.ico"
             "Tag" = "8:"
-            "Folder" = "8:_87880427C7534F578E5CCD62E4577DE7"
+            "Folder" = "8:_94E1080BE96444DCABA3F23A2B58C934"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -453,71 +469,9 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_2039045261EE2A2517DA02D7004634A3"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1A3FADD92E3B420DB37E0DC3109B09BA"
             {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Xceed.Wpf.AvalonDock.Themes.VS2010, Version=3.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_2039045261EE2A2517DA02D7004634A3"
-                    {
-                    "Name" = "8:Xceed.Wpf.AvalonDock.Themes.VS2010.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Xceed.Wpf.AvalonDock.Themes.VS2010.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_87880427C7534F578E5CCD62E4577DE7"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_2E36940FB9343B82E2399A3969C0D383"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Xceed.Wpf.AvalonDock, Version=3.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_2E36940FB9343B82E2399A3969C0D383"
-                    {
-                    "Name" = "8:Xceed.Wpf.AvalonDock.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Xceed.Wpf.AvalonDock.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_87880427C7534F578E5CCD62E4577DE7"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_41A2C2AD290B49A79FF4AD848A086E95"
-            {
-            "SourcePath" = "8:..\\DataSurgeLite\\bin\\Debug\\Data.xml"
+            "SourcePath" = "8:..\\DataSurge\\bin\\Debug\\Data.xml"
             "TargetName" = "8:Data.xml"
             "Tag" = "8:"
             "Folder" = "8:_87880427C7534F578E5CCD62E4577DE7"
@@ -535,205 +489,14 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_535D18C7BD514ACCA10FAC00A64BD152"
-            {
-            "SourcePath" = "8:..\\DataSurgeLite\\bin\\Debug\\resources\\encrypt_icon.ico"
-            "TargetName" = "8:encrypt_icon.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_94E1080BE96444DCABA3F23A2B58C934"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_643A7D3AB6F549EF953ADA4D3CD439DA"
-            {
-            "SourcePath" = "8:..\\DataSurgeLite\\bin\\Debug\\resources\\settings_icon.png"
-            "TargetName" = "8:settings_icon.png"
-            "Tag" = "8:"
-            "Folder" = "8:_94E1080BE96444DCABA3F23A2B58C934"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_663FC64E56214869972400F9ABB2A726"
-            {
-            "SourcePath" = "8:..\\DataSurgeLite\\bin\\Debug\\resources\\export_icon.ico"
-            "TargetName" = "8:export_icon.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_94E1080BE96444DCABA3F23A2B58C934"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_73F2952A449FB0535A9AB3D6DA5C708E"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Xceed.Wpf.AvalonDock.Themes.Aero, Version=3.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_73F2952A449FB0535A9AB3D6DA5C708E"
-                    {
-                    "Name" = "8:Xceed.Wpf.AvalonDock.Themes.Aero.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Xceed.Wpf.AvalonDock.Themes.Aero.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_87880427C7534F578E5CCD62E4577DE7"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7821F2B9B99246FF975A5080812BD80D"
-            {
-            "SourcePath" = "8:..\\DataSurgeLite\\bin\\Debug\\resources\\darkModeEmpty_icon.png"
-            "TargetName" = "8:darkModeEmpty_icon.png"
-            "Tag" = "8:"
-            "Folder" = "8:_94E1080BE96444DCABA3F23A2B58C934"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7FDE6C03978340DC8288A04D100F2654"
-            {
-            "SourcePath" = "8:..\\DataSurgeLite\\bin\\Debug\\Users.xml"
-            "TargetName" = "8:Users.xml"
-            "Tag" = "8:"
-            "Folder" = "8:_87880427C7534F578E5CCD62E4577DE7"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_81720B62C002448B91EAEB25FF27435C"
-            {
-            "SourcePath" = "8:..\\DataSurgeLite\\bin\\Debug\\resources\\logout_gray_icon.png"
-            "TargetName" = "8:logout_gray_icon.png"
-            "Tag" = "8:"
-            "Folder" = "8:_94E1080BE96444DCABA3F23A2B58C934"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_874D75F5F83A48DCAADD8A8796697864"
-            {
-            "SourcePath" = "8:..\\DataSurgeLite\\bin\\Debug\\resources\\language_icon.png"
-            "TargetName" = "8:language_icon.png"
-            "Tag" = "8:"
-            "Folder" = "8:_94E1080BE96444DCABA3F23A2B58C934"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_87FA4B2470884E09BFB89EBD1AB6E772"
-            {
-            "SourcePath" = "8:..\\DataSurgeLite\\bin\\Debug\\resources\\decrypt_icon.ico"
-            "TargetName" = "8:decrypt_icon.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_94E1080BE96444DCABA3F23A2B58C934"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_88117C6D1039FE52550E09B22A41209F"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_1EE0B9D533A6DE74E989567742446107"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:Xceed.Wpf.AvalonDock.Themes.Metro, Version=3.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_88117C6D1039FE52550E09B22A41209F"
+                    "_1EE0B9D533A6DE74E989567742446107"
                     {
                     "Name" = "8:Xceed.Wpf.AvalonDock.Themes.Metro.dll"
                     "Attributes" = "3:512"
@@ -757,9 +520,220 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_912ACE2F564E414784AC23D233AC6924"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_20C6D87AF9D24E2CBC24A045749EE04A"
             {
-            "SourcePath" = "8:..\\DataSurgeLite\\bin\\Debug\\Preferences.xml"
+            "SourcePath" = "8:..\\DataSurge\\bin\\Debug\\resources\\darkMode_icon.png"
+            "TargetName" = "8:darkMode_icon.png"
+            "Tag" = "8:"
+            "Folder" = "8:_94E1080BE96444DCABA3F23A2B58C934"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_30EE40AFDBCD45CFA328E7CA7A5DDA0D"
+            {
+            "SourcePath" = "8:..\\DataSurge\\bin\\Debug\\resources\\import_icon.ico"
+            "TargetName" = "8:import_icon.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_94E1080BE96444DCABA3F23A2B58C934"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_38AA42FFF2ACB2BC50002BDBB58B0295"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Xceed.Wpf.AvalonDock.Themes.Aero, Version=3.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_38AA42FFF2ACB2BC50002BDBB58B0295"
+                    {
+                    "Name" = "8:Xceed.Wpf.AvalonDock.Themes.Aero.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Xceed.Wpf.AvalonDock.Themes.Aero.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_87880427C7534F578E5CCD62E4577DE7"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3DCFE228F9C94F1295B22032EE3C425F"
+            {
+            "SourcePath" = "8:..\\DataSurge\\bin\\Debug\\resources\\show_password_icon.ico"
+            "TargetName" = "8:show_password_icon.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_94E1080BE96444DCABA3F23A2B58C934"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3E37245A602446F396EC67A332A3E551"
+            {
+            "SourcePath" = "8:..\\DataSurge\\bin\\Debug\\resources\\edit_icon_backup.png"
+            "TargetName" = "8:edit_icon_backup.png"
+            "Tag" = "8:"
+            "Folder" = "8:_94E1080BE96444DCABA3F23A2B58C934"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4539C36C0F264328BD5E0DE53328A024"
+            {
+            "SourcePath" = "8:..\\DataSurge\\bin\\Debug\\resources\\logout_gray_icon.png"
+            "TargetName" = "8:logout_gray_icon.png"
+            "Tag" = "8:"
+            "Folder" = "8:_94E1080BE96444DCABA3F23A2B58C934"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_472B8773401F4119B5F2662A2B399FAE"
+            {
+            "SourcePath" = "8:..\\DataSurge\\bin\\Debug\\resources\\x_icon.png"
+            "TargetName" = "8:x_icon.png"
+            "Tag" = "8:"
+            "Folder" = "8:_94E1080BE96444DCABA3F23A2B58C934"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4D4CA52A8A0E4AD4A3F1C39DA84DC5B1"
+            {
+            "SourcePath" = "8:..\\DataSurge\\bin\\Debug\\resources\\darkModeEmpty_icon.png"
+            "TargetName" = "8:darkModeEmpty_icon.png"
+            "Tag" = "8:"
+            "Folder" = "8:_94E1080BE96444DCABA3F23A2B58C934"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5C7C42E9FD404ABA89E326418E13C247"
+            {
+            "SourcePath" = "8:..\\DataSurge\\bin\\Debug\\Help.txt"
+            "TargetName" = "8:Help.txt"
+            "Tag" = "8:"
+            "Folder" = "8:_87880427C7534F578E5CCD62E4577DE7"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5ED2CEBCF0DF4326A7C1A25345995DBB"
+            {
+            "SourcePath" = "8:..\\DataSurge\\bin\\Debug\\resources\\findReplace_icon.png"
+            "TargetName" = "8:findReplace_icon.png"
+            "Tag" = "8:"
+            "Folder" = "8:_94E1080BE96444DCABA3F23A2B58C934"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_64D02CCFC5544A579C4086C64FE2F1FF"
+            {
+            "SourcePath" = "8:..\\DataSurge\\bin\\Debug\\Preferences.xml"
             "TargetName" = "8:Preferences.xml"
             "Tag" = "8:"
             "Folder" = "8:_87880427C7534F578E5CCD62E4577DE7"
@@ -777,54 +751,14 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_96D50EDA974341A89C8E0CC9F9853D13"
-            {
-            "SourcePath" = "8:..\\DataSurgeLite\\bin\\Debug\\RememberPassword.xml"
-            "TargetName" = "8:RememberPassword.xml"
-            "Tag" = "8:"
-            "Folder" = "8:_87880427C7534F578E5CCD62E4577DE7"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9780C41967F74EAB8706EF0C9974BE9F"
-            {
-            "SourcePath" = "8:..\\DataSurgeLite\\bin\\Debug\\resources\\color_picker_icon.ico"
-            "TargetName" = "8:color_picker_icon.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_94E1080BE96444DCABA3F23A2B58C934"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B06CC73573A2E5000E14B5556605DF72"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_7CA5BF791E36ACF8ADD159E169DEFD79"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:WPFCustomMessageBox, Version=1.0.7.39267, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_B06CC73573A2E5000E14B5556605DF72"
+                    "_7CA5BF791E36ACF8ADD159E169DEFD79"
                     {
                     "Name" = "8:WPFCustomMessageBox.dll"
                     "Attributes" = "3:512"
@@ -848,29 +782,9 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B35D6C5AA97E429E96A33739105C1CBD"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_85578AD6164E400CA88107CB1C3531BA"
             {
-            "SourcePath" = "8:..\\DataSurgeLite\\bin\\Debug\\resources\\edit_icon_backup.png"
-            "TargetName" = "8:edit_icon_backup.png"
-            "Tag" = "8:"
-            "Folder" = "8:_94E1080BE96444DCABA3F23A2B58C934"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BEF918991A994F09A7A9E5634747E6B0"
-            {
-            "SourcePath" = "8:..\\DataSurgeLite\\bin\\Debug\\resources\\logout.png"
+            "SourcePath" = "8:..\\DataSurge\\bin\\Debug\\resources\\logout.png"
             "TargetName" = "8:logout.png"
             "Tag" = "8:"
             "Folder" = "8:_94E1080BE96444DCABA3F23A2B58C934"
@@ -888,9 +802,9 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C145D82D41C74DE7B8D499486278F43A"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9459008FEEB942F6A2AD51E235CE1140"
             {
-            "SourcePath" = "8:..\\DataSurgeLite\\bin\\Debug\\resources\\delete_icon_red.ico"
+            "SourcePath" = "8:..\\DataSurge\\bin\\Debug\\resources\\delete_icon_red.ico"
             "TargetName" = "8:delete_icon_red.ico"
             "Tag" = "8:"
             "Folder" = "8:_94E1080BE96444DCABA3F23A2B58C934"
@@ -908,10 +822,30 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C79210984E7F4AD9AB108A65640D5142"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9643629D38E54C4F89C80F618FB689EC"
             {
-            "SourcePath" = "8:..\\DataSurgeLite\\bin\\Debug\\resources\\findReplace_icon.png"
-            "TargetName" = "8:findReplace_icon.png"
+            "SourcePath" = "8:..\\DataSurge\\bin\\Debug\\RememberPassword.xml"
+            "TargetName" = "8:RememberPassword.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_87880427C7534F578E5CCD62E4577DE7"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_AD44FB5CC0664F168C50BED66DF7EC71"
+            {
+            "SourcePath" = "8:..\\DataSurge\\bin\\Debug\\resources\\fullScreen_icon.png"
+            "TargetName" = "8:fullScreen_icon.png"
             "Tag" = "8:"
             "Folder" = "8:_94E1080BE96444DCABA3F23A2B58C934"
             "Condition" = "8:"
@@ -928,10 +862,41 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CAEDEAD175C541E0AFAF8E05E3C4DC3C"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_ADCE7847184AC98A1CB426E9F9068FC7"
             {
-            "SourcePath" = "8:..\\DataSurgeLite\\bin\\Debug\\resources\\x_icon.png"
-            "TargetName" = "8:x_icon.png"
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Xceed.Wpf.AvalonDock.Themes.VS2010, Version=3.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_ADCE7847184AC98A1CB426E9F9068FC7"
+                    {
+                    "Name" = "8:Xceed.Wpf.AvalonDock.Themes.VS2010.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Xceed.Wpf.AvalonDock.Themes.VS2010.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_87880427C7534F578E5CCD62E4577DE7"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_AEFC10FC50414F14A5844939CBF84DF6"
+            {
+            "SourcePath" = "8:..\\DataSurge\\bin\\Debug\\resources\\export_icon.ico"
+            "TargetName" = "8:export_icon.ico"
             "Tag" = "8:"
             "Folder" = "8:_94E1080BE96444DCABA3F23A2B58C934"
             "Condition" = "8:"
@@ -948,10 +913,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CF7C5BEB004E43FA8D6452AABB014242"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C69C1FCDAED946FE9AD88E6CC5766121"
             {
-            "SourcePath" = "8:..\\DataSurgeLite\\bin\\Debug\\resources\\logo_icon.ico"
-            "TargetName" = "8:logo_icon.ico"
+            "SourcePath" = "8:..\\DataSurge\\bin\\Debug\\resources\\decrypt_icon.ico"
+            "TargetName" = "8:decrypt_icon.ico"
             "Tag" = "8:"
             "Folder" = "8:_94E1080BE96444DCABA3F23A2B58C934"
             "Condition" = "8:"
@@ -968,14 +933,14 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E09F2AD340658233F2237F4539E3CDC5"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C9913FD69E91A010E481352ED7FDC29B"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:Xceed.Wpf.Toolkit, Version=3.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_E09F2AD340658233F2237F4539E3CDC5"
+                    "_C9913FD69E91A010E481352ED7FDC29B"
                     {
                     "Name" = "8:Xceed.Wpf.Toolkit.dll"
                     "Attributes" = "3:512"
@@ -999,10 +964,10 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E127ED5B9DCF4B8A921A6A07BBCC7AAB"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CE11654FAC90418CBE9F8729B9650F2A"
             {
-            "SourcePath" = "8:..\\DataSurgeLite\\bin\\Debug\\resources\\fullScreen_icon.png"
-            "TargetName" = "8:fullScreen_icon.png"
+            "SourcePath" = "8:..\\DataSurge\\bin\\Debug\\resources\\encrypt_icon.ico"
+            "TargetName" = "8:encrypt_icon.ico"
             "Tag" = "8:"
             "Folder" = "8:_94E1080BE96444DCABA3F23A2B58C934"
             "Condition" = "8:"
@@ -1019,9 +984,69 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E65752EAB18F4602B42666765733400C"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CFA06926D84144488D564C063EA6FB4C"
             {
-            "SourcePath" = "8:..\\DataSurgeLite\\bin\\Debug\\resources\\new_icon.png"
+            "SourcePath" = "8:..\\DataSurge\\bin\\Debug\\resources\\language_icon.png"
+            "TargetName" = "8:language_icon.png"
+            "Tag" = "8:"
+            "Folder" = "8:_94E1080BE96444DCABA3F23A2B58C934"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D6970A4F4C134DB0AE0550DA84436701"
+            {
+            "SourcePath" = "8:..\\DataSurge\\bin\\Debug\\Users.xml"
+            "TargetName" = "8:Users.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_87880427C7534F578E5CCD62E4577DE7"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E266E397E71749538EECA6C1C22B8DE3"
+            {
+            "SourcePath" = "8:..\\DataSurge\\bin\\Debug\\resources\\edit_icon.ico"
+            "TargetName" = "8:edit_icon.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_94E1080BE96444DCABA3F23A2B58C934"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E3781FEF7FC343D5881ECAE939F7AFB8"
+            {
+            "SourcePath" = "8:..\\DataSurge\\bin\\Debug\\resources\\new_icon.png"
             "TargetName" = "8:new_icon.png"
             "Tag" = "8:"
             "Folder" = "8:_94E1080BE96444DCABA3F23A2B58C934"
@@ -1039,12 +1064,23 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EE121212AC044A1E9B2C27C9949DA662"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_EF6C5A42D0B0A875EEF27BFA727D28DC"
             {
-            "SourcePath" = "8:..\\DataSurgeLite\\bin\\Debug\\resources\\darkMode_icon.png"
-            "TargetName" = "8:darkMode_icon.png"
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Xceed.Wpf.AvalonDock, Version=3.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_EF6C5A42D0B0A875EEF27BFA727D28DC"
+                    {
+                    "Name" = "8:Xceed.Wpf.AvalonDock.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Xceed.Wpf.AvalonDock.dll"
+            "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_94E1080BE96444DCABA3F23A2B58C934"
+            "Folder" = "8:_87880427C7534F578E5CCD62E4577DE7"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1056,33 +1092,13 @@
             "PackageAs" = "3:1"
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EECF81023C504A058B19C70C2D9B326E"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F26CE189B7A049E58DBD660EBBAB8D36"
             {
-            "SourcePath" = "8:..\\DataSurgeLite\\bin\\Debug\\resources\\import_icon.ico"
-            "TargetName" = "8:import_icon.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_94E1080BE96444DCABA3F23A2B58C934"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EFA9ACAA0CBB4B549BEE995B96955537"
-            {
-            "SourcePath" = "8:..\\DataSurgeLite\\bin\\Debug\\resources\\show_password_icon.ico"
-            "TargetName" = "8:show_password_icon.ico"
+            "SourcePath" = "8:..\\DataSurge\\bin\\Debug\\resources\\help_icon.png"
+            "TargetName" = "8:help_icon.png"
             "Tag" = "8:"
             "Folder" = "8:_94E1080BE96444DCABA3F23A2B58C934"
             "Condition" = "8:"
@@ -1184,7 +1200,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:_CF7C5BEB004E43FA8D6452AABB014242"
+        "ARPPRODUCTICON" = "8:_0F53198D136A4DE28861D0AAAE4DE38F"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -1688,7 +1704,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_D190F537DB324B39BCA923FAD2A4B39C"
             {
-            "SourcePath" = "8:..\\DataSurgeLite\\obj\\Debug\\DataSurgeLite.exe"
+            "SourcePath" = "8:..\\DataSurge\\obj\\Debug\\DataSurge.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_87880427C7534F578E5CCD62E4577DE7"
