@@ -5,6 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DataSurge.Main"
         mc:Ignorable="d"
+        BorderBrush="{DynamicResource MainColor}"
+        BorderThickness="0.75"
         Title="Passwords" Height="600" Width="450" MinWidth="200" MinHeight="250">
 
     <Grid Background="{DynamicResource BackgroundColor}">

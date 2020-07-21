@@ -5,9 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DataSurge.User_controls"
         mc:Ignorable="d"
+        BorderBrush="{DynamicResource SecondaryColor}"
+        BorderThickness="0"
         WindowStartupLocation="CenterScreen"
         Icon="logo_icon.ico"
-        Title="DataSurge" Height="557.732" Width="1026.289" MinWidth="700" MinHeight="485" x:Name="mainWindow">
+        Title="DataSurge" Height="575" Width="1050" MinWidth="700" MinHeight="485" x:Name="mainWindow">
 
     <Grid x:Name="MainGrid">
 

@@ -5,6 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DataSurge"
         mc:Ignorable="d"
+        BorderBrush="{DynamicResource MainColor}"
+        BorderThickness="0.75"
         Title="Confirmation" MaxWidth="400" MaxHeight="200" MinHeight="200" MinWidth="400">
 
     <Grid Background="{DynamicResource BackgroundColor}">

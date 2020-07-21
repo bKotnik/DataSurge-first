@@ -7,6 +7,7 @@ using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Windows;
@@ -420,9 +421,12 @@ namespace DataSurge
                     xs.Serialize(stream, Utility.ListData);
 
                     //show ! in toolbar
-                    toolbarWarning.Visibility = Visibility.Visible;
-                    Properties.Settings.Default.ToolbarWarning = true;
-                    Properties.Settings.Default.Save();
+                    if(Utility.ListData.Count > 0)
+                    {
+                        toolbarWarning.Visibility = Visibility.Visible;
+                        Properties.Settings.Default.ToolbarWarning = true;
+                        Properties.Settings.Default.Save();
+                    }
                 }
             }
 
@@ -942,6 +946,12 @@ namespace DataSurge
 
                 startIndex = -1;        // Done!
             }
+        }
+
+        // when pressed on X close all other windows
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            CloseAllWindows();
         }
     }
 }

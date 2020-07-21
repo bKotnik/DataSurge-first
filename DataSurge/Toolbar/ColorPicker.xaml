@@ -6,6 +6,8 @@
         xmlns:wpfx="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:DataSurge.User_controls"
         mc:Ignorable="d"
+        BorderBrush="{DynamicResource MainColor}"
+        BorderThickness="0.75"
         WindowStartupLocation="CenterScreen"
         Title="ColorPicker" Height="575" Width="500" MinWidth="350" MinHeight="575" MaxHeight="780" MaxWidth="960">
 

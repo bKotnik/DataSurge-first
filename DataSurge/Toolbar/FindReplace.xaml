@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DataSurge.Toolbar"
         mc:Ignorable="d"
-        Title="Find and Replace" Height="275" Width="550">
+        BorderBrush="{DynamicResource MainColor}"
+        BorderThickness="0.75"
+        Title="Find and Replace" Height="300" Width="550">
 
     <Grid Background="{DynamicResource BackgroundColor}">
         <Grid.ColumnDefinitions>
@@ -18,7 +20,7 @@
             <RowDefinition Height="45"></RowDefinition>
             <RowDefinition Height="45"></RowDefinition>
             <RowDefinition></RowDefinition>
-            <RowDefinition Height="35"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
         </Grid.RowDefinitions>
 
         <TextBlock Text="Find what:" VerticalAlignment="Center" Foreground="{DynamicResource TextColor}"

@@ -5,6 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DataSurge.Toolbar"
         mc:Ignorable="d"
+        BorderBrush="{DynamicResource MainColor}"
+        BorderThickness="0.75"
         Title="Settings" Height="400" Width="650" x:Name="settings">
 
     <Grid Background="{DynamicResource BackgroundColor}">
@@ -16,7 +18,7 @@
             <RowDefinition Height="30"></RowDefinition>
             <RowDefinition Height="100"></RowDefinition>
             <RowDefinition></RowDefinition>
-            <RowDefinition Height="35"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
         </Grid.RowDefinitions>
 
         <TextBlock Text="QUICK CASTS" Foreground="{DynamicResource MainColor}" 

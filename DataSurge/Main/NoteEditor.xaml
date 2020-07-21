@@ -5,6 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DataSurge.Main"
         mc:Ignorable="d"
+        BorderBrush="{DynamicResource MainColor}"
+        BorderThickness="0.75"
         Title="Note Editor" Height="450" Width="400">
 
     <Grid Background="{DynamicResource BackgroundColor}">
