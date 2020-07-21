@@ -7,13 +7,13 @@
         mc:Ignorable="d"
         BorderBrush="{DynamicResource MainColor}"
         BorderThickness="0.75"
-        Title="Find and Replace" Height="300" Width="550">
+        Title="Find and Replace" Height="300" Width="550" MinHeight="225" MinWidth="520">
 
     <Grid Background="{DynamicResource BackgroundColor}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="90"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition Width="0.75*"></ColumnDefinition>
+            <ColumnDefinition Width="190"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="20"></RowDefinition>
@@ -40,7 +40,7 @@
         </TextBox>
 
         <!--RIGHT SIDE-->
-        <Grid Grid.Column="2" Grid.Row="0" Grid.RowSpan="5">
+        <Grid Grid.Column="2" Grid.Row="0" Grid.RowSpan="4">
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"></RowDefinition>
                 <RowDefinition></RowDefinition>

@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Windows;
+using System.Windows.Input;
 using System.Xml.Serialization;
 
 namespace DataSurge.Side_menu
@@ -22,6 +23,8 @@ namespace DataSurge.Side_menu
 
         private void analyze(object sender, RoutedEventArgs e)
         {
+            Mouse.OverrideCursor = Cursors.Wait;
+
             int i = 1;
             int k = 0; // pomozni za dobit podvojena gesla
             string warning = "";
@@ -120,6 +123,8 @@ namespace DataSurge.Side_menu
             lvListPM.ItemsSource = Utility.PMClass;
 
             isPressed = true;
+
+            Mouse.OverrideCursor = null;
         }
 
         private void Exit(object sender, RoutedEventArgs e)
