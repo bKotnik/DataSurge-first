@@ -132,6 +132,9 @@
     <Compile Include="Toolbar\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
+    <Compile Include="User controls\EncryptionKeyWarning.xaml.cs">
+      <DependentUpon>EncryptionKeyWarning.xaml</DependentUpon>
+    </Compile>
     <Compile Include="User controls\VortexAnimation.xaml.cs">
       <DependentUpon>VortexAnimation.xaml</DependentUpon>
     </Compile>
@@ -224,6 +227,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Toolbar\Settings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="User controls\EncryptionKeyWarning.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

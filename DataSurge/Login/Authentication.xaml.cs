@@ -1,4 +1,5 @@
 ﻿using DataSurge.Classes;
+using DataSurge.User_controls;
 using System;
 using System.Drawing;
 using System.IO;
@@ -160,6 +161,9 @@ namespace DataSurge.Login
                         {
                             xs.Serialize(fsout, Utility.ListUsers);
                             status_success.Visibility = Visibility.Visible;
+                            //show encryption key warning
+                            encryptionKeyWarningUserControl.Visibility = Visibility.Visible;
+                            encryptionKeyWarningUserControl.encryptionKeyBox.Text = Properties.Settings.Default.EncryptionKey;
                             clearFields();
                         }
                     }
@@ -282,6 +286,9 @@ namespace DataSurge.Login
                         {
                             xs.Serialize(fsout, Utility.ListUsers);
                             status_success.Visibility = Visibility.Visible;
+                            //show encryption key warning
+                            encryptionKeyWarningUserControl.Visibility = Visibility.Visible;
+                            encryptionKeyWarningUserControl.encryptionKeyBox.Text = Properties.Settings.Default.EncryptionKey;
                             clearFields();
                         }
                     }

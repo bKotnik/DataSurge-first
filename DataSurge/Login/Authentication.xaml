@@ -313,6 +313,14 @@
             </TextBlock>
 
         </Grid>
+        
+        <!--ENCRYPTION KEY WARNING-->
+        <local:EncryptionKeyWarning Grid.ColumnSpan="3"
+                                    Grid.RowSpan="3" Visibility="Hidden"
+                                    Height="250" Width="400"
+                                    Panel.ZIndex="300"
+                                    x:Name="encryptionKeyWarningUserControl">
+        </local:EncryptionKeyWarning>
 
     </Grid>
 </Window>
