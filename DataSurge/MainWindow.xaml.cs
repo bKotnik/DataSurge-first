@@ -32,6 +32,7 @@ namespace DataSurge
         bool clickedAgainO = false;
         bool clickedAgainN = false;
         bool spaceAgain = false;
+        bool logout_pressed = false;
 
         // for drag and drop
         private int startIndex = -1;
@@ -361,8 +362,8 @@ namespace DataSurge
         }
         private void Logout(object sender, RoutedEventArgs e)
         {
+            logout_pressed = true;
             CloseAllWindows();
-
             Authentication login = new Authentication();
             login.Show();
             Close();
@@ -848,8 +849,8 @@ namespace DataSurge
 
         private void CloseAllWindows()
         {
-            for (int intCounter = App.Current.Windows.Count - 1; intCounter > 0; intCounter--)
-                App.Current.Windows[intCounter].Close();
+            for (int i = Application.Current.Windows.Count - 1; i > 0; i--)
+                Application.Current.Windows[i].Close();
         }
 
         /*DRAG AND DROP FUNCTIONALITY - Main Data ListView*/
@@ -944,14 +945,15 @@ namespace DataSurge
                     Utility.ListData.Move(startIndex, index);
                 }
 
-                startIndex = -1;        // Done!
+                startIndex = -1;
             }
         }
 
         // when pressed on X close all other windows
         protected override void OnClosing(CancelEventArgs e)
         {
-            CloseAllWindows();
+            if(logout_pressed == false)
+                CloseAllWindows();
         }
     }
 }
