@@ -129,7 +129,12 @@
                 <MenuItem Header="_Help" x:Name="toolbarHelp">
                     <MenuItem Header="_View Help" x:Name="toolbarViewHelp" Click="ViewHelp" Foreground="Black">
                         <MenuItem.Icon>
-                            <Image x:Name="HelpOrodna_icon" MaxWidth="15" MaxHeight="15" />
+                            <Image x:Name="helpOrodna_icon" MaxWidth="15" MaxHeight="15" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_View Key" x:Name="toolbarViewKey" Click="ViewKey" Foreground="Black">
+                        <MenuItem.Icon>
+                            <Image x:Name="viewKey_icon" MaxHeight="18" MaxWidth="18"></Image>
                         </MenuItem.Icon>
                     </MenuItem>
 

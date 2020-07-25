@@ -13,7 +13,7 @@
     <ToolTip x:Key="ToolTipColorPicker" Content="You may have to restart the &#xa;app for some changes to apply"></ToolTip>
     <ToolTip x:Key="ToolTipEncrypt" Content="Encrypts all your data.&#xa;when you add or edit an entry, that entry WILL NOT be encrypted.&#xa;You have to click on encrypt AGAIN"></ToolTip>
     <ToolTip x:Key="ToolTip!" Content="Your data is not encrypted!"></ToolTip>
-    
+
     <Style x:Key="buttonTriggers" TargetType="Button">
         <Style.Triggers>
             <Trigger Property="IsPressed" Value="true">

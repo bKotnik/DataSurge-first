@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         BorderBrush="{DynamicResource MainColor}"
         BorderThickness="0.75"
+        WindowStartupLocation="CenterScreen"
         Title="Confirmation" MaxWidth="400" MaxHeight="200" MinHeight="200" MinWidth="400">
 
     <Grid Background="{DynamicResource BackgroundColor}">

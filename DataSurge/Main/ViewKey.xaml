@@ -1,0 +1,31 @@
+﻿<Window x:Class="DataSurge.Main.ViewKey"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DataSurge.Main"
+        mc:Ignorable="d"
+        BorderBrush="{DynamicResource MainColor}"
+        BorderThickness="0.75"
+        Title="Encryption Key" Height="150" Width="275">
+    
+    <Grid Background="{DynamicResource BackgroundColor}">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Foreground="{DynamicResource TitleColor}"
+                   Text="Encryption key" FontSize="20" VerticalAlignment="Center"
+                   HorizontalAlignment="Center" FontWeight="Medium"
+                   Margin="0 0 0 15">
+        </TextBlock>
+
+        <TextBox x:Name="viewKeyBox" Text="" Grid.Row="1"
+                 VerticalAlignment="Center" HorizontalAlignment="Center"
+                 FontSize="20" Foreground="{DynamicResource TextColor}"
+                 Style="{StaticResource GreenBorderTextBox}"
+                 Margin="0 0 0 10" HorizontalContentAlignment="Center">
+        </TextBox>
+    </Grid>
+</Window>

@@ -1,8 +1,12 @@
 ﻿using DataSurge.Classes;
 using DataSurge.User_controls;
 using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.IO;
+using System.Net;
+using System.Net.Mail;
+using System.Security.Cryptography.X509Certificates;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -130,7 +134,9 @@ namespace DataSurge.Login
 
             else
             {
-                if (password_box.Password == password_repeat.Password && email_box.Text != "" && password_box.Password != "")
+                bool isValid = IsValid(email_box.Text);
+
+                if (password_box.Password == password_repeat.Password && email_box.Text != "" && password_box.Password != "" && isValid == true)
                 {
                     pass_error.Visibility = Visibility.Hidden;
                     email_error.Visibility = Visibility.Hidden;
@@ -138,13 +144,10 @@ namespace DataSurge.Login
                     status_error.Visibility = Visibility.Hidden;
 
                     //create encryption key with GUID
-                    Guid g = Guid.NewGuid();
-                    string guidString = Convert.ToBase64String(g.ToByteArray());
-                    guidString = guidString.Replace("=", "");
-                    guidString = guidString.Replace("+", "");
-                    guidString = guidString.Remove(6);
-                    Properties.Settings.Default.EncryptionKey = guidString;
-                    Properties.Settings.Default.Save();
+                    CreateKey();
+
+                    //send email
+                    SendEmail();
 
                     //Encryption
                     password_box.Password = Utility.Encrypt(password_box.Password);
@@ -194,6 +197,18 @@ namespace DataSurge.Login
                     {
                         email_error.Visibility = Visibility.Visible;
                         pass1_error.Visibility = Visibility.Visible;
+                    }
+
+                    if (isValid == false && email_box.Text != "")
+                    {
+                        email_error.Text = "Email not valid";
+                        email_error.Visibility = Visibility.Visible;
+                    }
+
+                    if(password_box.Password == password_repeat.Password && password_box.Password != "")
+                    {
+                        pass1_error.Visibility = Visibility.Hidden;
+                        pass_error.Visibility = Visibility.Hidden;
                     }
                 }
             }
@@ -264,12 +279,18 @@ namespace DataSurge.Login
 
             else if ((fsout.Length == 0) && (e.Key == Key.Enter))
             {
-                if (password_box.Password == password_repeat.Password && email_box.Text != "" && password_box.Password != "")
+                if (password_box.Password == password_repeat.Password && email_box.Text != "" && password_box.Password != "" && IsValid(email_box.Text) == true)
                 {
                     pass_error.Visibility = Visibility.Hidden;
                     email_error.Visibility = Visibility.Hidden;
                     pass1_error.Visibility = Visibility.Hidden;
                     status_error.Visibility = Visibility.Hidden;
+
+                    //create encryption key with GUID
+                    CreateKey();
+
+                    //send email with encryption key
+                    SendEmail();
 
                     //Encryption
                     password_box.Password = Utility.Encrypt(password_box.Password);
@@ -320,6 +341,12 @@ namespace DataSurge.Login
                         email_error.Visibility = Visibility.Visible;
                         pass1_error.Visibility = Visibility.Visible;
                     }
+
+                    if(IsValid(email_box.Text) == false && email_box.Text != "")
+                    {
+                        email_error.Text = "Email not valid!";
+                        email_error.Visibility = Visibility.Visible;
+                    }
                 }
             }
 
@@ -362,6 +389,80 @@ namespace DataSurge.Login
             {
                 _ = MessageBox.Show("Error occurred when trying to serialize data", "Error serializing", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        //check if email is valid
+        private bool IsValid(string email)
+        {
+            try
+            {
+                MailAddress mailAddress = new MailAddress(email);
+
+                return true;
+            }
+
+            catch (Exception e)
+            {
+                if(e is FormatException || e is ArgumentException)
+                    return false;
+
+                return false;
+            }
+        }
+
+        //send email upon successful registration
+        private void SendEmail()
+        {
+            string bodyMessage = "Hello,\nthank you for registering to DataSurge.\n\n" +
+                                 "Your encryption key used for encrypting your data: ";
+
+            SmtpClient client = new SmtpClient()
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential()
+                {
+                    UserName = "zaboloj@gmail.com",
+                    Password = "vncipzdlvwswudki"
+                }
+            };
+
+            MailAddress fromEmail = new MailAddress("zaboloj@gmail.com", "DataSurge");
+            MailAddress toEmail = new MailAddress(email_box.Text, email_box.Text);
+            MailMessage message = new MailMessage()
+            {
+                From = fromEmail,
+                Subject = "DataSurge - encryption key",
+                Body = bodyMessage + Properties.Settings.Default.EncryptionKey + 
+                       "\n\n*We recommend you save this key*\n\n" + "Best regards,\nKecktz Solutions"
+            };
+
+            message.To.Add(toEmail);
+            client.SendCompleted += Client_SendCompleted;
+            client.SendMailAsync(message);
+        }
+
+        private void Client_SendCompleted(object sender, AsyncCompletedEventArgs e)
+        {
+            if (e.Error != null)
+            {
+                MessageBox.Show("Error occurred - couldn't send email\n" + e.Error.Message, "Error");
+                return;
+            }
+        }
+
+        private void CreateKey()
+        {
+            Guid g = Guid.NewGuid();
+            string guidString = Convert.ToBase64String(g.ToByteArray());
+            guidString = guidString.Replace("=", "");
+            guidString = guidString.Replace("+", "");
+            guidString = guidString.Remove(6);
+            Properties.Settings.Default.EncryptionKey = guidString;
+            Properties.Settings.Default.Save();
         }
     }
 }

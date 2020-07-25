@@ -18,6 +18,25 @@ namespace DataSurge.Side_menu
 
         private void SaveCMP(object sender, RoutedEventArgs e)
         {
+            //confirm changes
+            Confirmation confirmation = new Confirmation();
+            confirmation.ShowDialog(); 
+
+            if(Utility.confirm == true)
+            {
+                HelperFunction();
+            }
+
+            Utility.confirm = false; // reset
+        }
+
+        private void Exit(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void HelperFunction()
+        {
             Registration registration = new Registration();
 
             string password;
@@ -94,11 +113,6 @@ namespace DataSurge.Side_menu
                 repeat_error.Visibility = Visibility.Visible;
                 Incorrect_pass.Visibility = Visibility.Visible;
             }
-        }
-
-        private void Exit(object sender, RoutedEventArgs e)
-        {
-            Close();
         }
     }
 }

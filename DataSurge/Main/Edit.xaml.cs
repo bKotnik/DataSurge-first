@@ -93,6 +93,22 @@ namespace DataSurge.Main
             if (NoteForm.Text != "")
                 Utility.ListData[Utility.indexOfSelectedItem].Note = NoteForm.Text;
 
+            //check if user deleted / character
+            if (EmailForm.Text == "")
+                Utility.ListData[Utility.indexOfSelectedItem].Email = "/";
+
+            if (UsernameForm.Text == "")
+                Utility.ListData[Utility.indexOfSelectedItem].Username = "/";
+
+            if (PassForm.Text == "")
+                Utility.ListData[Utility.indexOfSelectedItem].Password = "/";
+
+            if (OtherForm.Text == "")
+                Utility.ListData[Utility.indexOfSelectedItem].Other = "/";
+
+            if (NoteForm.Text == "")
+                Utility.ListData[Utility.indexOfSelectedItem].Note = "/";
+
             // write the changes to file (overwrite)
             File.WriteAllText(Environment.CurrentDirectory + "\\Data.xml", string.Empty);
 

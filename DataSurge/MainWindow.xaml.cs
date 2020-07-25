@@ -52,7 +52,7 @@ namespace DataSurge
             new_icon.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\resources\\new_icon.png", UriKind.Absolute));
             xOrodna_icon.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\resources\\x_icon.png", UriKind.Absolute));
             fullScreenOrodna_icon.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\resources\\fullScreen_icon.png", UriKind.Absolute));
-            HelpOrodna_icon.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\resources\\help_icon.png", UriKind.Absolute));
+            helpOrodna_icon.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\resources\\help_icon.png", UriKind.Absolute));
             language_icon.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\resources\\language_icon.png", UriKind.Absolute));
             settings_icon.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\resources\\settings_icon.png", UriKind.Absolute));
             findReplace_icon.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\resources\\findReplace_icon.png", UriKind.Absolute));
@@ -61,6 +61,7 @@ namespace DataSurge
             decrypt_icon.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\resources\\decrypt_icon.ico", UriKind.Absolute));
             encrypt_icon.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\resources\\encrypt_icon.ico", UriKind.Absolute));
             colorPicker_icon.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\resources\\color_picker_icon.ico", UriKind.Absolute));
+            viewKey_icon.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\resources\\key_icon.ico", UriKind.Absolute));
             // 
 
             //check toolbar warning !
@@ -724,6 +725,16 @@ namespace DataSurge
                 _ = MessageBox.Show("Error occurred when trying to serialize data", "Error serializing", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
+            //decrypt observable collection, so you dont have to manually decrypt again
+            try
+            {
+                Utility.ListData = Utility.decryptListData(Utility.ListData);
+            }
+            catch
+            {
+                _ = MessageBox.Show("Error occurred when trying to decrypt data", "Error decrypting", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
             Mouse.OverrideCursor = null;
         }
 
@@ -731,8 +742,14 @@ namespace DataSurge
         private void ViewHelp(object sender, RoutedEventArgs e)
         {
             string path = new Uri(AppDomain.CurrentDomain.BaseDirectory, UriKind.Absolute).ToString();
-            var file = System.IO.Path.Combine(path, "Help.txt");
+            var file = Path.Combine(path, "Help.txt");
             Process.Start(file);
+        }
+
+        private void ViewKey(object sender, RoutedEventArgs e)
+        {
+            ViewKey viewKey = new ViewKey();
+            viewKey.Show();
         }
 
         // to change ! visibility from other windows

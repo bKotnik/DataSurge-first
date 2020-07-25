@@ -29,6 +29,9 @@ namespace DataSurge
 
             else if (WhichButton.buttonContent == "confirmEdit")
                 Title = "Confirm edit";
+
+            else
+                Title = "Confirm changes";
         }
 
         private void Confirm(object sender, RoutedEventArgs e)

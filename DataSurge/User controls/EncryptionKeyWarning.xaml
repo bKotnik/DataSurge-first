@@ -5,11 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DataSurge.User_controls"
              mc:Ignorable="d" 
-             Opacity="1"
              BorderThickness="1"
              BorderBrush="{DynamicResource MainColor}"
              d:DesignHeight="250" d:DesignWidth="400">
-    
+
     <Grid Background="{DynamicResource BackgroundColor}">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
@@ -34,7 +33,7 @@
         </TextBox>
         <TextBox Background="Transparent" Grid.Row="3" FontSize="16"
                  Foreground="{DynamicResource TextColor}" BorderThickness="0"
-                 Margin="5" Text="*We recommend that you save this key*"
+                 Margin="5" Text="*We also sent you an email with this key*"
                  FontStyle="Italic" HorizontalAlignment="Center"
                  VerticalAlignment="Center">
         </TextBox>
