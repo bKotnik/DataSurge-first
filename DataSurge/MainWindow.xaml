@@ -218,7 +218,8 @@
             <ListView Name="lvDataMain" Grid.Column="1" Style="{DynamicResource listViewStyle}" 
                       SelectionMode="Extended" ItemContainerStyle="{DynamicResource listViewItemStyle}"
                       AllowDrop="True" MouseMove="lv_MouseMove" DragEnter="lv_DragEnter" Drop="lv_Drop"
-                      PreviewMouseLeftButtonDown="lv_PreviewMouseLeftButtonDown">
+                      PreviewMouseLeftButtonDown="lv_PreviewMouseLeftButtonDown"
+                      ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                 <ListView.ContextMenu>
                     <ContextMenu>
                         <MenuItem Header="Edit" FontSize="12" Click="EditEntry"></MenuItem>
