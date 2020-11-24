@@ -1,4 +1,4 @@
-#INSTALLATION:
+# INSTALLATION:
 
 1.	Installer is located in DataSurge\DataSurgeSetup\Debug
 	 *ignore "setup" file (cd icon)
@@ -9,9 +9,9 @@
 
 4.	Default location is Program Files/Kecktz Solutions
 
-#CREATING AN ACCOUNT
+# CREATING AN ACCOUNT
 
-#HELP
+# HELP
 
 *Application should be run as administrator for it to work properly*
 
