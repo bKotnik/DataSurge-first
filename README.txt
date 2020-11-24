@@ -1,4 +1,4 @@
-INSTALLATION:
+# INSTALLATION:
 
 1.	Installer is located in DataSurge\DataSurgeSetup\Debug
 	 *ignore "setup" file (cd icon)
@@ -9,11 +9,11 @@ INSTALLATION:
 
 4.	Default location is Program Files/Kecktz Solutions
 
+# CREATING AN ACCOUNT
 
+# HELP
 
 *Application should be run as administrator for it to work properly*
-
-*DataSurgeLite does not encrypt data by default except user (master password and email)
 
 *DataSurgeLite has an additional function "Decrypt" and "Encrypt" under Tools
 	-Under Decrypt there are 2 options:
