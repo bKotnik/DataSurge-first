@@ -58,7 +58,7 @@
 
                     <MenuItem Header="_Exit" Click="CloseApp" x:Name="toolbarExit" Foreground="Black">
                         <MenuItem.Icon>
-                            <Image x:Name="xOrodna_icon" MaxWidth="15" MaxHeight="15" />
+                            <Image x:Name="xToolbar_icon" MaxWidth="15" MaxHeight="15" />
                         </MenuItem.Icon>
                     </MenuItem>
                 </MenuItem>
@@ -66,7 +66,7 @@
                 <MenuItem Header="_Edit" x:Name="toolbarEdit">
                     <MenuItem Header="_Edit entry" x:Name="toolbarEditEntry" Click="OpenEditEntry" Foreground="Black">
                         <MenuItem.Icon>
-                            <Image x:Name="editOrodna_icon" MaxWidth="15" MaxHeight="15" />
+                            <Image x:Name="editToolbar_icon" MaxWidth="15" MaxHeight="15" />
                         </MenuItem.Icon>
                     </MenuItem>
 
@@ -86,7 +86,7 @@
 
                     <MenuItem Header="_Full Screen" x:Name="toolbarFullscr" Click="FullScreen" Foreground="Black">
                         <MenuItem.Icon>
-                            <Image x:Name="fullScreenOrodna_icon" MaxWidth="20" MaxHeight="20" />
+                            <Image x:Name="fullScreenToolbar_icon" MaxWidth="20" MaxHeight="20" />
                         </MenuItem.Icon>
                     </MenuItem>
 
@@ -129,7 +129,7 @@
                 <MenuItem Header="_Help" x:Name="toolbarHelp">
                     <MenuItem Header="_View Help" x:Name="toolbarViewHelp" Click="ViewHelp" Foreground="Black">
                         <MenuItem.Icon>
-                            <Image x:Name="helpOrodna_icon" MaxWidth="15" MaxHeight="15" />
+                            <Image x:Name="helpToolbar_icon" MaxWidth="15" MaxHeight="15" />
                         </MenuItem.Icon>
                     </MenuItem>
                     <MenuItem Header="_View Key" x:Name="toolbarViewKey" Click="ViewKey" Foreground="Black">

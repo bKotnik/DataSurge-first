@@ -1,15 +1,11 @@
 ﻿using DataSurge.Classes;
-using DataSurge.User_controls;
 using System;
 using System.ComponentModel;
-using System.Drawing;
 using System.IO;
 using System.Net;
 using System.Net.Mail;
-using System.Security.Cryptography.X509Certificates;
 using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Xml.Serialization;
 
 namespace DataSurge.Login

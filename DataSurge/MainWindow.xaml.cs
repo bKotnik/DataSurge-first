@@ -1,4 +1,5 @@
 ﻿using DataSurge.Classes;
+using DataSurge.Classes.Utils;
 using DataSurge.Login;
 using DataSurge.Main;
 using DataSurge.Side_menu;
@@ -47,21 +48,21 @@ namespace DataSurge
             this.PreviewKeyDown += new KeyEventHandler(HandleSpace);
 
             // get source for images
-            logout_icon.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\resources\\logout.png", UriKind.Absolute));
-            editOrodna_icon.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\resources\\edit_icon_backup.png", UriKind.Absolute));
-            new_icon.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\resources\\new_icon.png", UriKind.Absolute));
-            xOrodna_icon.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\resources\\x_icon.png", UriKind.Absolute));
-            fullScreenOrodna_icon.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\resources\\fullScreen_icon.png", UriKind.Absolute));
-            helpOrodna_icon.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\resources\\help_icon.png", UriKind.Absolute));
-            language_icon.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\resources\\language_icon.png", UriKind.Absolute));
-            settings_icon.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\resources\\settings_icon.png", UriKind.Absolute));
-            findReplace_icon.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\resources\\findReplace_icon.png", UriKind.Absolute));
-            export_icon.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\resources\\export_icon.ico", UriKind.Absolute));
-            import_icon.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\resources\\import_icon.ico", UriKind.Absolute));
-            decrypt_icon.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\resources\\decrypt_icon.ico", UriKind.Absolute));
-            encrypt_icon.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\resources\\encrypt_icon.ico", UriKind.Absolute));
-            colorPicker_icon.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\resources\\color_picker_icon.ico", UriKind.Absolute));
-            viewKey_icon.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\resources\\key_icon.ico", UriKind.Absolute));
+            logout_icon.Source = new BitmapImage(Assets.LOGOUT_ICON);
+            editToolbar_icon.Source = new BitmapImage(Assets.EDIT_TOOLBAR_ICON);
+            new_icon.Source = new BitmapImage(Assets.NEW_ICON);
+            xToolbar_icon.Source = new BitmapImage(Assets.X_TOOLBAR_ICON);
+            fullScreenToolbar_icon.Source = new BitmapImage(Assets.FULL_SCREEN_TOOLBAR_ICON);
+            helpToolbar_icon.Source = new BitmapImage(Assets.HELP_TOOLBAR_ICON);
+            language_icon.Source = new BitmapImage(Assets.LANGUAGE_ICON);
+            settings_icon.Source = new BitmapImage(Assets.SETTINGS_ICON);
+            findReplace_icon.Source = new BitmapImage(Assets.FIND_REPLACE_ICON);
+            export_icon.Source = new BitmapImage(Assets.EXPORT_ICON);
+            import_icon.Source = new BitmapImage(Assets.IMPORT_ICON);
+            decrypt_icon.Source = new BitmapImage(Assets.DECRYPT_ICON);
+            encrypt_icon.Source = new BitmapImage(Assets.ENCRYPT_ICON);
+            colorPicker_icon.Source = new BitmapImage(Assets.COLOR_PICKER_ICON);
+            viewKey_icon.Source = new BitmapImage(Assets.VIEW_KEY_ICON);
             // 
 
             //check toolbar warning !

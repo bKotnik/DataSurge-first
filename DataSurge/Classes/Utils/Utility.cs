@@ -54,7 +54,7 @@ namespace DataSurge.Classes
 
         public static string Decrypt(string cipherText)
         {
-            string EncryptionKey = Properties.Settings.Default.EncryptionKey; 
+            string EncryptionKey = Properties.Settings.Default.EncryptionKey;
             cipherText = cipherText.Replace(" ", "+");
             byte[] cipherBytes = Convert.FromBase64String(cipherText);
 

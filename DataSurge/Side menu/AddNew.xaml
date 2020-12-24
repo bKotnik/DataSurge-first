@@ -74,9 +74,9 @@
             </TextBlock>
 
             <PasswordBox x:Name="enterPass" Grid.Row="1" FontSize="14"
-                     HorizontalAlignment="Center" BorderBrush="{DynamicResource MainColor}" KeyDown="EnterEntry"
-                     VerticalContentAlignment="Center" MinWidth="200" MaxWidth="200"
-                     Height="35" Background="{DynamicResource BackgroundColor}" Foreground="{DynamicResource TextColor}">
+                         HorizontalAlignment="Center" BorderBrush="{DynamicResource MainColor}" KeyDown="EnterEntry"
+                         VerticalContentAlignment="Center" MinWidth="200" MaxWidth="200"
+                         Height="35" Background="{DynamicResource BackgroundColor}" Foreground="{DynamicResource TextColor}">
             </PasswordBox>
             <TextBox x:Name="enterPassTxtBox" Grid.Row="1" FontSize="14" Visibility="Hidden"
                      KeyDown="EnterEntry" MaxWidth="200" Style="{DynamicResource GreenBorderTextBox}">

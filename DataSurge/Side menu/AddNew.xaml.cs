@@ -25,6 +25,11 @@ namespace DataSurge.Side_menu
     {
         private readonly MainWindow _mainWindow;
 
+        public string PasswordText
+        {
+            get; set;
+        }
+
         public AddNew(MainWindow mainWindow)
         {
             InitializeComponent();
@@ -35,11 +40,11 @@ namespace DataSurge.Side_menu
         private void function()
         {
             //get data from AddNew form
-            string email = "";
-            string password = "";
-            string username = "";
-            string other = "";
-            string note = "";
+            string email;
+            string password;
+            string username;
+            string other;
+            string note;
 
             if (enterEmail.Text == "")
                 email = "/";
@@ -68,7 +73,7 @@ namespace DataSurge.Side_menu
 
             if (email == "/" && username == "/" && password == "/" && other == "/" && note == "/")
             {
-                this.Close();
+                Close();
             }
 
             else
@@ -127,6 +132,8 @@ namespace DataSurge.Side_menu
         private void showPass(object sender, RoutedEventArgs e)
         {
             enterPassTxtBox.Text = enterPass.Password;
+            Console.WriteLine("enterpasstxtbox: " + enterPassTxtBox.Text);
+            Console.WriteLine("password box: " + enterPass.Password);
 
             if (enterPass.Visibility == Visibility.Visible)//if password is masked
             {

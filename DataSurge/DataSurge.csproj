@@ -87,12 +87,14 @@
     <Compile Include="Classes\PasswordMagicianClass.cs" />
     <Compile Include="Classes\PreferencesClass.cs" />
     <Compile Include="Classes\Registration.cs" />
-    <Compile Include="Classes\RememberPassword.cs" />
-    <Compile Include="Classes\Utility.cs" />
-    <Compile Include="Classes\WhichButton.cs" />
+    <Compile Include="Classes\Utils\Assets.cs" />
+    <Compile Include="Classes\Utils\RememberPassword.cs" />
+    <Compile Include="Classes\Utils\Utility.cs" />
+    <Compile Include="Classes\Utils\WhichButton.cs" />
     <Compile Include="Confirmation.xaml.cs">
       <DependentUpon>Confirmation.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\PasswordToTextConverter.cs" />
     <Compile Include="Login\Authentication.xaml.cs">
       <DependentUpon>Authentication.xaml</DependentUpon>
     </Compile>
