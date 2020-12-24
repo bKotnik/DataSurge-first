@@ -124,7 +124,7 @@
         </Grid>
 
         <!--note-->
-        <Grid Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Center">
+        <Grid Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" Width="260">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
@@ -140,8 +140,14 @@
             </TextBlock>
 
             <TextBox x:Name="NoteForm" Grid.Row="1" FontSize="14"
-                      KeyDown="enterSaveChanges" Style="{DynamicResource GreenBorderTextBox}">
+                     KeyDown="enterSaveChanges" Style="{DynamicResource GreenBorderTextBox}">
             </TextBox>
+
+            <Button x:Name="btnOpenDetails" Style="{DynamicResource ForgottenBtnStyle}"
+                    Content=". . ." FontSize="14" HorizontalAlignment="Right" Grid.Row="1"
+                    Margin="0 0 0 8" Padding="0" VerticalAlignment="Center"
+                    ToolTip="{StaticResource ToolTipNoteDetails}" Click="OpenNoteDetails">
+            </Button>
 
         </Grid>
 

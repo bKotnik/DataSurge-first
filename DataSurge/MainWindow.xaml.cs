@@ -46,23 +46,26 @@ namespace DataSurge
             //quick casts
             this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
             this.PreviewKeyDown += new KeyEventHandler(HandleSpace);
+            this.PreviewKeyDown += new KeyEventHandler(HandleDelete);
 
             // get source for images
-            logout_icon.Source = new BitmapImage(Assets.LOGOUT_ICON);
-            editToolbar_icon.Source = new BitmapImage(Assets.EDIT_TOOLBAR_ICON);
-            new_icon.Source = new BitmapImage(Assets.NEW_ICON);
-            xToolbar_icon.Source = new BitmapImage(Assets.X_TOOLBAR_ICON);
-            fullScreenToolbar_icon.Source = new BitmapImage(Assets.FULL_SCREEN_TOOLBAR_ICON);
-            helpToolbar_icon.Source = new BitmapImage(Assets.HELP_TOOLBAR_ICON);
-            language_icon.Source = new BitmapImage(Assets.LANGUAGE_ICON);
-            settings_icon.Source = new BitmapImage(Assets.SETTINGS_ICON);
-            findReplace_icon.Source = new BitmapImage(Assets.FIND_REPLACE_ICON);
-            export_icon.Source = new BitmapImage(Assets.EXPORT_ICON);
-            import_icon.Source = new BitmapImage(Assets.IMPORT_ICON);
-            decrypt_icon.Source = new BitmapImage(Assets.DECRYPT_ICON);
-            encrypt_icon.Source = new BitmapImage(Assets.ENCRYPT_ICON);
-            colorPicker_icon.Source = new BitmapImage(Assets.COLOR_PICKER_ICON);
-            viewKey_icon.Source = new BitmapImage(Assets.VIEW_KEY_ICON);
+            {
+                logout_icon.Source = new BitmapImage(Assets.LOGOUT_ICON);
+                editToolbar_icon.Source = new BitmapImage(Assets.EDIT_TOOLBAR_ICON);
+                new_icon.Source = new BitmapImage(Assets.NEW_ICON);
+                xToolbar_icon.Source = new BitmapImage(Assets.X_TOOLBAR_ICON);
+                fullScreenToolbar_icon.Source = new BitmapImage(Assets.FULL_SCREEN_TOOLBAR_ICON);
+                helpToolbar_icon.Source = new BitmapImage(Assets.HELP_TOOLBAR_ICON);
+                language_icon.Source = new BitmapImage(Assets.LANGUAGE_ICON);
+                settings_icon.Source = new BitmapImage(Assets.SETTINGS_ICON);
+                findReplace_icon.Source = new BitmapImage(Assets.FIND_REPLACE_ICON);
+                export_icon.Source = new BitmapImage(Assets.EXPORT_ICON);
+                import_icon.Source = new BitmapImage(Assets.IMPORT_ICON);
+                decrypt_icon.Source = new BitmapImage(Assets.DECRYPT_ICON);
+                encrypt_icon.Source = new BitmapImage(Assets.ENCRYPT_ICON);
+                colorPicker_icon.Source = new BitmapImage(Assets.COLOR_PICKER_ICON);
+                viewKey_icon.Source = new BitmapImage(Assets.VIEW_KEY_ICON);
+            }
             // 
 
             //check toolbar warning !
@@ -401,7 +404,6 @@ namespace DataSurge
                     HelperDeleteItem();
                 }
             }
-
         }
 
         private void HelperDeleteItem()
@@ -861,6 +863,37 @@ namespace DataSurge
                 {
                     lvDataMain.ItemsSource = Utility.ListData;
                     spaceAgain = false;
+                }
+            }
+        }
+
+        private void HandleDelete(object sender, KeyEventArgs e)
+        {
+            if (lvDataMain.SelectedItems.Count <= 0)
+            {
+                _ = MessageBox.Show("0 items(s) selected!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+            else
+            {
+                if (Utility.preferences.MaximumSecurity == true)
+                {
+                    WhichButton.buttonContent = "confirmDelete";
+
+                    Confirmation confirmation = new Confirmation();
+                    confirmation.ShowDialog();
+
+                    if (Utility.confirm == true)
+                    {
+                        HelperDeleteItem();
+                    }
+
+                    Utility.confirm = false;
+                }
+
+                else
+                {
+                    HelperDeleteItem();
                 }
             }
         }

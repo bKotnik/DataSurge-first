@@ -134,5 +134,11 @@ namespace DataSurge.Main
                 _ = MessageBox.Show("Error occurred when trying to serialize data", "Error serializing", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void OpenNoteDetails(object sender, RoutedEventArgs e)
+        {
+            NoteEditor noteEditor = new NoteEditor();
+            noteEditor.Show();
+        }
     }
 }

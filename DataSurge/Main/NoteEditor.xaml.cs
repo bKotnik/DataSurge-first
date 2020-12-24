@@ -40,21 +40,50 @@ namespace DataSurge.Main
 
         private void Done(object sender, RoutedEventArgs e)
         {
-            helperFunction();
+            if (Utility.preferences.MaximumSecurity == true)
+            {
+                WhichButton.buttonContent = "confirmEdit";
+                Confirmation confirmation = new Confirmation();
+                confirmation.ShowDialog();
+
+                if (Utility.confirm == true)
+                {
+                    helperFunction();
+                }
+
+                Utility.confirm = false;
+            }
+
+            else
+                helperFunction();
         }
 
         private void enterDone(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.S && Keyboard.Modifiers == ModifierKeys.Control)
             {
-                helperFunction();
+                if (Utility.preferences.MaximumSecurity == true)
+                {
+                    WhichButton.buttonContent = "confirmEdit";
+                    Confirmation confirmation = new Confirmation();
+                    confirmation.ShowDialog();
+
+                    if (Utility.confirm == true)
+                    {
+                        helperFunction();
+                    }
+
+                    Utility.confirm = false;
+                }
+
+                else
+                    helperFunction();
             }
         }
         private void helperFunction()
         {
             // update text
-            if (noteEditBox.Text != "")
-                Utility.ListData[Utility.indexOfSelectedItem].NoteDetails = noteEditBox.Text;
+            Utility.ListData[Utility.indexOfSelectedItem].NoteDetails = noteEditBox.Text;
 
             // write the changes to file (overwrite)
             File.WriteAllText(Environment.CurrentDirectory + "\\Data.xml", string.Empty);
