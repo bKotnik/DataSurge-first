@@ -117,7 +117,7 @@ namespace DataSurge.Classes
             Application.Current.Resources["MainColor"] = (Brush)bc.ConvertFromString(Properties.Settings.Default.MainColor);
             Application.Current.Resources["MainColor50"] = (Brush)bc.ConvertFromString(Properties.Settings.Default.MainColor50);
             Application.Current.Resources["MainGradientColor"] = (Color)cc.ConvertFrom(Properties.Settings.Default.MainColor);
-            Application.Current.Resources["MainColor42"] = (Color)cc.ConvertFrom(Properties.Settings.Default.MainColor42);
+            Application.Current.Resources["MainColor42"] = (Color)cc.ConvertFrom(Properties.Settings.Default.MainColor35);
             Application.Current.Resources["MainColor95"] = (Color)cc.ConvertFrom(Properties.Settings.Default.MainColor95);
             /*main color*/
 

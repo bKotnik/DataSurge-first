@@ -32,19 +32,19 @@ namespace DataSurge.Toolbar
                 string sBrush = brush.ToString(); // stringify so I can modify it to 50 opacity
                 string removed = sBrush.Remove(1, 2);
                 string final50 = removed.Insert(1, "50"); // color with 50 opacity
-                string final42 = removed.Insert(1, "42"); // color with 42 opacity
+                string final35 = removed.Insert(1, "35"); // color with 42 opacity
                 string final95 = removed.Insert(1, "95"); // color with 95 opacity
 
                 Application.Current.Resources["MainColor"] = brush;
                 Application.Current.Resources["MainColor50"] = (Brush)bc.ConvertFromString(final50);
 
                 Application.Current.Resources["MainGradientColor"] = color;
-                Application.Current.Resources["MainColor42"] = (Color)cc.ConvertFrom(final42);
+                Application.Current.Resources["MainColor35"] = (Color)cc.ConvertFrom(final35);
                 Application.Current.Resources["MainColor95"] = (Color)cc.ConvertFrom(final95);
                 //save to setting
                 Properties.Settings.Default.MainColor = colorPicker.SelectedColor.Value.ToString();
                 Properties.Settings.Default.MainColor50 = final50;
-                Properties.Settings.Default.MainColor42 = final42;
+                Properties.Settings.Default.MainColor35 = final35;
                 Properties.Settings.Default.MainColor95 = final95;
                 Properties.Settings.Default.Save();
 
@@ -195,7 +195,7 @@ namespace DataSurge.Toolbar
             /*MAIN COLORS*/
             Application.Current.Resources["MainColor"] = (Brush)bc.ConvertFrom("#FF059401");
             Application.Current.Resources["MainColor50"] = (Brush)bc.ConvertFrom("#50059401");
-            Application.Current.Resources["MainColor42"] = (Color)cc.ConvertFrom("#42059401");
+            Application.Current.Resources["MainColor35"] = (Color)cc.ConvertFrom("#35059401");
             Application.Current.Resources["MainColor95"] = (Color)cc.ConvertFrom("#95059401");
             Application.Current.Resources["MainGradientColor"] = (Color)cc.ConvertFrom("#059401");
 
@@ -223,7 +223,7 @@ namespace DataSurge.Toolbar
 
             /************* SAVE DEFAULTS TO SETTINGS *************/
             Properties.Settings.Default.MainColor = "#FF059401";
-            Properties.Settings.Default.MainColor42 = "#42059401";
+            Properties.Settings.Default.MainColor35 = "#42059401";
             Properties.Settings.Default.MainColor50 = "#50059401";
             Properties.Settings.Default.MainColor95 = "#95059401";
 

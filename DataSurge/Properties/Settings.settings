@@ -8,8 +8,8 @@
     <Setting Name="MainColor50" Type="System.String" Scope="User">
       <Value Profile="(Default)">#50059401</Value>
     </Setting>
-    <Setting Name="MainColor42" Type="System.String" Scope="User">
-      <Value Profile="(Default)">#42059401</Value>
+    <Setting Name="MainColor35" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#35059401</Value>
     </Setting>
     <Setting Name="MainColor95" Type="System.String" Scope="User">
       <Value Profile="(Default)">#95059401</Value>

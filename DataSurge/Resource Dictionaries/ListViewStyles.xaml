@@ -188,7 +188,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="ListView">
                     <Border Name="Border"
-                BorderThickness="1">
+                BorderThickness="1 1 0 0">
                         <Border.Background>
                             <SolidColorBrush Color="{DynamicResource BackgroundGradientColor}" />
                             <!--background of whole listview-->
@@ -240,7 +240,7 @@
                 SnapsToDevicePixels="true"
                 Background="Transparent">
                         <Border.BorderBrush>
-                            <SolidColorBrush Color="{DynamicResource MainColor42}"></SolidColorBrush>
+                            <SolidColorBrush Color="{DynamicResource MainColor35}"></SolidColorBrush>
                         </Border.BorderBrush>
                         <Border.BorderThickness>
                             <Thickness Bottom="1"></Thickness>
@@ -259,7 +259,7 @@
                                                 Storyboard.TargetProperty="(Panel.Background).
                                                 (SolidColorBrush.Color)">
                                             <EasingColorKeyFrame KeyTime="0"
-                                         Value="{DynamicResource MainColor42}" />
+                                         Value="{DynamicResource MainColor35}" />
                                             <!--background of listview item-->
                                         </ColorAnimationUsingKeyFrames>
                                     </Storyboard>
@@ -298,7 +298,7 @@
                 SnapsToDevicePixels="true"
                 Background="Transparent">
                         <Border.BorderBrush>
-                            <SolidColorBrush Color="{DynamicResource MainColor42}"></SolidColorBrush>
+                            <SolidColorBrush Color="{DynamicResource MainColor35}"></SolidColorBrush>
                         </Border.BorderBrush>
                         <Border.BorderThickness>
                             <Thickness Bottom="1"></Thickness>
@@ -317,7 +317,7 @@
                                                 Storyboard.TargetProperty="(Panel.Background).
                                                 (SolidColorBrush.Color)">
                                             <EasingColorKeyFrame KeyTime="0"
-                                         Value="{DynamicResource MainColor42}" />
+                                         Value="{DynamicResource MainColor35}" />
                                             <!--background of listview item-->
                                         </ColorAnimationUsingKeyFrames>
                                     </Storyboard>
@@ -327,7 +327,7 @@
                                         <ColorAnimationUsingKeyFrames Storyboard.TargetName="Border"
                                                 Storyboard.TargetProperty="(Panel.Background).
                                                 (SolidColorBrush.Color)">
-                                            <EasingColorKeyFrame KeyTime="0" Value="{DynamicResource MainColor42}" />
+                                            <EasingColorKeyFrame KeyTime="0" Value="{DynamicResource MainColor35}" />
                                         </ColorAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
