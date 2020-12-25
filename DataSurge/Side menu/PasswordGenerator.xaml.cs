@@ -1,16 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace DataSurge.Side_menu
 {
@@ -19,22 +9,22 @@ namespace DataSurge.Side_menu
     /// </summary>
     public partial class PasswordGenerator : Window
     {
+        string password_length;
+
         public PasswordGenerator()
         {
             InitializeComponent();
         }
 
-        string password_length;
         private void generate(object sender, RoutedEventArgs e)
         {
-            //int length = 12;
             Random random = new Random();
             password_length = pass_length.Text;
             int num;
 
             if (int.TryParse(password_length, out num) && num >= 6)
             {
-                const string chars = "abcdefghijklmnopqrstuvwxyABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_/@";
+                const string chars = "abcdefghijklmnopqrstuvwxyABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_/@.!?";
 
                 string gen_password = new string(Enumerable.Repeat(chars, num).Select(s => s[random.Next(s.Length)]).ToArray());
 

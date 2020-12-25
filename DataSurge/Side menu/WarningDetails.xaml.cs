@@ -16,8 +16,6 @@ namespace DataSurge.Side_menu
             string tmp = "";
             tmp += i + ".  ";
 
-            //warningDetails.Text = Utility.PMClass[Utility.indexOfSelectedItem].Warning;
-
             foreach (char character in Utility.PMClass[Utility.indexOfSelectedItem].Warning)
             {
                 if (!character.Equals('|'))

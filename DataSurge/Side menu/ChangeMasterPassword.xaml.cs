@@ -20,9 +20,9 @@ namespace DataSurge.Side_menu
         {
             //confirm changes
             Confirmation confirmation = new Confirmation();
-            confirmation.ShowDialog(); 
+            confirmation.ShowDialog();
 
-            if(Utility.confirm == true)
+            if (Utility.confirm == true)
             {
                 HelperFunction();
             }
@@ -66,11 +66,11 @@ namespace DataSurge.Side_menu
                 Incorrect_pass.Visibility = Visibility.Hidden;
                 repeat_error.Visibility = Visibility.Hidden;
                 // change password
-                Utility.ListUsers.password = enterNewMP.Password;
+                Utility.User.password = enterNewMP.Password;
                 //Utility.ListUsers.email = registration.email;
 
                 //Encrypt
-                Utility.ListUsers.password = Utility.Encrypt(Utility.ListUsers.password);
+                Utility.User.password = Utility.Encrypt(Utility.User.password);
                 //Utility.ListUsers.email = Utility.Encrypt(Utility.ListUsers.email);
 
                 XmlSerializer xs2 = new XmlSerializer(typeof(Registration));
@@ -81,7 +81,7 @@ namespace DataSurge.Side_menu
                 {
                     using (fsout)
                     {
-                        xs2.Serialize(fsout, Utility.ListUsers);
+                        xs2.Serialize(fsout, Utility.User);
 
                     }
                 }

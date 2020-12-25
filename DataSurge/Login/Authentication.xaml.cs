@@ -18,29 +18,36 @@ namespace DataSurge.Login
         public Authentication()
         {
             InitializeComponent();
-            Utility.ListUsers = new Registration();
+
+            Utility.User = new Registration();
             Utility.rmbPassword = new RememberPassword();
             Utility.OnLoad();
 
             /*get remember password value from file*/
+            RememberPass();
+        }
+
+        private void RememberPass()
+        {
             XmlSerializer xs = new XmlSerializer(typeof(RememberPassword));
             FileStream fsin = new FileStream("RememberPassword.xml", FileMode.Open, FileAccess.ReadWrite, FileShare.None);
             try
             {
-                Utility.rmbPassword = (RememberPassword)xs.Deserialize(fsin);
+                using(fsin)
+                {
+                    Utility.rmbPassword = (RememberPassword)xs.Deserialize(fsin);
+                }
             }
 
             catch
             {
-                if(fsin.Length != 0)
+                if (fsin.Length != 0)
                     _ = MessageBox.Show("Error occurred when trying to get value from file", "Error loading", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
-            fsin.Close();
-
             chkBoxRememberPass.IsChecked = Utility.rmbPassword.RememberPass;
 
-            if(chkBoxRememberPass.IsChecked.Value == true)
+            if (chkBoxRememberPass.IsChecked.Value == true)
             {
                 XmlSerializer xsUser = new XmlSerializer(typeof(Registration));
                 FileStream fsout = new FileStream(Environment.CurrentDirectory + "\\Users.xml", FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
@@ -49,21 +56,19 @@ namespace DataSurge.Login
                 {
                     using (fsout)
                     {
-                        Utility.ListUsers = (Registration)xsUser.Deserialize(fsout);
+                        Utility.User = (Registration)xsUser.Deserialize(fsout);
 
                         //Decrypt
-                        Utility.ListUsers.password = Utility.Decrypt(Utility.ListUsers.password);
+                        Utility.User.password = Utility.Decrypt(Utility.User.password);
                     }
                 }
 
                 catch
                 {
-                    //Incorrect_pass.Text = "An error has occured121212";
-                    //Incorrect_pass.Visibility = Visibility.Visible;
                     chkBoxRememberPass.IsChecked = false;
                 }
 
-                MasterPasswordBox.Password = Utility.ListUsers.password;
+                MasterPasswordBox.Password = Utility.User.password;
             }
         }
 
@@ -81,10 +86,10 @@ namespace DataSurge.Login
                 {
                     using (fsout)
                     {
-                        Utility.ListUsers = (Registration)xs.Deserialize(fsout);
+                        Utility.User = (Registration)xs.Deserialize(fsout);
 
                         //Decrypt
-                        Utility.ListUsers.password = Utility.Decrypt(Utility.ListUsers.password);
+                        Utility.User.password = Utility.Decrypt(Utility.User.password);
                     }
                 }
 
@@ -94,11 +99,11 @@ namespace DataSurge.Login
                     Incorrect_pass.Visibility = Visibility.Visible;
                 }
 
-                if (password == Utility.ListUsers.password)
+                if (password == Utility.User.password)
                 {
                     MainWindow main = new MainWindow();
                     main.Show();
-                    this.Close();
+                    Close();
                 }
 
                 else
@@ -119,95 +124,7 @@ namespace DataSurge.Login
 
         private void Register(object sender, RoutedEventArgs e)
         {
-            FileStream fsout = new FileStream(Environment.CurrentDirectory + "\\Users.xml", FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
-
-            if (fsout.Length > 0)
-            {
-                status_error.Text = "User already exists!";
-                status_error.Visibility = Visibility.Visible;
-                status_success.Visibility = Visibility.Hidden;
-            }
-
-            else
-            {
-                bool isValid = IsValid(email_box.Text);
-
-                if (password_box.Password == password_repeat.Password && email_box.Text != "" && password_box.Password != "" && isValid == true)
-                {
-                    pass_error.Visibility = Visibility.Hidden;
-                    email_error.Visibility = Visibility.Hidden;
-                    pass1_error.Visibility = Visibility.Hidden;
-                    status_error.Visibility = Visibility.Hidden;
-
-                    //create encryption key with GUID
-                    CreateKey();
-
-                    //send email
-                    SendEmail();
-
-                    //Encryption
-                    password_box.Password = Utility.Encrypt(password_box.Password);
-                    email_box.Text = Utility.Encrypt(email_box.Text);
-
-                    Utility.ListUsers.password = password_box.Password;
-                    Utility.ListUsers.email = email_box.Text;
-
-                    XmlSerializer xs = new XmlSerializer(typeof(Registration));
-
-                    try
-                    {
-                        using (fsout)
-                        {
-                            xs.Serialize(fsout, Utility.ListUsers);
-                            status_success.Visibility = Visibility.Visible;
-                            //show encryption key warning
-                            encryptionKeyWarningUserControl.Visibility = Visibility.Visible;
-                            encryptionKeyWarningUserControl.encryptionKeyBox.Text = Properties.Settings.Default.EncryptionKey;
-                            clearFields();
-                        }
-                    }
-                    catch
-                    {
-                        status_error.Visibility = Visibility.Visible;
-                    }
-                }
-
-                else
-                {
-                    if (password_box.Password != password_repeat.Password)
-                    {
-                        pass_error.Visibility = Visibility.Visible;
-                    }
-
-                    if (email_box.Text == "")
-                    {
-                        email_error.Visibility = Visibility.Visible;
-                    }
-
-                    if (password_box.Password == "")
-                    {
-                        pass1_error.Visibility = Visibility.Visible;
-                    }
-
-                    if (email_box.Text == "" && password_box.Password == "")
-                    {
-                        email_error.Visibility = Visibility.Visible;
-                        pass1_error.Visibility = Visibility.Visible;
-                    }
-
-                    if (isValid == false && email_box.Text != "")
-                    {
-                        email_error.Text = "Email not valid";
-                        email_error.Visibility = Visibility.Visible;
-                    }
-
-                    if(password_box.Password == password_repeat.Password && password_box.Password != "")
-                    {
-                        pass1_error.Visibility = Visibility.Hidden;
-                        pass_error.Visibility = Visibility.Hidden;
-                    }
-                }
-            }
+            RegistrationHelper();
         }
 
         private void EnterLogin(object sender, KeyEventArgs e)
@@ -225,10 +142,10 @@ namespace DataSurge.Login
                     {
                         using (fsout)
                         {
-                            Utility.ListUsers = (Registration)xs.Deserialize(fsout);
+                            Utility.User = (Registration)xs.Deserialize(fsout);
 
                             //Decrypt
-                            Utility.ListUsers.password = Utility.Decrypt(Utility.ListUsers.password);
+                            Utility.User.password = Utility.Decrypt(Utility.User.password);
                         }
                     }
 
@@ -238,7 +155,7 @@ namespace DataSurge.Login
                         Incorrect_pass.Visibility = Visibility.Visible;
                     }
 
-                    if (password == Utility.ListUsers.password)
+                    if (password == Utility.User.password)
                     {
                         MainWindow main = new MainWindow();
 
@@ -265,87 +182,10 @@ namespace DataSurge.Login
 
         private void EnterRegistration(object sender, KeyEventArgs e)
         {
-            FileStream fsout = new FileStream(Environment.CurrentDirectory + "\\Users.xml", FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
-            if ((fsout.Length > 0) && (e.Key == Key.Enter))
+            if(e.Key == Key.Enter)
             {
-                status_error.Text = "User already exists!";
-                status_error.Visibility = Visibility.Visible;
-                status_success.Visibility = Visibility.Hidden;
+                RegistrationHelper();
             }
-
-            else if ((fsout.Length == 0) && (e.Key == Key.Enter))
-            {
-                if (password_box.Password == password_repeat.Password && email_box.Text != "" && password_box.Password != "" && IsValid(email_box.Text) == true)
-                {
-                    pass_error.Visibility = Visibility.Hidden;
-                    email_error.Visibility = Visibility.Hidden;
-                    pass1_error.Visibility = Visibility.Hidden;
-                    status_error.Visibility = Visibility.Hidden;
-
-                    //create encryption key with GUID
-                    CreateKey();
-
-                    //send email with encryption key
-                    SendEmail();
-
-                    //Encryption
-                    password_box.Password = Utility.Encrypt(password_box.Password);
-                    email_box.Text = Utility.Encrypt(email_box.Text);
-
-                    Utility.ListUsers.password = password_box.Password;
-                    Utility.ListUsers.email = email_box.Text;
-
-                    XmlSerializer xs = new XmlSerializer(typeof(Registration));
-
-                    try
-                    {
-                        using (fsout)
-                        {
-                            xs.Serialize(fsout, Utility.ListUsers);
-                            status_success.Visibility = Visibility.Visible;
-                            //show encryption key warning
-                            encryptionKeyWarningUserControl.Visibility = Visibility.Visible;
-                            encryptionKeyWarningUserControl.encryptionKeyBox.Text = Properties.Settings.Default.EncryptionKey;
-                            clearFields();
-                        }
-                    }
-                    catch
-                    {
-                        status_error.Visibility = Visibility.Visible;
-                    }
-                }
-
-                else
-                {
-                    if (password_box.Password != password_repeat.Password)
-                    {
-                        pass_error.Visibility = Visibility.Visible;
-                    }
-
-                    if (email_box.Text == "")
-                    {
-                        email_error.Visibility = Visibility.Visible;
-                    }
-
-                    if (password_box.Password == "")
-                    {
-                        pass1_error.Visibility = Visibility.Visible;
-                    }
-
-                    if (email_box.Text == "" && password_box.Password == "")
-                    {
-                        email_error.Visibility = Visibility.Visible;
-                        pass1_error.Visibility = Visibility.Visible;
-                    }
-
-                    if(IsValid(email_box.Text) == false && email_box.Text != "")
-                    {
-                        email_error.Text = "Email not valid!";
-                        email_error.Visibility = Visibility.Visible;
-                    }
-                }
-            }
-
         }
 
         private void clearFields()
@@ -399,7 +239,7 @@ namespace DataSurge.Login
 
             catch (Exception e)
             {
-                if(e is FormatException || e is ArgumentException)
+                if (e is FormatException || e is ArgumentException)
                     return false;
 
                 return false;
@@ -432,7 +272,7 @@ namespace DataSurge.Login
             {
                 From = fromEmail,
                 Subject = "DataSurge - encryption key",
-                Body = bodyMessage + Properties.Settings.Default.EncryptionKey + 
+                Body = bodyMessage + Properties.Settings.Default.EncryptionKey +
                        "\n\n*We recommend you save this key*\n\n" + "Best regards,\nKecktz Solutions"
             };
 
@@ -459,6 +299,99 @@ namespace DataSurge.Login
             guidString = guidString.Remove(6);
             Properties.Settings.Default.EncryptionKey = guidString;
             Properties.Settings.Default.Save();
+        }
+
+        private void RegistrationHelper()
+        {
+            FileStream fsout = new FileStream(Environment.CurrentDirectory + "\\Users.xml", FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
+
+            if (fsout.Length > 0)
+            {
+                status_error.Text = "User already exists!";
+                status_error.Visibility = Visibility.Visible;
+                status_success.Visibility = Visibility.Hidden;
+            }
+
+            else
+            {
+                bool isValid = IsValid(email_box.Text);
+
+                if (password_box.Password == password_repeat.Password && email_box.Text != "" && password_box.Password != "" && isValid == true)
+                {
+                    pass_error.Visibility = Visibility.Hidden;
+                    email_error.Visibility = Visibility.Hidden;
+                    pass1_error.Visibility = Visibility.Hidden;
+                    status_error.Visibility = Visibility.Hidden;
+
+                    //create encryption key with GUID
+                    CreateKey();
+
+                    //send email
+                    SendEmail();
+
+                    //Encryption
+                    password_box.Password = Utility.Encrypt(password_box.Password);
+                    email_box.Text = Utility.Encrypt(email_box.Text);
+
+                    Utility.User.password = password_box.Password;
+                    Utility.User.email = email_box.Text;
+
+                    XmlSerializer xs = new XmlSerializer(typeof(Registration));
+
+                    try
+                    {
+                        using (fsout)
+                        {
+                            xs.Serialize(fsout, Utility.User);
+                            status_success.Visibility = Visibility.Visible;
+                            //show encryption key warning
+                            encryptionKeyWarningUserControl.Visibility = Visibility.Visible;
+                            encryptionKeyWarningUserControl.encryptionKeyBox.Text = Properties.Settings.Default.EncryptionKey;
+                            clearFields();
+                        }
+                    }
+                    catch
+                    {
+                        status_error.Visibility = Visibility.Visible;
+                    }
+                }
+
+                else
+                {
+                    if (password_box.Password != password_repeat.Password)
+                    {
+                        pass_error.Visibility = Visibility.Visible;
+                    }
+
+                    if (email_box.Text == "")
+                    {
+                        email_error.Visibility = Visibility.Visible;
+                    }
+
+                    if (password_box.Password == "")
+                    {
+                        pass1_error.Visibility = Visibility.Visible;
+                    }
+
+                    if (email_box.Text == "" && password_box.Password == "")
+                    {
+                        email_error.Visibility = Visibility.Visible;
+                        pass1_error.Visibility = Visibility.Visible;
+                    }
+
+                    if (isValid == false && email_box.Text != "")
+                    {
+                        email_error.Text = "Email not valid";
+                        email_error.Visibility = Visibility.Visible;
+                    }
+
+                    if (password_box.Password == password_repeat.Password && password_box.Password != "")
+                    {
+                        pass1_error.Visibility = Visibility.Hidden;
+                        pass_error.Visibility = Visibility.Hidden;
+                    }
+                }
+            }
         }
     }
 }

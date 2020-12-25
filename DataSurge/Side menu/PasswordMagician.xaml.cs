@@ -15,6 +15,7 @@ namespace DataSurge.Side_menu
     public partial class PasswordMagician : Window
     {
         bool isPressed = false;
+
         public PasswordMagician()
         {
             InitializeComponent();
@@ -28,7 +29,7 @@ namespace DataSurge.Side_menu
             int i = 1;
             int k = 0; // pomozni za dobit podvojena gesla
             string warning = "";
-            
+
             XmlSerializer xs = new XmlSerializer(typeof(ObservableCollection<DataClass>));
             Stream stream = File.OpenRead(Environment.CurrentDirectory + "\\Data.xml");
 

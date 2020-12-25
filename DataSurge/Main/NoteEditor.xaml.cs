@@ -1,19 +1,9 @@
 ﻿using DataSurge.Classes;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using System.Xml.Serialization;
 
 namespace DataSurge.Main
@@ -26,10 +16,8 @@ namespace DataSurge.Main
         public NoteEditor()
         {
             InitializeComponent();
+
             header.Text += Utility.ListData[Utility.indexOfSelectedItem].Note;
-            //string decrypted = Utility.Decrypt(Utility.ListData[Utility.indexOfSelectedItem].NoteDetails);
-            //noteEditBox.Text = decrypted;
-            //Utility.Encrypt(Utility.ListData[Utility.indexOfSelectedItem].NoteDetails);
             noteEditBox.Text = Utility.ListData[Utility.indexOfSelectedItem].NoteDetails;
         }
 

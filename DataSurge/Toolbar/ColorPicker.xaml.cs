@@ -11,6 +11,12 @@ namespace DataSurge.Toolbar
         public ColorPicker()
         {
             InitializeComponent();
+
+            LoadColors();
+        }
+
+        private void LoadColors()
+        {
             currentColorMain.Text += Properties.Settings.Default.MainColor;
             currentColorSecondary.Text += Properties.Settings.Default.SecondaryColor;
             currentColorText.Text += Properties.Settings.Default.TextColor;
@@ -32,7 +38,7 @@ namespace DataSurge.Toolbar
                 string sBrush = brush.ToString(); // stringify so I can modify it to 50 opacity
                 string removed = sBrush.Remove(1, 2);
                 string final50 = removed.Insert(1, "50"); // color with 50 opacity
-                string final35 = removed.Insert(1, "35"); // color with 42 opacity
+                string final35 = removed.Insert(1, "35"); // color with 35 opacity
                 string final95 = removed.Insert(1, "95"); // color with 95 opacity
 
                 Application.Current.Resources["MainColor"] = brush;

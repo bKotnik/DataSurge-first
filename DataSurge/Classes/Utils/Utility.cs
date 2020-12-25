@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 
@@ -15,13 +12,14 @@ namespace DataSurge.Classes
     static class Utility
     {
         public static ObservableCollection<DataClass> ListData;
-        public static Registration ListUsers;
+        public static Registration User;
         public static PreferencesClass preferences;
         public static RememberPassword rmbPassword;
         public static ObservableCollection<ListDataClass> LDClass; // collection for list data (listview buttons) -> eg. display all emails
         public static ObservableCollection<PasswordMagicianClass> PMClass; // collection for password magician
 
         public static bool textIfFileEmpty = false;
+
         //for edit entry
         public static int indexOfSelectedItem;
         public static bool confirm = false; //confirmation with password for edit/delete entry
@@ -83,12 +81,12 @@ namespace DataSurge.Classes
         {
             foreach (DataClass tmp in data)
             {
-                tmp.Email = Utility.Decrypt(tmp.Email);
-                tmp.Password = Utility.Decrypt(tmp.Password);
-                tmp.Username = Utility.Decrypt(tmp.Username);
-                tmp.Other = Utility.Decrypt(tmp.Other);
-                tmp.Note = Utility.Decrypt(tmp.Note);
-                tmp.NoteDetails = Utility.Decrypt(tmp.NoteDetails);
+                tmp.Email = Decrypt(tmp.Email);
+                tmp.Password = Decrypt(tmp.Password);
+                tmp.Username = Decrypt(tmp.Username);
+                tmp.Other = Decrypt(tmp.Other);
+                tmp.Note = Decrypt(tmp.Note);
+                tmp.NoteDetails = Decrypt(tmp.NoteDetails);
             }
 
             return data;
@@ -97,12 +95,12 @@ namespace DataSurge.Classes
         {
             foreach (DataClass tmp in data)
             {
-                tmp.Email = Utility.Encrypt(tmp.Email);
-                tmp.Password = Utility.Encrypt(tmp.Password);
-                tmp.Username = Utility.Encrypt(tmp.Username);
-                tmp.Other = Utility.Encrypt(tmp.Other);
-                tmp.Note = Utility.Encrypt(tmp.Note);
-                tmp.NoteDetails = Utility.Encrypt(tmp.NoteDetails);
+                tmp.Email = Encrypt(tmp.Email);
+                tmp.Password = Encrypt(tmp.Password);
+                tmp.Username = Encrypt(tmp.Username);
+                tmp.Other = Encrypt(tmp.Other);
+                tmp.Note = Encrypt(tmp.Note);
+                tmp.NoteDetails = Encrypt(tmp.NoteDetails);
             }
 
             return data;
@@ -117,7 +115,7 @@ namespace DataSurge.Classes
             Application.Current.Resources["MainColor"] = (Brush)bc.ConvertFromString(Properties.Settings.Default.MainColor);
             Application.Current.Resources["MainColor50"] = (Brush)bc.ConvertFromString(Properties.Settings.Default.MainColor50);
             Application.Current.Resources["MainGradientColor"] = (Color)cc.ConvertFrom(Properties.Settings.Default.MainColor);
-            Application.Current.Resources["MainColor42"] = (Color)cc.ConvertFrom(Properties.Settings.Default.MainColor35);
+            Application.Current.Resources["MainColor35"] = (Color)cc.ConvertFrom(Properties.Settings.Default.MainColor35);
             Application.Current.Resources["MainColor95"] = (Color)cc.ConvertFrom(Properties.Settings.Default.MainColor95);
             /*main color*/
 
@@ -148,6 +146,6 @@ namespace DataSurge.Classes
             /*warning color*/
             Application.Current.Resources["WarningColor"] = (Brush)bc.ConvertFromString(Properties.Settings.Default.WarningColor);
             /*warning color*/
-        }
+        } // load colors
     }
 }

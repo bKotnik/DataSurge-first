@@ -18,8 +18,13 @@ namespace DataSurge.Main
         public Edit(MainWindow mainWindow)
         {
             InitializeComponent();
-            _mainWindow = mainWindow;
 
+            _mainWindow = mainWindow;
+            Init();
+        }
+
+        private void Init()
+        {
             EmailForm.Text = Utility.ListData[Utility.indexOfSelectedItem].Email;
             UsernameForm.Text = Utility.ListData[Utility.indexOfSelectedItem].Username;
             PassForm.Text = Utility.ListData[Utility.indexOfSelectedItem].Password;

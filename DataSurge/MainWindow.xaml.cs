@@ -27,7 +27,7 @@ namespace DataSurge
     /// </summary>
     public partial class MainWindow : Window
     {
-        bool clickedAgainE = false;
+        bool clickedAgainE = false; // when clicking on hide columns (e - emails, u - usernames,...)
         bool clickedAgainU = false;
         bool clickedAgainP = false;
         bool clickedAgainO = false;
@@ -43,42 +43,53 @@ namespace DataSurge
         {
             InitializeComponent();
 
-            //quick casts
-            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
-            this.PreviewKeyDown += new KeyEventHandler(HandleSpace);
-            this.PreviewKeyDown += new KeyEventHandler(HandleDelete);
+            // Initialize lists
+            Utility.ListData = new ObservableCollection<DataClass>();
+            Utility.preferences = new PreferencesClass();
+
+            // quick casts
+            PreviewKeyDown += new KeyEventHandler(HandleEsc);
+            PreviewKeyDown += new KeyEventHandler(HandleSpace);
+            PreviewKeyDown += new KeyEventHandler(HandleDelete);
 
             // get source for images
-            {
-                logout_icon.Source = new BitmapImage(Assets.LOGOUT_ICON);
-                editToolbar_icon.Source = new BitmapImage(Assets.EDIT_TOOLBAR_ICON);
-                new_icon.Source = new BitmapImage(Assets.NEW_ICON);
-                xToolbar_icon.Source = new BitmapImage(Assets.X_TOOLBAR_ICON);
-                fullScreenToolbar_icon.Source = new BitmapImage(Assets.FULL_SCREEN_TOOLBAR_ICON);
-                helpToolbar_icon.Source = new BitmapImage(Assets.HELP_TOOLBAR_ICON);
-                language_icon.Source = new BitmapImage(Assets.LANGUAGE_ICON);
-                settings_icon.Source = new BitmapImage(Assets.SETTINGS_ICON);
-                findReplace_icon.Source = new BitmapImage(Assets.FIND_REPLACE_ICON);
-                export_icon.Source = new BitmapImage(Assets.EXPORT_ICON);
-                import_icon.Source = new BitmapImage(Assets.IMPORT_ICON);
-                decrypt_icon.Source = new BitmapImage(Assets.DECRYPT_ICON);
-                encrypt_icon.Source = new BitmapImage(Assets.ENCRYPT_ICON);
-                colorPicker_icon.Source = new BitmapImage(Assets.COLOR_PICKER_ICON);
-                viewKey_icon.Source = new BitmapImage(Assets.VIEW_KEY_ICON);
-            }
-            // 
+            LoadImages();
 
-            //check toolbar warning !
+            // check toolbar warning!
             if (Properties.Settings.Default.ToolbarWarning == false)
                 toolbarWarning.Visibility = Visibility.Hidden;
             else
                 toolbarWarning.Visibility = Visibility.Visible;
-            //check toolbar warning !
-
-            Utility.ListData = new ObservableCollection<DataClass>();
-            Utility.preferences = new PreferencesClass();
 
             /*GET PREFERENCES FROM FILE*/
+            GetPreferences();
+
+            /*GET DATA FROM FILE*/
+            GetData();
+        }
+
+        /* LOAD ASSETS */
+        private void LoadImages()
+        {
+            logout_icon.Source = new BitmapImage(Assets.LOGOUT_ICON);
+            editToolbar_icon.Source = new BitmapImage(Assets.EDIT_TOOLBAR_ICON);
+            new_icon.Source = new BitmapImage(Assets.NEW_ICON);
+            xToolbar_icon.Source = new BitmapImage(Assets.X_TOOLBAR_ICON);
+            fullScreenToolbar_icon.Source = new BitmapImage(Assets.FULL_SCREEN_TOOLBAR_ICON);
+            helpToolbar_icon.Source = new BitmapImage(Assets.HELP_TOOLBAR_ICON);
+            language_icon.Source = new BitmapImage(Assets.LANGUAGE_ICON);
+            settings_icon.Source = new BitmapImage(Assets.SETTINGS_ICON);
+            findReplace_icon.Source = new BitmapImage(Assets.FIND_REPLACE_ICON);
+            export_icon.Source = new BitmapImage(Assets.EXPORT_ICON);
+            import_icon.Source = new BitmapImage(Assets.IMPORT_ICON);
+            decrypt_icon.Source = new BitmapImage(Assets.DECRYPT_ICON);
+            encrypt_icon.Source = new BitmapImage(Assets.ENCRYPT_ICON);
+            colorPicker_icon.Source = new BitmapImage(Assets.COLOR_PICKER_ICON);
+            viewKey_icon.Source = new BitmapImage(Assets.VIEW_KEY_ICON);
+        }
+
+        private void GetPreferences()
+        {
             XmlSerializer xsPref = new XmlSerializer(typeof(PreferencesClass));
             FileStream fsin = new FileStream("Preferences.xml", FileMode.Open, FileAccess.Read, FileShare.None);
             try
@@ -94,22 +105,27 @@ namespace DataSurge
                 if (fsin.Length != 0)
                     _ = MessageBox.Show("Error occurred when trying to load preferences", "Error loading preferences", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
 
-            /*GET DATA FROM FILE*/
+        private void GetData()
+        {
             Stream stream = File.OpenRead(Environment.CurrentDirectory + "\\Data.xml");
             XmlSerializer xs = new XmlSerializer(typeof(ObservableCollection<DataClass>));
             try
             {
-                Utility.ListData = (ObservableCollection<DataClass>)xs.Deserialize(stream);
-
-                //assign icons to objects
-                foreach (DataClass data in Utility.ListData)
+                using (stream)
                 {
-                    data.EditPath = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\resources\\edit_icon.ico", UriKind.Absolute)).ToString();
-                    data.DeletePath = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\resources\\delete_icon_red.ico", UriKind.Absolute)).ToString();
-                }
+                    Utility.ListData = (ObservableCollection<DataClass>)xs.Deserialize(stream);
 
-                lvDataMain.ItemsSource = Utility.ListData;
+                    //assign icons to objects
+                    foreach (DataClass data in Utility.ListData)
+                    {
+                        data.EditPath = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\resources\\edit_icon.ico", UriKind.Absolute)).ToString();
+                        data.DeletePath = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\resources\\delete_icon_red.ico", UriKind.Absolute)).ToString();
+                    }
+
+                    lvDataMain.ItemsSource = Utility.ListData;
+                }
             }
 
             catch
@@ -119,8 +135,6 @@ namespace DataSurge
                     _ = MessageBox.Show("Error occurred when trying to load data", "Error loading data", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
-
-            stream.Close();
         }
 
         /* LISTVIEW BUTTONS */
@@ -426,7 +440,7 @@ namespace DataSurge
                     xs.Serialize(stream, Utility.ListData);
 
                     //show ! in toolbar
-                    if(Utility.ListData.Count > 0)
+                    if (Utility.ListData.Count > 0)
                     {
                         toolbarWarning.Visibility = Visibility.Visible;
                         Properties.Settings.Default.ToolbarWarning = true;
@@ -756,7 +770,7 @@ namespace DataSurge
         }
 
         // to change ! visibility from other windows
-        public void setToolbarWarningVisibility (Visibility visibility)
+        public void setToolbarWarningVisibility(Visibility visibility)
         {
             toolbarWarning.Visibility = visibility;
         }
@@ -1003,7 +1017,7 @@ namespace DataSurge
         // when pressed on X close all other windows
         protected override void OnClosing(CancelEventArgs e)
         {
-            if(logout_pressed == false)
+            if (logout_pressed == false)
                 CloseAllWindows();
         }
     }
