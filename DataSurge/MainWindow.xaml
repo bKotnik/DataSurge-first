@@ -216,8 +216,7 @@
             <ListView Name="lvDataMain" Grid.Column="1" Style="{DynamicResource listViewStyle}" 
                       SelectionMode="Extended" ItemContainerStyle="{DynamicResource listViewItemStyle}"
                       AllowDrop="True" MouseMove="lv_MouseMove" DragEnter="lv_DragEnter" Drop="lv_Drop"
-                      PreviewMouseLeftButtonDown="lv_PreviewMouseLeftButtonDown"
-                      ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                      PreviewMouseLeftButtonDown="lv_PreviewMouseLeftButtonDown">
                 <ListView.ContextMenu>
                     <ContextMenu>
                         <MenuItem Header="Edit" FontSize="12" Click="EditEntry"></MenuItem>
@@ -320,7 +319,7 @@
                             </Button>
                         </GridViewColumn>
 
-                        <!--CONTACTS/OTHER-->
+                        <!--OTHER-->
                         <GridViewColumn x:Name="otherColumn" Width="{Binding ElementName=helperField, Path=ActualWidth}">
 
                             <GridViewColumn.CellTemplate>
@@ -378,17 +377,19 @@
                                             <ColumnDefinition></ColumnDefinition>
                                             <ColumnDefinition></ColumnDefinition>
                                             <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
                                         </Grid.ColumnDefinitions>
 
-                                        <Button x:Name="btnDelete" Click="DeleteItem" Grid.Column="2" HorizontalAlignment="Center"
+                                        <Button x:Name="btnDelete" Click="DeleteItem" Grid.Column="3" HorizontalAlignment="Center"
                                                 Style="{DynamicResource DeleteIconBtnStyle}" ToolTip="Delete selected entry(s)"
-                                                Margin="0 5 0 0">
+                                                Margin="-12 5 0 0">
                                             <Image x:Name="delete_icon" Source="{Binding DeletePath}"
                                                    Width="18">
                                             </Image>
                                         </Button>
 
-                                        <Button x:Name="btnEdit" Grid.Column="3" HorizontalAlignment="Center"
+                                        <Button x:Name="btnEdit" Grid.Column="4" HorizontalAlignment="Center"
                                                 Style="{DynamicResource DeleteIconBtnStyle}" ToolTip="Edit selected entry"
                                                 Click="EditEntry">
                                             <Image x:Name="edit_icon" Source="{Binding EditPath}"
@@ -400,9 +401,14 @@
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
 
-                            <Button Content="EDIT" Height="30" x:Name="editHeader"
-                                    FontWeight="Bold" IsEnabled="False" Style="{DynamicResource ListViewBtnStyle}">
-                            </Button>
+                            <Grid Width="{Binding ElementName=helperField, Path=ActualWidth}">
+                                <Button Content="EDIT" Height="30" x:Name="editHeader"
+                                        FontWeight="Bold" IsEnabled="False" 
+                                        Style="{DynamicResource ListViewBtnStyle}">
+                                </Button>
+
+                                <local:Sort HorizontalAlignment="Right" Margin="0 0 10 0"></local:Sort>
+                            </Grid>
 
                         </GridViewColumn>
                     </GridView>

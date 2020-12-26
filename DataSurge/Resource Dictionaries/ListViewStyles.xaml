@@ -176,8 +176,6 @@
           Value="true" />
         <Setter Property="OverridesDefaultStyle"
           Value="true" />
-        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility"
-          Value="Auto" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility"
           Value="Auto" />
         <Setter Property="ScrollViewer.CanContentScroll"

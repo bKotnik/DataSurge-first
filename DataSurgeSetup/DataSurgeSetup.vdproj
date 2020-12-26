@@ -75,12 +75,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_3E37245A602446F396EC67A332A3E551"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_4539C36C0F264328BD5E0DE53328A024"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -119,6 +113,12 @@
         {
         "MsmKey" = "8:_7CA5BF791E36ACF8ADD159E169DEFD79"
         "OwnerKey" = "8:_D190F537DB324B39BCA923FAD2A4B39C"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7E132BC8DB41408FB26EDC13609BFDC7"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -617,26 +617,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3E37245A602446F396EC67A332A3E551"
-            {
-            "SourcePath" = "8:..\\DataSurge\\bin\\Debug\\resources\\edit_icon_backup.png"
-            "TargetName" = "8:edit_icon_backup.png"
-            "Tag" = "8:"
-            "Folder" = "8:_94E1080BE96444DCABA3F23A2B58C934"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4539C36C0F264328BD5E0DE53328A024"
             {
             "SourcePath" = "8:..\\DataSurge\\bin\\Debug\\resources\\logout_gray_icon.png"
@@ -786,6 +766,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7E132BC8DB41408FB26EDC13609BFDC7"
+            {
+            "SourcePath" = "8:..\\DataSurge\\bin\\Debug\\resources\\edit_icon_toolbar.png"
+            "TargetName" = "8:edit_icon_toolbar.png"
+            "Tag" = "8:"
+            "Folder" = "8:_94E1080BE96444DCABA3F23A2B58C934"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_85578AD6164E400CA88107CB1C3531BA"

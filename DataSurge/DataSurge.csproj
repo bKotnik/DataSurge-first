@@ -140,6 +140,9 @@
     <Compile Include="User controls\EncryptionKeyWarning.xaml.cs">
       <DependentUpon>EncryptionKeyWarning.xaml</DependentUpon>
     </Compile>
+    <Compile Include="User controls\Sort.xaml.cs">
+      <DependentUpon>Sort.xaml</DependentUpon>
+    </Compile>
     <Compile Include="User controls\VortexAnimation.xaml.cs">
       <DependentUpon>VortexAnimation.xaml</DependentUpon>
     </Compile>
@@ -240,6 +243,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="User controls\EncryptionKeyWarning.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="User controls\Sort.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
