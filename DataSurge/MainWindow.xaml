@@ -24,73 +24,74 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
+        <Image></Image>
+
         <!--orodna vrstica-->
-        <Grid Grid.Row="0" Background="#E8E8E8" Grid.ColumnSpan="6"  Grid.RowSpan="3">
+        <Grid Grid.Row="0" Grid.ColumnSpan="6"  Grid.RowSpan="3" Background="{DynamicResource BackgroundColor}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition Width="40"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
             <!--TOOLBAR-->
-            <Menu Foreground="Black" Grid.Column="0" Background="#E8E8E8">
+            <Menu Grid.Column="0" Background="{DynamicResource BackgroundColor}"
+                  ItemContainerStyle="{StaticResource MenuItemForeground}">
                 <MenuItem Header="_File" x:Name="toolbarFile">
-                    <MenuItem Header="_New" x:Name="toolbarNew" Click="OpenAddNew" Foreground="Black">
+                    <MenuItem Header="_New" x:Name="toolbarNew" Click="OpenAddNew">
                         <MenuItem.Icon>
-                            <Image x:Name="new_icon" MaxWidth="15" MaxHeight="15" />
+                            <Image x:Name="new_icon" Source="{StaticResource AddNewVector}" MaxWidth="13" MaxHeight="13" />
                         </MenuItem.Icon>
                     </MenuItem>
 
-                    <MenuItem Header="_Import" x:Name="toolbarImport"
-                          Click="btn_import" Foreground="Black">
+                    <MenuItem Header="_Import" x:Name="toolbarImport" Click="btn_import">
                         <MenuItem.Icon>
-                            <Image x:Name="import_icon" MaxWidth="15" MaxHeight="15" />
+                            <Image x:Name="import_icon" Source="{StaticResource ImportVector}" MaxWidth="13" MaxHeight="13" />
                         </MenuItem.Icon>
                     </MenuItem>
 
-                    <MenuItem Header="_Export" x:Name="toolbarExport" Foreground="Black"
-                          Click="btn_export">
+                    <MenuItem Header="_Export" x:Name="toolbarExport" Click="btn_export">
                         <MenuItem.Icon>
-                            <Image x:Name="export_icon" MaxWidth="15" MaxHeight="15" />
+                            <Image x:Name="export_icon" Source="{StaticResource ExportVector}" MaxWidth="13" MaxHeight="13" />
                         </MenuItem.Icon>
                     </MenuItem>
 
-                    <MenuItem Header="_Exit" Click="CloseApp" x:Name="toolbarExit" Foreground="Black">
+                    <MenuItem Header="_Exit" Click="CloseApp" x:Name="toolbarExit">
                         <MenuItem.Icon>
-                            <Image x:Name="xToolbar_icon" MaxWidth="15" MaxHeight="15" />
+                            <Image x:Name="xToolbar_icon" Source="{StaticResource XVector}" MaxWidth="11" MaxHeight="11" />
                         </MenuItem.Icon>
                     </MenuItem>
                 </MenuItem>
 
                 <MenuItem Header="_Edit" x:Name="toolbarEdit">
-                    <MenuItem Header="_Edit entry" x:Name="toolbarEditEntry" Click="OpenEditEntry" Foreground="Black">
+                    <MenuItem Header="_Edit entry" x:Name="toolbarEditEntry" Click="OpenEditEntry">
                         <MenuItem.Icon>
-                            <Image x:Name="editToolbar_icon" MaxWidth="15" MaxHeight="15" />
+                            <Image x:Name="editToolbar_icon" Source="{StaticResource EditVector}" MaxWidth="15" MaxHeight="15" />
                         </MenuItem.Icon>
                     </MenuItem>
 
-                    <MenuItem Header="Find and Replace" x:Name="toolbarFR" Click="OpenFindReplace" Foreground="Black">
+                    <MenuItem Header="Find and Replace" x:Name="toolbarFR" Click="OpenFindReplace">
                         <MenuItem.Icon>
-                            <Image x:Name="findReplace_icon" MaxHeight="19" MaxWidth="19"/>
+                            <Image x:Name="findReplace_icon" Source="{StaticResource ReplaceVector}" MaxHeight="16" MaxWidth="16"/>
                         </MenuItem.Icon>
                     </MenuItem>
                 </MenuItem>
 
                 <MenuItem Header="_View" x:Name="toolbarView" VerticalContentAlignment="Center">
-                    <MenuItem Header="Color Picker" x:Name="toolbarColorPicker" Click="ColorPicker" Foreground="Black">
+                    <MenuItem Header="Color Picker" x:Name="toolbarColorPicker" Click="ColorPicker">
                         <MenuItem.Icon>
-                            <Image x:Name="colorPicker_icon" MaxWidth="20" MaxHeight="20" />
+                            <Image x:Name="colorPicker_icon" Source="{StaticResource ColorPickerVector}" MaxWidth="18" MaxHeight="18" />
                         </MenuItem.Icon>
                     </MenuItem>
 
-                    <MenuItem Header="_Full Screen" x:Name="toolbarFullscr" Click="FullScreen" Foreground="Black">
+                    <MenuItem Header="_Full Screen" x:Name="toolbarFullscr" Click="FullScreen">
                         <MenuItem.Icon>
-                            <Image x:Name="fullScreenToolbar_icon" MaxWidth="20" MaxHeight="20" />
+                            <Image x:Name="fullScreenToolbar_icon" Source="{StaticResource FullScreenVector}" MaxWidth="15" MaxHeight="15" />
                         </MenuItem.Icon>
                     </MenuItem>
 
-                    <MenuItem Header="_Language" x:Name="toolbarLanguage" Foreground="Black">
+                    <MenuItem Header="_Language" x:Name="toolbarLanguage">
                         <MenuItem.Icon>
-                            <Image x:Name="language_icon" MaxWidth="18" MaxHeight="18"/>
+                            <Image x:Name="language_icon" Source="{StaticResource LanguageVector}" MaxWidth="20" MaxHeight="20"/>
                         </MenuItem.Icon>
                         <MenuItem Header="_Eng" StaysOpenOnClick="True" 
                               IsCheckable="True" x:Name="eng" Checked="TranslateSlo">
@@ -102,14 +103,14 @@
                 </MenuItem>
 
                 <MenuItem Header="_Tools" x:Name="toolbarTools">
-                    <MenuItem Header="Settings" x:Name="toolbarSettings" Click="OpenSettings" Foreground="Black">
+                    <MenuItem Header="Settings" x:Name="toolbarSettings" Click="OpenSettings">
                         <MenuItem.Icon>
-                            <Image x:Name="settings_icon" Width="17" Height="17"></Image>
+                            <Image x:Name="settings_icon" Source="{StaticResource SettingsVector}" Width="15" Height="15"></Image>
                         </MenuItem.Icon>
                     </MenuItem>
-                    <MenuItem Header="Decrypt" x:Name="toolbarDecrypt" Foreground="Black">
+                    <MenuItem Header="Decrypt" x:Name="toolbarDecrypt">
                         <MenuItem.Icon>
-                            <Image x:Name="decrypt_icon" MaxHeight="18" MaxWidth="18"></Image>
+                            <Image x:Name="decrypt_icon" Source="{StaticResource DecryptVector}" MaxHeight="15" MaxWidth="15"></Image>
                         </MenuItem.Icon>
 
                         <MenuItem Header="Decrypt" ToolTip="{DynamicResource ToolTipDecrypt1}" Click="DecryptImportedData"/>
@@ -119,20 +120,20 @@
                     <MenuItem Header="Encrypt" Click="EncryptToolbar"
                           ToolTip="{StaticResource ToolTipEncrypt}">
                         <MenuItem.Icon>
-                            <Image x:Name="encrypt_icon" MaxHeight="18" MaxWidth="18"></Image>
+                            <Image x:Name="encrypt_icon" Source="{StaticResource EncryptVector}" MaxHeight="15" MaxWidth="15"></Image>
                         </MenuItem.Icon>
                     </MenuItem>
                 </MenuItem>
 
                 <MenuItem Header="_Help" x:Name="toolbarHelp">
-                    <MenuItem Header="_View Help" x:Name="toolbarViewHelp" Click="ViewHelp" Foreground="Black">
+                    <MenuItem Header="_View Help" x:Name="toolbarViewHelp" Click="ViewHelp">
                         <MenuItem.Icon>
-                            <Image x:Name="helpToolbar_icon" MaxWidth="15" MaxHeight="15" />
+                            <Image x:Name="helpToolbar_icon" Source="{StaticResource HelpVector}" MaxWidth="15" MaxHeight="15" />
                         </MenuItem.Icon>
                     </MenuItem>
-                    <MenuItem Header="_View Key" x:Name="toolbarViewKey" Click="ViewKey" Foreground="Black">
+                    <MenuItem Header="_View Key" x:Name="toolbarViewKey" Click="ViewKey">
                         <MenuItem.Icon>
-                            <Image x:Name="viewKey_icon" MaxHeight="18" MaxWidth="18"></Image>
+                            <Image x:Name="viewKey_icon" Source="{StaticResource KeyVector}" MaxHeight="15" MaxWidth="15"></Image>
                         </MenuItem.Icon>
                     </MenuItem>
 
@@ -161,7 +162,7 @@
             </Grid.RowDefinitions>
 
             <Button x:Name="btnPG" Content="PASSWORD &#xa;GENERATOR" Width="125" ToolTip="{DynamicResource ToolTipPG}"
-                    FontWeight="Bold" Click="click_PG" Grid.Row="0" Style="{DynamicResource SideMenuBtnStyle}"
+                    FontWeight="Bold" Click="click_PG" Grid.Row="0" Style="{DynamicResource SideMenuBtnStylePG}"
                     Focusable="False">
             </Button>
 
@@ -197,7 +198,7 @@
                 <Button x:Name="btnLogout" Width="125" FontWeight="Bold" ToolTip="{DynamicResource ToolTipLogout}"
                     MinHeight="60" Click="Logout" Margin="0 15 0 0" Style="{DynamicResource LogoutBtnStyle}">
                     <Image x:Name="logout_icon" Width="45" Height="45"
-                           Margin="40 0 0 0">
+                           Margin="33 0 0 0" Source="{DynamicResource LogoutVector}">
                     </Image>
                 </Button>
 
@@ -227,27 +228,7 @@
                 <ListView.View>
                     <GridView AllowsColumnReorder="True" ColumnHeaderContainerStyle="{DynamicResource ColumnHeader}">
 
-                        <GridView.ColumnHeaderContextMenu>
-                            <ContextMenu Placement="Bottom" PlacementRectangle="75,30,0,0">
-                                <MenuItem Header="Show/Hide columns" FontWeight="Bold" StaysOpenOnClick="True"></MenuItem>
 
-                                <MenuItem Header="Emails" IsCheckable="True" StaysOpenOnClick="True" 
-                                          Click="HideColumn">
-                                </MenuItem>
-                                <MenuItem Header="Usernames" IsCheckable="True" StaysOpenOnClick="True" 
-                                          Click="HideColumn">
-                                </MenuItem>
-                                <MenuItem Header="Passwords" IsCheckable="True" StaysOpenOnClick="True" 
-                                          Click="HideColumn">
-                                </MenuItem>
-                                <MenuItem Header="Contacts/other" IsCheckable="True" StaysOpenOnClick="True" 
-                                          Click="HideColumn">
-                                </MenuItem>
-                                <MenuItem Header="Notes" IsCheckable="True" StaysOpenOnClick="True" 
-                                          Click="HideColumn">
-                                </MenuItem>
-                            </ContextMenu>
-                        </GridView.ColumnHeaderContextMenu>
 
                         <!--EMAILS-->
                         <GridViewColumn x:Name="emailColumn" Width="{Binding ElementName=helperField, Path=ActualWidth}">

@@ -7,7 +7,7 @@
     <SolidColorBrush x:Key="MainColor" Color="#059401"/>
     <SolidColorBrush x:Key="MainColor50" Color="#50059401" /> <!--50 opacity-->
     <Color x:Key="MainGradientColor">#059401</Color>
-    <Color x:Key="MainColor35">#35059401</Color> <!--42 opacity for gradients-->
+    <Color x:Key="MainColor35">#35059401</Color> <!--35 opacity for gradients-->
     <Color x:Key="MainColor95">#95059401</Color> <!--95 opacity for gradients-->
     <!--MAIN COLOR-->
     

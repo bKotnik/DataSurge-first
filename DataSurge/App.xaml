@@ -13,6 +13,8 @@
                 <ResourceDictionary Source="Resource Dictionaries/ScrollbarStyles.xaml"/>
                 <ResourceDictionary Source="Resource Dictionaries/InputFieldsStyles.xaml"/>
                 <ResourceDictionary Source="Resource Dictionaries/ListViewStyles.xaml"/>
+                <ResourceDictionary Source="Resource Dictionaries/MenuStyles.xaml"/>
+                <ResourceDictionary Source="Resource Dictionaries/VectorImages.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

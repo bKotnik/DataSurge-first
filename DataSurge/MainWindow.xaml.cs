@@ -1,5 +1,4 @@
 ﻿using DataSurge.Classes;
-using DataSurge.Classes.Utils;
 using DataSurge.Login;
 using DataSurge.Main;
 using DataSurge.Side_menu;
@@ -13,7 +12,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -27,11 +25,12 @@ namespace DataSurge
     /// </summary>
     public partial class MainWindow : Window
     {
-        bool clickedAgainE = false; // when clicking on hide columns (e - emails, u - usernames,...)
-        bool clickedAgainU = false;
-        bool clickedAgainP = false;
-        bool clickedAgainO = false;
-        bool clickedAgainN = false;
+        // when clicking on hide columns (e - emails, u - usernames,...)
+        //bool clickedAgainE = false; 
+        //bool clickedAgainU = false;
+        //bool clickedAgainP = false;
+        //bool clickedAgainO = false;
+        //bool clickedAgainN = false;
         bool spaceAgain = false;
         bool logout_pressed = false;
 
@@ -52,40 +51,17 @@ namespace DataSurge
             PreviewKeyDown += new KeyEventHandler(HandleSpace);
             PreviewKeyDown += new KeyEventHandler(HandleDelete);
 
-            // get source for images
-            LoadImages();
-
             // check toolbar warning!
             if (Properties.Settings.Default.ToolbarWarning == false)
                 toolbarWarning.Visibility = Visibility.Hidden;
             else
                 toolbarWarning.Visibility = Visibility.Visible;
 
-            /*GET PREFERENCES FROM FILE*/
+            // get preferences
             GetPreferences();
 
-            /*GET DATA FROM FILE*/
+            // get data
             GetData();
-        }
-
-        /* LOAD ASSETS */
-        private void LoadImages()
-        {
-            logout_icon.Source = new BitmapImage(Assets.LOGOUT_ICON);
-            editToolbar_icon.Source = new BitmapImage(Assets.EDIT_TOOLBAR_ICON);
-            new_icon.Source = new BitmapImage(Assets.NEW_ICON);
-            xToolbar_icon.Source = new BitmapImage(Assets.X_TOOLBAR_ICON);
-            fullScreenToolbar_icon.Source = new BitmapImage(Assets.FULL_SCREEN_TOOLBAR_ICON);
-            helpToolbar_icon.Source = new BitmapImage(Assets.HELP_TOOLBAR_ICON);
-            language_icon.Source = new BitmapImage(Assets.LANGUAGE_ICON);
-            settings_icon.Source = new BitmapImage(Assets.SETTINGS_ICON);
-            findReplace_icon.Source = new BitmapImage(Assets.FIND_REPLACE_ICON);
-            export_icon.Source = new BitmapImage(Assets.EXPORT_ICON);
-            import_icon.Source = new BitmapImage(Assets.IMPORT_ICON);
-            decrypt_icon.Source = new BitmapImage(Assets.DECRYPT_ICON);
-            encrypt_icon.Source = new BitmapImage(Assets.ENCRYPT_ICON);
-            colorPicker_icon.Source = new BitmapImage(Assets.COLOR_PICKER_ICON);
-            viewKey_icon.Source = new BitmapImage(Assets.VIEW_KEY_ICON);
         }
 
         private void GetPreferences()
@@ -497,7 +473,7 @@ namespace DataSurge
             }
         }
 
-        /* TOOLBAR MENU */
+
         /*FILE*/
         private void OpenAddNew(object sender, RoutedEventArgs e)
         {
@@ -775,82 +751,6 @@ namespace DataSurge
             toolbarWarning.Visibility = visibility;
         }
 
-        /* TOOLBAR MENU */
-
-        // HIDE COLUMNS - LISTVIEW MENU
-        private void HideColumn(object sender, RoutedEventArgs e)
-        {
-            string which = (sender as MenuItem).Header.ToString();
-
-            if (which == "Emails")
-            {
-                HelperHideColumn(emailColumn, clickedAgainE);
-                if (clickedAgainE == false)
-                    clickedAgainE = true;
-                else
-                    clickedAgainE = false;
-            }
-
-            else if (which == "Usernames")
-            {
-                HelperHideColumn(usernameColumn, clickedAgainU);
-                if (clickedAgainU == false)
-                    clickedAgainU = true;
-                else
-                    clickedAgainU = false;
-            }
-
-            else if (which == "Passwords")
-            {
-                HelperHideColumn(passwordColumn, clickedAgainP);
-                if (clickedAgainP == false)
-                    clickedAgainP = true;
-                else
-                    clickedAgainP = false;
-            }
-
-            else if (which == "Contacts/other")
-            {
-                HelperHideColumn(otherColumn, clickedAgainO);
-                if (clickedAgainO == false)
-                    clickedAgainO = true;
-                else
-                    clickedAgainO = false;
-            }
-
-            else if (which == "Notes")
-            {
-                HelperHideColumn(noteColumn, clickedAgainN);
-                if (clickedAgainN == false)
-                    clickedAgainN = true;
-                else
-                    clickedAgainN = false;
-            }
-        }
-
-        private void HelperHideColumn(GridViewColumn gridViewColumn, bool clickedAgain)
-        {
-            if (clickedAgain == false)
-            {
-                gridViewColumn.Width = 0;
-                //clickedAgain = true;
-            }
-
-            else if (clickedAgain == true)
-            {
-                Binding myBinding = new Binding
-                {
-                    Source = editColumn,
-                    Path = new PropertyPath("helperField"),
-                    Mode = BindingMode.OneWay,
-                    UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged
-                };
-                BindingOperations.SetBinding(gridViewColumn, GridViewColumn.WidthProperty, myBinding);
-
-                //clickedAgain = false;
-            }
-        }
-
         // QUICK CASTS
         private void HandleEsc(object sender, KeyEventArgs e)
         {
@@ -883,31 +783,34 @@ namespace DataSurge
 
         private void HandleDelete(object sender, KeyEventArgs e)
         {
-            if (lvDataMain.SelectedItems.Count <= 0)
+            if (e.Key == Key.Delete)
             {
-                _ = MessageBox.Show("0 items(s) selected!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-
-            else
-            {
-                if (Utility.preferences.MaximumSecurity == true)
+                if (lvDataMain.SelectedItems.Count <= 0)
                 {
-                    WhichButton.buttonContent = "confirmDelete";
-
-                    Confirmation confirmation = new Confirmation();
-                    confirmation.ShowDialog();
-
-                    if (Utility.confirm == true)
-                    {
-                        HelperDeleteItem();
-                    }
-
-                    Utility.confirm = false;
+                    _ = MessageBox.Show("0 items(s) selected!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
 
                 else
                 {
-                    HelperDeleteItem();
+                    if (Utility.preferences.MaximumSecurity == true)
+                    {
+                        WhichButton.buttonContent = "confirmDelete";
+
+                        Confirmation confirmation = new Confirmation();
+                        confirmation.ShowDialog();
+
+                        if (Utility.confirm == true)
+                        {
+                            HelperDeleteItem();
+                        }
+
+                        Utility.confirm = false;
+                    }
+
+                    else
+                    {
+                        HelperDeleteItem();
+                    }
                 }
             }
         }

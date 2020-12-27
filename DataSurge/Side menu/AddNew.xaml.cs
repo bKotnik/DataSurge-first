@@ -1,4 +1,5 @@
 ﻿using DataSurge.Classes;
+using DataSurge.Classes.Utils;
 using System;
 using System.Collections.ObjectModel;
 using System.IO;
@@ -25,7 +26,7 @@ namespace DataSurge.Side_menu
         {
             InitializeComponent();
             _mainWindow = mainWindow;
-            showPassIcon.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\resources\\show_password_icon.ico", UriKind.Absolute));
+            showPassIcon.Source = new BitmapImage(Assets.SHOW_PASS_ICON);
         }
 
         private void function()

@@ -1,19 +1,9 @@
 ﻿using DataSurge.Classes;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace DataSurge.User_controls
 {
@@ -34,7 +24,7 @@ namespace DataSurge.User_controls
             ICollectionView sorted = CollectionViewSource.GetDefaultView(Utility.ListData);
             ListSortDirection direction;
 
-            if(pressed == false)
+            if (pressed == false)
             {
                 sorted.SortDescriptions.Clear();
                 direction = ListSortDirection.Ascending;
@@ -48,8 +38,8 @@ namespace DataSurge.User_controls
                 flipIcon.ScaleY = -1;
                 sort_icon.RenderTransform = flipIcon;
             }
-            
-            else if(pressed == true)
+
+            else if (pressed == true)
             {
                 sorted.SortDescriptions.Clear();
                 direction = ListSortDirection.Descending;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataSurge.Classes.Utils;
+using System;
 using System.ComponentModel;
 using System.Windows.Media.Imaging;
 
@@ -108,8 +109,8 @@ namespace DataSurge.Classes
             Other = other;
             Note = note;
             NoteDetails = noteDetails;
-            DeletePath = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\resources\\delete_icon_red.ico", UriKind.Absolute)).ToString();
-            EditPath = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\resources\\edit_icon.ico", UriKind.Absolute)).ToString();
+            DeletePath = new BitmapImage(Assets.DELETE_ICON).ToString();
+            EditPath = new BitmapImage(Assets.EDIT_ICON).ToString();
         }
 
         public DataClass() { }

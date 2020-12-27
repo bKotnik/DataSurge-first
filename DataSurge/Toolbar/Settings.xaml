@@ -21,7 +21,7 @@
             <RowDefinition Height="40"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="QUICK CASTS" Foreground="{DynamicResource MainColor}" 
+        <TextBlock Text="QUICK CASTS" Foreground="{DynamicResource TitleColor}" 
                    Padding="10 0 0 0" Grid.Row="0" FontWeight="Medium"
                    FontSize="15" VerticalAlignment="Center">
         </TextBlock>
@@ -134,7 +134,7 @@
                    Stroke="{DynamicResource MainColor}"/>
 
         <!--SECURITY-->
-        <TextBlock Text="SECURITY" Foreground="{DynamicResource MainColor}"
+        <TextBlock Text="SECURITY" Foreground="{DynamicResource TitleColor}"
                    FontSize="15" Grid.Row="0" FontWeight="Medium" Grid.Column="2"
                    VerticalAlignment="Center" Padding="10 0 0 0">
         </TextBlock>

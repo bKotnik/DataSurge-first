@@ -33,7 +33,7 @@ namespace DataSurge.Login
             FileStream fsin = new FileStream("RememberPassword.xml", FileMode.Open, FileAccess.ReadWrite, FileShare.None);
             try
             {
-                using(fsin)
+                using (fsin)
                 {
                     Utility.rmbPassword = (RememberPassword)xs.Deserialize(fsin);
                 }
@@ -182,7 +182,7 @@ namespace DataSurge.Login
 
         private void EnterRegistration(object sender, KeyEventArgs e)
         {
-            if(e.Key == Key.Enter)
+            if (e.Key == Key.Enter)
             {
                 RegistrationHelper();
             }

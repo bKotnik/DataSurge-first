@@ -112,38 +112,6 @@
         </Setter>
     </Style>
 
-    <!--CONTEXT MENU STYLE-->
-    <Style TargetType="{x:Type ContextMenu}">
-        <Setter Property="SnapsToDevicePixels" Value="True" />
-        <Setter Property="OverridesDefaultStyle" Value="True" />
-        <Setter Property="Grid.IsSharedSizeScope" Value="True" />
-        <Setter Property="HasDropShadow" Value="True" />
-        <Setter Property="Foreground" Value="Black"/>
-        <Setter Property="FontWeight" Value="Normal"/>
-
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type ContextMenu}">
-                    <Border x:Name="Border"
-                            Background="White"
-                            BorderThickness="1">
-                        <Border.BorderBrush>
-                            <SolidColorBrush Color="{DynamicResource MainGradientColor}" />
-                        </Border.BorderBrush>
-                        <StackPanel IsItemsHost="True"
-                                    KeyboardNavigation.DirectionalNavigation="Cycle" />
-                    </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="HasDropShadow" Value="true">
-                            <Setter TargetName="Border" Property="Padding" Value="0,3,0,3" />
-                            <Setter TargetName="Border" Property="CornerRadius" Value="4" />
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
     <!--animation ellipse-->
     <Style x:Key="animationEllipse" TargetType="Ellipse">
         <Setter Property="Width" Value="50"/>
@@ -163,7 +131,8 @@
 
         <Setter Property="Stroke">
             <Setter.Value>
-                <LinearGradientBrush EndPoint="0.0, 0.0" StartPoint="1.0, 1.0"><!--endPoint=0.5,0.16 startPoint=0.25, 0.25-->
+                <LinearGradientBrush EndPoint="0.0, 0.0" StartPoint="1.0, 1.0">
+                    <!--endPoint=0.5,0.16 startPoint=0.25, 0.25-->
                     <GradientStop Color="{DynamicResource SecondaryGradientColor}" Offset="0.0"/>
                     <GradientStop Color="{DynamicResource SecondaryGradientColor}" Offset="0.1"/>
                     <GradientStop Color="{DynamicResource MainGradientColor}" Offset="0.2"/>
@@ -179,6 +148,7 @@
             </Setter.Value>
         </Setter>
     </Style>
+
 
     <!--WINDOW STYLE-->
 

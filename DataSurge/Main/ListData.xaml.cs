@@ -28,7 +28,7 @@ namespace DataSurge.Main
 
             try
             {
-                using(stream)
+                using (stream)
                 {
                     Utility.ListData = (ObservableCollection<DataClass>)xs.Deserialize(stream);
 

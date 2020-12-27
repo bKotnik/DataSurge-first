@@ -8,8 +8,8 @@
              d:DesignHeight="18" d:DesignWidth="18">
 
     <Grid Background="Transparent">
-        <Button Style="{StaticResource noStyleBtn}" Margin="0 0 10 0" Click="SortByNotes">
-            <Image Source="C:\Users\Kekc\source\repos\DataSurge\DataSurge\bin\Debug\resources\sort_icon.ico" 
+        <Button Style="{StaticResource noStyleBtn}" Margin="0 2 12 0" Click="SortByNotes">
+            <Image Source="{StaticResource SortVector}" 
                    x:Name="sort_icon" MaxWidth="18" MaxHeight="18">
             </Image>
         </Button>

@@ -53,6 +53,7 @@ namespace DataSurge.Toolbar
                 Properties.Settings.Default.MainColor35 = final35;
                 Properties.Settings.Default.MainColor95 = final95;
                 Properties.Settings.Default.Save();
+                Properties.Settings.Default.Reload();
 
                 //change current color textBox
                 currentColorMain.Text = "Current color: " + Properties.Settings.Default.MainColor;
@@ -75,6 +76,7 @@ namespace DataSurge.Toolbar
                 //save to setting
                 Properties.Settings.Default.SecondaryColor = colorPicker.SelectedColor.Value.ToString();
                 Properties.Settings.Default.Save();
+                Properties.Settings.Default.Reload();
 
                 //change current color textBox
                 currentColorSecondary.Text = "Current color: " + Properties.Settings.Default.SecondaryColor;
@@ -97,6 +99,7 @@ namespace DataSurge.Toolbar
                 //save to setting
                 Properties.Settings.Default.TextColor = colorPicker.SelectedColor.Value.ToString();
                 Properties.Settings.Default.Save();
+                Properties.Settings.Default.Reload();
 
                 //change current color textBox
                 currentColorText.Text = "Current color: " + Properties.Settings.Default.TextColor;
@@ -119,6 +122,7 @@ namespace DataSurge.Toolbar
                 //save to setting
                 Properties.Settings.Default.BackgroundColor = colorPicker.SelectedColor.Value.ToString();
                 Properties.Settings.Default.Save();
+                Properties.Settings.Default.Reload();
 
                 //change current color textBox
                 currentColorBg.Text = "Current color: " + Properties.Settings.Default.BackgroundColor;
@@ -141,6 +145,7 @@ namespace DataSurge.Toolbar
                 //save to setting
                 Properties.Settings.Default.TitleColor = colorPicker.SelectedColor.Value.ToString();
                 Properties.Settings.Default.Save();
+                Properties.Settings.Default.Reload();
 
                 //change current color textBox
                 currentColorTitle.Text = "Current color: " + Properties.Settings.Default.TitleColor;
@@ -162,6 +167,7 @@ namespace DataSurge.Toolbar
                 //save to setting
                 Properties.Settings.Default.ExitColor = colorPicker.SelectedColor.Value.ToString();
                 Properties.Settings.Default.Save();
+                Properties.Settings.Default.Reload();
 
                 //change current color textBox
                 currentColorExit.Text = "Current color: " + Properties.Settings.Default.ExitColor;
@@ -183,6 +189,7 @@ namespace DataSurge.Toolbar
                 //save to setting
                 Properties.Settings.Default.WarningColor = colorPicker.SelectedColor.Value.ToString();
                 Properties.Settings.Default.Save();
+                Properties.Settings.Default.Reload();
 
                 //change current color textBox
                 currentColorWarning.Text = "Current color: " + Properties.Settings.Default.WarningColor;
@@ -241,6 +248,7 @@ namespace DataSurge.Toolbar
             Properties.Settings.Default.WarningColor = "#f9b302";
 
             Properties.Settings.Default.Save();
+            Properties.Settings.Default.Reload();
 
             //change current color textBoxes
             currentColorMain.Text = "Current color: " + Properties.Settings.Default.MainColor;
