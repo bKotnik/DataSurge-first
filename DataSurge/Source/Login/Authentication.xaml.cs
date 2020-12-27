@@ -1,4 +1,5 @@
 ﻿using DataSurge.Classes;
+using DataSurge.Login;
 using System;
 using System.ComponentModel;
 using System.IO;
@@ -8,7 +9,7 @@ using System.Windows;
 using System.Windows.Input;
 using System.Xml.Serialization;
 
-namespace DataSurge.Login
+namespace DataSurge.Source.Login
 {
     /// <summary>
     /// Interaction logic for Authentication.xaml

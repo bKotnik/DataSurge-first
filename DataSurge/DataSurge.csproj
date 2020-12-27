@@ -82,79 +82,79 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Classes\DataClass.cs" />
-    <Compile Include="Classes\ListDataClass.cs" />
-    <Compile Include="Classes\PasswordMagicianClass.cs" />
-    <Compile Include="Classes\PreferencesClass.cs" />
-    <Compile Include="Classes\Registration.cs" />
-    <Compile Include="Classes\Utils\Assets.cs" />
-    <Compile Include="Classes\Utils\RememberPassword.cs" />
-    <Compile Include="Classes\Utils\Utility.cs" />
-    <Compile Include="Classes\Utils\WhichButton.cs" />
-    <Compile Include="Confirmation.xaml.cs">
+    <Compile Include="Source\Classes\DataClass.cs" />
+    <Compile Include="Source\Classes\ListDataClass.cs" />
+    <Compile Include="Source\Classes\PasswordMagicianClass.cs" />
+    <Compile Include="Source\Classes\PreferencesClass.cs" />
+    <Compile Include="Source\Classes\Registration.cs" />
+    <Compile Include="Source\Classes\Utils\Assets.cs" />
+    <Compile Include="Source\Classes\Utils\RememberPassword.cs" />
+    <Compile Include="Source\Classes\Utils\Utility.cs" />
+    <Compile Include="Source\Classes\Utils\WhichButton.cs" />
+    <Compile Include="Source\Nuggets\Confirmation.xaml.cs">
       <DependentUpon>Confirmation.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Converters\PasswordToTextConverter.cs" />
-    <Compile Include="Login\Authentication.xaml.cs">
+    <Compile Include="Source\Converters\PasswordToTextConverter.cs" />
+    <Compile Include="Source\Login\Authentication.xaml.cs">
       <DependentUpon>Authentication.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Login\HelpContact.xaml.cs">
+    <Compile Include="Source\Login\HelpContact.xaml.cs">
       <DependentUpon>HelpContact.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Main\Edit.xaml.cs">
+    <Compile Include="Source\Main\Edit.xaml.cs">
       <DependentUpon>Edit.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Main\ListData.xaml.cs">
+    <Compile Include="Source\Main\ListData.xaml.cs">
       <DependentUpon>ListData.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Main\NoteEditor.xaml.cs">
+    <Compile Include="Source\Main\NoteEditor.xaml.cs">
       <DependentUpon>NoteEditor.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Main\ViewKey.xaml.cs">
+    <Compile Include="Source\Main\ViewKey.xaml.cs">
       <DependentUpon>ViewKey.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Side menu\AddNew.xaml.cs">
+    <Compile Include="Source\Side menu\AddNew.xaml.cs">
       <DependentUpon>AddNew.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Side menu\ChangeMasterPassword.xaml.cs">
+    <Compile Include="Source\Side menu\ChangeMasterPassword.xaml.cs">
       <DependentUpon>ChangeMasterPassword.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Side menu\PasswordGenerator.xaml.cs">
+    <Compile Include="Source\Side menu\PasswordGenerator.xaml.cs">
       <DependentUpon>PasswordGenerator.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Side menu\PasswordMagician.xaml.cs">
+    <Compile Include="Source\Side menu\PasswordMagician.xaml.cs">
       <DependentUpon>PasswordMagician.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Side menu\WarningDetails.xaml.cs">
+    <Compile Include="Source\Side menu\WarningDetails.xaml.cs">
       <DependentUpon>WarningDetails.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Toolbar\ColorPicker.xaml.cs">
+    <Compile Include="Source\Toolbar\ColorPicker.xaml.cs">
       <DependentUpon>ColorPicker.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Toolbar\FindReplace.xaml.cs">
+    <Compile Include="Source\Toolbar\FindReplace.xaml.cs">
       <DependentUpon>FindReplace.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Toolbar\Settings.xaml.cs">
+    <Compile Include="Source\Toolbar\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
-    <Compile Include="User controls\EncryptionKeyWarning.xaml.cs">
+    <Compile Include="Source\User controls\EncryptionKeyWarning.xaml.cs">
       <DependentUpon>EncryptionKeyWarning.xaml</DependentUpon>
     </Compile>
-    <Compile Include="User controls\Sort.xaml.cs">
+    <Compile Include="Source\User controls\Sort.xaml.cs">
       <DependentUpon>Sort.xaml</DependentUpon>
     </Compile>
-    <Compile Include="User controls\VortexAnimation.xaml.cs">
+    <Compile Include="Source\User controls\VortexAnimation.xaml.cs">
       <DependentUpon>VortexAnimation.xaml</DependentUpon>
     </Compile>
-    <Page Include="Confirmation.xaml">
+    <Page Include="Source\Nuggets\Confirmation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Login\Authentication.xaml">
+    <Page Include="Source\Login\Authentication.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Login\HelpContact.xaml">
+    <Page Include="Source\Login\HelpContact.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -170,95 +170,95 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Main\Edit.xaml">
+    <Page Include="Source\Main\Edit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Main\ListData.xaml">
+    <Page Include="Source\Main\ListData.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Main\NoteEditor.xaml">
+    <Page Include="Source\Main\NoteEditor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Main\ViewKey.xaml">
+    <Page Include="Source\Main\ViewKey.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Resource Dictionaries\ButtonStyles.xaml">
+    <Page Include="Source\Resource Dictionaries\ButtonStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Resource Dictionaries\Colors.xaml">
+    <Page Include="Source\Resource Dictionaries\Colors.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Resource Dictionaries\InputFieldsStyles.xaml">
+    <Page Include="Source\Resource Dictionaries\InputFieldsStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Resource Dictionaries\ListViewStyles.xaml">
+    <Page Include="Source\Resource Dictionaries\ListViewStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Resource Dictionaries\MenuStyles.xaml">
+    <Page Include="Source\Resource Dictionaries\MenuStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Resource Dictionaries\Other.xaml">
+    <Page Include="Source\Resource Dictionaries\Other.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Resource Dictionaries\ScrollbarStyles.xaml">
+    <Page Include="Source\Resource Dictionaries\ScrollbarStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Resource Dictionaries\VectorImages.xaml">
+    <Page Include="Source\Resource Dictionaries\VectorImages.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Side menu\AddNew.xaml">
+    <Page Include="Source\Side menu\AddNew.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Side menu\ChangeMasterPassword.xaml">
+    <Page Include="Source\Side menu\ChangeMasterPassword.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Side menu\PasswordGenerator.xaml">
+    <Page Include="Source\Side menu\PasswordGenerator.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Side menu\PasswordMagician.xaml">
+    <Page Include="Source\Side menu\PasswordMagician.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Side menu\WarningDetails.xaml">
+    <Page Include="Source\Side menu\WarningDetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Toolbar\ColorPicker.xaml">
+    <Page Include="Source\Toolbar\ColorPicker.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Toolbar\FindReplace.xaml">
+    <Page Include="Source\Toolbar\FindReplace.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Toolbar\Settings.xaml">
+    <Page Include="Source\Toolbar\Settings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="User controls\EncryptionKeyWarning.xaml">
+    <Page Include="Source\User controls\EncryptionKeyWarning.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="User controls\Sort.xaml">
+    <Page Include="Source\User controls\Sort.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="User controls\VortexAnimation.xaml">
+    <Page Include="Source\User controls\VortexAnimation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
