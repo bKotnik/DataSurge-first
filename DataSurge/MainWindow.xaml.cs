@@ -63,6 +63,9 @@ namespace DataSurge
 
             // get data
             GetData();
+
+            // check if decrypt is needed
+            IsDecryptNeeded();
         }
 
         private void GetPreferences()
@@ -86,11 +89,18 @@ namespace DataSurge
 
         private void GetData()
         {
-            Stream stream = File.OpenRead(Environment.CurrentDirectory + "\\Data.xml");
+            Stream stream;
+
+            if (!File.Exists(Environment.CurrentDirectory + "\\Data.xml"))
+                stream = File.Create(Environment.CurrentDirectory + "\\Data.xml");
+            else
+                stream = File.OpenRead(Environment.CurrentDirectory + "\\Data.xml");
+
             XmlSerializer xs = new XmlSerializer(typeof(ObservableCollection<DataClass>));
-            try
+
+            using (stream)
             {
-                using (stream)
+                try
                 {
                     Utility.ListData = (ObservableCollection<DataClass>)xs.Deserialize(stream);
 
@@ -103,13 +113,13 @@ namespace DataSurge
 
                     lvDataMain.ItemsSource = Utility.ListData;
                 }
-            }
 
-            catch
-            {
-                if (stream.Length != 0)
+                catch
                 {
-                    _ = MessageBox.Show("Error occurred when trying to load data", "Error loading data", MessageBoxButton.OK, MessageBoxImage.Error);
+                    if (stream.Length != 0)
+                    {
+                        _ = MessageBox.Show("Error occurred when trying to load data", "Error loading data", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                 }
             }
         }
@@ -623,9 +633,12 @@ namespace DataSurge
             settings.ShowDialog();
         }
 
-        private void DecryptImportedData(object sender, RoutedEventArgs e)
+        // decrypt data.xml file (from toolbar)
+        private void DecryptToolbar(object sender, RoutedEventArgs e)
         {
             Mouse.OverrideCursor = Cursors.Wait;
+
+            File.WriteAllText(Environment.CurrentDirectory + "\\Data.xml", string.Empty); // clear file
 
             try
             {
@@ -634,82 +647,20 @@ namespace DataSurge
 
             catch
             {
-                _ = MessageBox.Show("Cannot decrypt data that is encrypted incorrectly", "Decryption", MessageBoxButton.OK, MessageBoxImage.Information);
+                // it always catches exception but still does the decryption... idk
+                //_ = MessageBox.Show("Cannot decrypt data that is encrypted incorrectly\nOR\nIs already decrypted", "Decryption", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-
-            Mouse.OverrideCursor = null;
-        }
-
-        private void DecryptOverwriteImportedData(object sender, RoutedEventArgs e)
-        {
-            Mouse.OverrideCursor = Cursors.Wait;
 
             try
             {
-                Utility.decryptListData(Utility.ListData);
-
-                File.WriteAllText(Environment.CurrentDirectory + "\\Data.xml", string.Empty); // clear file
-
-                Stream stream = File.OpenWrite(Environment.CurrentDirectory + "\\Data.xml");
-
-                try
-                {
-                    using (stream)
-                    {
-                        XmlSerializer xs = new XmlSerializer(typeof(ObservableCollection<DataClass>));
-                        xs.Serialize(stream, Utility.ListData);
-
-                        //show ! in toolbar
-                        toolbarWarning.Visibility = Visibility.Visible;
-                        Properties.Settings.Default.ToolbarWarning = true;
-                        Properties.Settings.Default.Save();
-                    }
-                }
-
-                catch
-                {
-                    _ = MessageBox.Show("Error occurred when trying to serialize data", "Error serializing", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-            }
-
-            catch
-            {
-                _ = MessageBox.Show("Cannot decrypt data that is encrypted incorrectly", "Decryption", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-
-            Mouse.OverrideCursor = null;
-        }
-
-        // encrypt data.xml file (from toolbar)
-        private void EncryptToolbar(object sender, RoutedEventArgs e)
-        {
-            Mouse.OverrideCursor = Cursors.Wait;
-            // overwrite data.xml with empty string
-            File.WriteAllText(Environment.CurrentDirectory + "\\Data.xml", string.Empty);
-
-            // first decryption so that encrypted string doesnt stack
-            try
-            {
-                Utility.decryptListData(Utility.ListData);
-            }
-            catch { }
-
-            //encryption
-            Utility.encryptListData(Utility.ListData);
-
-            //serialization of ListData
-            Stream stream = File.OpenWrite(Environment.CurrentDirectory + "\\Data.xml");
-
-            try
-            {
-                using (stream)
+                using (Stream stream = File.OpenWrite(Environment.CurrentDirectory + "\\Data.xml"))
                 {
                     XmlSerializer xs = new XmlSerializer(typeof(ObservableCollection<DataClass>));
                     xs.Serialize(stream, Utility.ListData);
 
-                    //hide ! in toolbar
-                    toolbarWarning.Visibility = Visibility.Hidden;
-                    Properties.Settings.Default.ToolbarWarning = false;
+                    //show ! in toolbar
+                    toolbarWarning.Visibility = Visibility.Visible;
+                    Properties.Settings.Default.ToolbarWarning = true;
                     Properties.Settings.Default.Save();
                 }
             }
@@ -719,17 +670,63 @@ namespace DataSurge
                 _ = MessageBox.Show("Error occurred when trying to serialize data", "Error serializing", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
-            //decrypt observable collection, so you dont have to manually decrypt again
-            try
-            {
-                Utility.ListData = Utility.decryptListData(Utility.ListData);
-            }
-            catch
-            {
-                _ = MessageBox.Show("Error occurred when trying to decrypt data", "Error decrypting", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-
             Mouse.OverrideCursor = null;
+        }
+
+        // encrypt data.xml file (from toolbar)
+        private void EncryptToolbar(object sender, RoutedEventArgs e)
+        {
+            if(Properties.Settings.Default.ToolbarWarning == true)
+            {
+                Mouse.OverrideCursor = Cursors.Wait;
+
+                // overwrite data.xml with empty string
+                File.WriteAllText(Environment.CurrentDirectory + "\\Data.xml", string.Empty);
+
+                // first decryption so that encrypted string doesnt stack
+                try
+                {
+                    Utility.decryptListData(Utility.ListData);
+                }
+                catch { }
+
+                //encryption
+                Utility.encryptListData(Utility.ListData);
+
+                //serialization of ListData
+                Stream stream = File.OpenWrite(Environment.CurrentDirectory + "\\Data.xml");
+
+                try
+                {
+                    using (stream)
+                    {
+                        XmlSerializer xs = new XmlSerializer(typeof(ObservableCollection<DataClass>));
+                        xs.Serialize(stream, Utility.ListData);
+
+                        //hide ! in toolbar
+                        toolbarWarning.Visibility = Visibility.Hidden;
+                        Properties.Settings.Default.ToolbarWarning = false;
+                        Properties.Settings.Default.Save();
+                    }
+                }
+
+                catch
+                {
+                    _ = MessageBox.Show("Error occurred when trying to serialize data", "Error serializing", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
+                //decrypt observable collection, so you dont have to manually decrypt again
+                try
+                {
+                    Utility.ListData = Utility.decryptListData(Utility.ListData);
+                }
+                catch
+                {
+                    _ = MessageBox.Show("Error occurred when trying to decrypt data", "Error decrypting", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
+                Mouse.OverrideCursor = null;
+            }
         }
 
         /*HELP*/
@@ -923,6 +920,19 @@ namespace DataSurge
         {
             if (logout_pressed == false)
                 CloseAllWindows();
+        }
+
+        // check if decrypt is needed
+        private void IsDecryptNeeded()
+        {
+            if(Properties.Settings.Default.ToolbarWarning == false) // decrypt needed -> data is encrypted
+            {
+                try
+                {
+                    Utility.decryptListData(Utility.ListData);
+                }
+                catch { }
+            }
         }
     }
 }

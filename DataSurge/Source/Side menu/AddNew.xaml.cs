@@ -100,7 +100,7 @@ namespace DataSurge.Side_menu
                 }
             }
 
-            this.Close();
+            Close();
         }
 
         private void AddEntry(object sender, RoutedEventArgs e)

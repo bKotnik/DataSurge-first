@@ -137,6 +137,12 @@
     <Compile Include="Source\Toolbar\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Source\User controls\Decrypting.xaml.cs">
+      <DependentUpon>Decrypting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\User controls\Encrypting.xaml.cs">
+      <DependentUpon>Encrypting.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Source\User controls\EncryptionKeyWarning.xaml.cs">
       <DependentUpon>EncryptionKeyWarning.xaml</DependentUpon>
     </Compile>
@@ -145,6 +151,9 @@
     </Compile>
     <Compile Include="Source\User controls\VortexAnimation.xaml.cs">
       <DependentUpon>VortexAnimation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\User controls\VortexAnimationMini.xaml.cs">
+      <DependentUpon>VortexAnimationMini.xaml</DependentUpon>
     </Compile>
     <Page Include="Source\Nuggets\Confirmation.xaml">
       <SubType>Designer</SubType>
@@ -250,6 +259,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Source\User controls\Decrypting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Source\User controls\Encrypting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Source\User controls\EncryptionKeyWarning.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -259,6 +276,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Source\User controls\VortexAnimation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Source\User controls\VortexAnimationMini.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

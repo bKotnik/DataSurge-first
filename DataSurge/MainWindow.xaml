@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DataSurge.User_controls"
+        xmlns:local1="clr-namespace:DataSurge.Source.User_controls"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Icon="logo_icon.ico"
@@ -23,8 +24,6 @@
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-
-        <Image></Image>
 
         <!--orodna vrstica-->
         <Grid Grid.Row="0" Grid.ColumnSpan="6"  Grid.RowSpan="3" Background="{DynamicResource BackgroundColor}">
@@ -108,14 +107,10 @@
                             <Image x:Name="settings_icon" Source="{StaticResource SettingsVector}" Width="15" Height="15"></Image>
                         </MenuItem.Icon>
                     </MenuItem>
-                    <MenuItem Header="Decrypt" x:Name="toolbarDecrypt">
+                    <MenuItem Header="Decrypt" x:Name="toolbarDecrypt" Click="DecryptToolbar" ToolTip="{StaticResource ToolTipDecrypt}">
                         <MenuItem.Icon>
                             <Image x:Name="decrypt_icon" Source="{StaticResource DecryptVector}" MaxHeight="15" MaxWidth="15"></Image>
                         </MenuItem.Icon>
-
-                        <MenuItem Header="Decrypt" ToolTip="{DynamicResource ToolTipDecrypt1}" Click="DecryptImportedData"/>
-                        <MenuItem Header="Decrypt and Overwrite" ToolTip="{DynamicResource ToolTipDecrypt2}" 
-                              Click="DecryptOverwriteImportedData"/>
                     </MenuItem>
                     <MenuItem Header="Encrypt" Click="EncryptToolbar"
                           ToolTip="{StaticResource ToolTipEncrypt}">

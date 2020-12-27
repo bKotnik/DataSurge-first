@@ -8,10 +8,9 @@
     <ToolTip x:Key="ToolTipAddNew" Content="Add new entry of data"></ToolTip>
     <ToolTip x:Key="ToolTipNoteDetails" Content="Note details"></ToolTip>
     <ToolTip x:Key="ToolTipLogout" Content="Logout"></ToolTip>
-    <ToolTip x:Key="ToolTipDecrypt1" Content="Decrypts imported data"></ToolTip>
-    <ToolTip x:Key="ToolTipDecrypt2" Content="Decrypts and overwrites imported data"></ToolTip>
+    <ToolTip x:Key="ToolTipDecrypt" Content="Decrypts all data"></ToolTip>
     <ToolTip x:Key="ToolTipColorPicker" Content="You may have to restart the &#xa;app for some changes to apply"></ToolTip>
-    <ToolTip x:Key="ToolTipEncrypt" Content="Encrypts all your data.&#xa;when you add or edit an entry, that entry WILL NOT be encrypted.&#xa;You have to click on encrypt AGAIN"></ToolTip>
+    <ToolTip x:Key="ToolTipEncrypt" Content="Encrypts all your data.&#xa;when you add or edit an entry, your data is no longer encrypted!"></ToolTip>
     <ToolTip x:Key="ToolTip!" Content="Your data is not encrypted!"></ToolTip>
 
     <Style x:Key="buttonTriggers" TargetType="Button">
@@ -149,6 +148,42 @@
         </Setter>
     </Style>
 
+    <!--animation ellipse mini-->
+    <Style x:Key="animationEllipseMini" TargetType="Ellipse">
+        <Setter Property="Width" Value="12"/>
+        <Setter Property="Height" Value="5"/>
+        <Setter Property="StrokeThickness" Value="3"/>
+        <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+        <Setter Property="Opacity" Value="0.75"/>
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="100"/>
+                    <RotateTransform/>
+                </TransformGroup>
+            </Setter.Value>
+        </Setter>
+
+        <Setter Property="Stroke">
+            <Setter.Value>
+                <LinearGradientBrush EndPoint="0.0, 0.0" StartPoint="1.0, 1.0">
+                    <!--endPoint=0.5,0.16 startPoint=0.25, 0.25-->
+                    <GradientStop Color="{DynamicResource SecondaryGradientColor}" Offset="0.0"/>
+                    <GradientStop Color="{DynamicResource SecondaryGradientColor}" Offset="0.1"/>
+                    <GradientStop Color="{DynamicResource MainGradientColor}" Offset="0.2"/>
+                    <GradientStop Color="{DynamicResource MainGradientColor}" Offset="0.3"/>
+                    <GradientStop Color="{DynamicResource MainGradientColor}" Offset="0.4"/>
+                    <GradientStop Color="{DynamicResource MainGradientColor}" Offset="0.5"/>
+                    <GradientStop Color="{DynamicResource MainGradientColor}" Offset="0.6"/>
+                    <GradientStop Color="{DynamicResource MainGradientColor}" Offset="0.7"/>
+                    <GradientStop Color="{DynamicResource MainGradientColor}" Offset="0.8"/>
+                    <GradientStop Color="{DynamicResource SecondaryGradientColor}" Offset="0.9"/>
+                    <GradientStop Color="{DynamicResource SecondaryGradientColor}" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
 
     <!--WINDOW STYLE-->
 

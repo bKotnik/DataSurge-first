@@ -250,7 +250,7 @@ namespace DataSurge.Source.Login
         //send email upon successful registration
         private void SendEmail()
         {
-            string bodyMessage = "Hello,\nthank you for registering to DataSurge.\n\n" +
+            string bodyMessage = "Hello,\nThank you for registering to DataSurge.\n\n" +
                                  "Your encryption key used for encrypting your data: ";
 
             SmtpClient client = new SmtpClient()
@@ -274,7 +274,7 @@ namespace DataSurge.Source.Login
                 From = fromEmail,
                 Subject = "DataSurge - encryption key",
                 Body = bodyMessage + Properties.Settings.Default.EncryptionKey +
-                       "\n\n*We recommend you save this key*\n\n" + "Best regards,\nKecktz Solutions"
+                       "\n\n*We recommend that you save this key*\n\n" + "Best regards,\nKecktz Solutions"
             };
 
             message.To.Add(toEmail);
