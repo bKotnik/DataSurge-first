@@ -7,6 +7,7 @@
         xmlns:local1="clr-namespace:DataSurge.Source.User_controls"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
+        x:Name="AuthWindow"
         Title="Authentication" Height="450" Width="875" MinWidth="780">
 
     <Grid x:Name="authenticationGrid" Background="{DynamicResource BackgroundColor}">
@@ -23,6 +24,9 @@
 
         <!--ANIMATION-->
         <local:VortexAnimation Grid.Row="1" Grid.ColumnSpan="2" />
+        <!--<local1:Decrypting Grid.Row="1" Grid.ColumnSpan="2" x:Name="DecryptingLoading"
+                           Panel.ZIndex="300" Visibility="Hidden">
+        </local1:Decrypting>-->
 
         <!--LOGIN FORM-->
         <Grid Grid.Row="0" Grid.Column="0" Panel.ZIndex="300">

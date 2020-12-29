@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:DataSurge.Toolbar"
+        xmlns:local="clr-namespace:DataSurge.Source.User_controls"
         mc:Ignorable="d"
         BorderBrush="{DynamicResource MainColor}"
         BorderThickness="0.75"
@@ -51,10 +51,7 @@
                             <RowDefinition></RowDefinition>
                         </Grid.RowDefinitions>
 
-                        <Ellipse Height="7" Width="7" Fill="{DynamicResource MainColor}" 
-                         VerticalAlignment="Center"
-                         HorizontalAlignment="Right"
-                         Grid.Column="0" Grid.Row="0"/>
+                        <local:BulletPoint HorizontalAlignment="Right" VerticalAlignment="Center"/>
 
                         <TextBlock Text="Space" Grid.Row="0"
                                Grid.Column="1" Foreground="{DynamicResource TextColor}"
@@ -84,10 +81,7 @@
                             <RowDefinition></RowDefinition>
                         </Grid.RowDefinitions>
 
-                        <Ellipse Height="7" Width="7" Fill="{DynamicResource MainColor}" 
-                         VerticalAlignment="Center"
-                         HorizontalAlignment="Right"
-                         Grid.Column="0" Grid.Row="0"/>
+                        <local:BulletPoint HorizontalAlignment="Right" VerticalAlignment="Center"/>
 
                         <TextBlock Text="Esc" Grid.Row="0"
                                Grid.Column="1" Foreground="{DynamicResource TextColor}"
@@ -158,10 +152,7 @@
                             <RowDefinition Height="65"></RowDefinition>
                         </Grid.RowDefinitions>
 
-                        <Ellipse Height="7" Width="7" Fill="{DynamicResource MainColor}" 
-                         VerticalAlignment="Center"
-                         HorizontalAlignment="Right"
-                         Grid.Column="0" Grid.Row="0"/>
+                        <local:BulletPoint HorizontalAlignment="Right" VerticalAlignment="Center"/>
 
                         <TextBlock Text="Maximum security" Grid.Row="0"
                                Grid.Column="1" Foreground="{DynamicResource TextColor}"

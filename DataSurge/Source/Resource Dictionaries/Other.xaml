@@ -10,7 +10,7 @@
     <ToolTip x:Key="ToolTipLogout" Content="Logout"></ToolTip>
     <ToolTip x:Key="ToolTipDecrypt" Content="Decrypts all data"></ToolTip>
     <ToolTip x:Key="ToolTipColorPicker" Content="You may have to restart the &#xa;app for some changes to apply"></ToolTip>
-    <ToolTip x:Key="ToolTipEncrypt" Content="Encrypts all your data.&#xa;when you add or edit an entry, your data is no longer encrypted!"></ToolTip>
+    <ToolTip x:Key="ToolTipEncrypt" Content="Encrypts all your data.&#xa;when you add/delete/edit an entry, your data is no longer encrypted!"></ToolTip>
     <ToolTip x:Key="ToolTip!" Content="Your data is not encrypted!"></ToolTip>
 
     <Style x:Key="buttonTriggers" TargetType="Button">

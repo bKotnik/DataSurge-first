@@ -327,7 +327,7 @@
     <!--EXIT BUTTON STYLE-->
     <Style x:Key="ExitBtnStyle" TargetType="{x:Type Button}">
         <Setter Property="OverridesDefaultStyle" Value="True"/>
-        <Setter Property="Margin" Value="0 40 0 0"/>
+        <!--<Setter Property="Margin" Value="0 40 0 0"/>-->
         <Setter Property="Height" Value="30" />
         <Setter Property="Template">
             <Setter.Value>

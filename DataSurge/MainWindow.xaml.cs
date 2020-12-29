@@ -217,6 +217,11 @@ namespace DataSurge
                         {
                             XmlSerializer xs = new XmlSerializer(typeof(ObservableCollection<DataClass>));
                             xs.Serialize(stream, Utility.ListData);
+
+                            //show ! in toolbar
+                            toolbarWarning.Visibility = Visibility.Visible;
+                            Properties.Settings.Default.ToolbarWarning = true;
+                            Properties.Settings.Default.Save();
                         }
                     }
 
@@ -676,7 +681,7 @@ namespace DataSurge
         // encrypt data.xml file (from toolbar)
         private void EncryptToolbar(object sender, RoutedEventArgs e)
         {
-            if(Properties.Settings.Default.ToolbarWarning == true)
+            if (Properties.Settings.Default.ToolbarWarning == true)
             {
                 Mouse.OverrideCursor = Cursors.Wait;
 
@@ -925,7 +930,7 @@ namespace DataSurge
         // check if decrypt is needed
         private void IsDecryptNeeded()
         {
-            if(Properties.Settings.Default.ToolbarWarning == false) // decrypt needed -> data is encrypted
+            if (Properties.Settings.Default.ToolbarWarning == false) // decrypt needed -> data is encrypted
             {
                 try
                 {
@@ -936,4 +941,3 @@ namespace DataSurge
         }
     }
 }
-

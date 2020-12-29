@@ -9,5 +9,7 @@ namespace DataSurge.Classes.Utils
         // edit and delete icons in edit column
         public static Uri EDIT_ICON = new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\resources\\edit_icon.ico", UriKind.Absolute);
         public static Uri DELETE_ICON = new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\resources\\delete_icon_red.ico", UriKind.Absolute);
+
+        public static bool done = false;
     }
 }

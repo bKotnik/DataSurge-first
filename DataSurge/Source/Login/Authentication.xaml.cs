@@ -1,12 +1,18 @@
 ﻿using DataSurge.Classes;
+using DataSurge.Classes.Utils;
 using DataSurge.Login;
 using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
 using System.Net;
 using System.Net.Mail;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 using System.Xml.Serialization;
 
 namespace DataSurge.Source.Login
@@ -16,6 +22,8 @@ namespace DataSurge.Source.Login
     /// </summary>
     public partial class Authentication : Window
     {
+        public bool stillWorking = true;
+
         public Authentication()
         {
             InitializeComponent();
@@ -159,9 +167,8 @@ namespace DataSurge.Source.Login
                     if (password == Utility.User.password)
                     {
                         MainWindow main = new MainWindow();
-
                         main.Show();
-                        this.Close();
+                        Close();
                     }
 
                     else

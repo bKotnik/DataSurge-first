@@ -84,6 +84,8 @@
     </ApplicationDefinition>
     <Compile Include="Source\Classes\DataClass.cs" />
     <Compile Include="Source\Classes\ListDataClass.cs" />
+    <Compile Include="Source\Classes\Pages\ISwitchable.cs" />
+    <Compile Include="Source\Classes\Pages\Switcher.cs" />
     <Compile Include="Source\Classes\PasswordMagicianClass.cs" />
     <Compile Include="Source\Classes\PreferencesClass.cs" />
     <Compile Include="Source\Classes\Registration.cs" />
@@ -137,6 +139,9 @@
     <Compile Include="Source\Toolbar\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Source\User controls\BulletPoint.xaml.cs">
+      <DependentUpon>BulletPoint.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Source\User controls\Decrypting.xaml.cs">
       <DependentUpon>Decrypting.xaml</DependentUpon>
     </Compile>
@@ -145,6 +150,9 @@
     </Compile>
     <Compile Include="Source\User controls\EncryptionKeyWarning.xaml.cs">
       <DependentUpon>EncryptionKeyWarning.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\User controls\Pages\Help.xaml.cs">
+      <DependentUpon>Help.xaml</DependentUpon>
     </Compile>
     <Compile Include="Source\User controls\Sort.xaml.cs">
       <DependentUpon>Sort.xaml</DependentUpon>
@@ -259,6 +267,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Source\User controls\BulletPoint.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Source\User controls\Decrypting.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -268,6 +280,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Source\User controls\EncryptionKeyWarning.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Source\User controls\Pages\Help.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
