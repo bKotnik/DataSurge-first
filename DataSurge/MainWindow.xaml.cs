@@ -51,6 +51,7 @@ namespace DataSurge
             PreviewKeyDown += new KeyEventHandler(HandleEsc);
             PreviewKeyDown += new KeyEventHandler(HandleSpace);
             PreviewKeyDown += new KeyEventHandler(HandleDelete);
+            PreviewKeyDown += new KeyEventHandler(HandleAddNew);
 
             // check toolbar warning!
             if (Properties.Settings.Default.ToolbarWarning == false)
@@ -97,7 +98,7 @@ namespace DataSurge
         }
 
         /* LISTVIEW BUTTONS */
-        private void click_emails(object sender, RoutedEventArgs e)
+        private void Click_emails(object sender, RoutedEventArgs e)
         {
             WhichButton.buttonContent = (sender as Button).Content.ToString();
             WhichButton.listLabel = "Email";
@@ -106,7 +107,7 @@ namespace DataSurge
             emails.ShowDialog();
         }
 
-        private void click_usernames(object sender, RoutedEventArgs e)
+        private void Click_usernames(object sender, RoutedEventArgs e)
         {
             WhichButton.buttonContent = (sender as Button).Content.ToString();
             WhichButton.listLabel = "Username";
@@ -115,7 +116,7 @@ namespace DataSurge
             usernames.ShowDialog();
         }
 
-        private void click_passwords(object sender, RoutedEventArgs e)
+        private void Click_passwords(object sender, RoutedEventArgs e)
         {
             WhichButton.buttonContent = (sender as Button).Content.ToString();
             WhichButton.listLabel = "Password";
@@ -124,7 +125,7 @@ namespace DataSurge
             passwords.ShowDialog();
         }
 
-        private void click_other(object sender, RoutedEventArgs e)
+        private void Click_other(object sender, RoutedEventArgs e)
         {
             WhichButton.buttonContent = (sender as Button).Content.ToString();
             WhichButton.listLabel = "Other";
@@ -133,7 +134,7 @@ namespace DataSurge
             other.ShowDialog();
         }
 
-        private void click_note(object sender, RoutedEventArgs e)
+        private void Click_note(object sender, RoutedEventArgs e)
         {
             WhichButton.buttonContent = (sender as Button).Content.ToString();
             WhichButton.listLabel = "Note";
@@ -149,7 +150,7 @@ namespace DataSurge
             passGen.Show();
         }
 
-        private void btn_import(object sender, RoutedEventArgs e)
+        private void Btn_import(object sender, RoutedEventArgs e)
         {
             OpenFileDialog fileDialog = new OpenFileDialog()
             {
@@ -228,7 +229,7 @@ namespace DataSurge
             else { }
         }
 
-        private void btn_export(object sender, RoutedEventArgs e)
+        private void Btn_export(object sender, RoutedEventArgs e)
         {
             MessageBoxResult choice = CustomMessageBox.ShowYesNoCancel("How do you want to export data file?\n*Choosing formatted allows you to import the file later",
                 "Export data file", "Formatted", "Plain", "Cancel", MessageBoxImage.Question);
@@ -335,7 +336,7 @@ namespace DataSurge
             passMag.ShowDialog();
         }
 
-        private void addNew(object sender, RoutedEventArgs e)
+        private void AddNew(object sender, RoutedEventArgs e)
         {
             AddNew add_new_window = new AddNew(this);
 
@@ -472,10 +473,7 @@ namespace DataSurge
 
         private void CloseApp(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult youSure = MessageBox.Show("Are you sure you want to exit application?", "exit application", MessageBoxButton.YesNoCancel, MessageBoxImage.Warning);
-
-            if (youSure == MessageBoxResult.Yes)
-                Close();
+            Close();
         }
 
         /*EDIT*/
@@ -723,7 +721,7 @@ namespace DataSurge
         }
 
         // to change ! visibility from other windows
-        public void setToolbarWarningVisibility(Visibility visibility)
+        public void SetToolbarWarningVisibility(Visibility visibility)
         {
             toolbarWarning.Visibility = visibility;
         }
@@ -737,7 +735,6 @@ namespace DataSurge
                     Close();
             }
         }
-
         private void HandleSpace(object sender, KeyEventArgs e)
         {
             if (Utility.preferences.QuickCastSpace == true)
@@ -757,7 +754,6 @@ namespace DataSurge
                 }
             }
         }
-
         private void HandleDelete(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Delete)
@@ -791,11 +787,61 @@ namespace DataSurge
                 }
             }
         }
+        private void HandleAddNew(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.A && Keyboard.Modifiers == ModifierKeys.Control) // ctrl + a
+            {
+                AddNew addNew = new AddNew(this);
+                addNew.ShowDialog();
+            }
+        }
 
         private void CloseAllWindows()
         {
+            // save order of ListView data
+            LoadingState("Saving State");
+            File.WriteAllText(Environment.CurrentDirectory + "\\Data.xml", string.Empty);
+
+            if(Properties.Settings.Default.ToolbarWarning == false) // data needs to be encrypted before writing to file
+            {
+                using(Stream stream = File.OpenWrite(Environment.CurrentDirectory + "\\Data.xml"))
+                {
+                    try
+                    {
+                        //await RunEncryptionAsync();
+                        Utility.ListData = Utility.encryptListData(Utility.ListData);
+
+                        XmlSerializer xs = new XmlSerializer(typeof(ObservableCollection<DataClass>));
+                        xs.Serialize(stream, Utility.ListData);
+                    }
+
+                    catch
+                    {
+                        _ = MessageBox.Show("Error occurred when trying to save state", "Error saving state", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+            }
+
+            else
+            {
+                using (Stream stream = File.OpenWrite(Environment.CurrentDirectory + "\\Data.xml"))
+                {
+                    try
+                    {
+                        XmlSerializer xs = new XmlSerializer(typeof(ObservableCollection<DataClass>));
+                        xs.Serialize(stream, Utility.ListData);
+                    }
+                    catch 
+                    {
+                        _ = MessageBox.Show("Error occurred when trying to serialize data", "Error serializing", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+            }
+
             for (int i = Application.Current.Windows.Count - 1; i > 0; i--)
                 Application.Current.Windows[i].Close();
+
+            StateGrid.Visibility = Visibility.Collapsed;
         }
 
         /*DRAG AND DROP FUNCTIONALITY - Main Data ListView*/
@@ -895,7 +941,7 @@ namespace DataSurge
         }
 
         // when pressed on X close all other windows
-        protected override void OnClosing(CancelEventArgs e)
+        protected override void OnClosed(EventArgs e)
         {
             if (logout_pressed == false)
                 CloseAllWindows();

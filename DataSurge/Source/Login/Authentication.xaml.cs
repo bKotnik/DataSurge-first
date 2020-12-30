@@ -13,6 +13,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
+using System.Xml;
 using System.Xml.Serialization;
 
 namespace DataSurge.Source.Login
@@ -22,8 +23,6 @@ namespace DataSurge.Source.Login
     /// </summary>
     public partial class Authentication : Window
     {
-        public bool stillWorking = true;
-
         public Authentication()
         {
             InitializeComponent();
@@ -411,10 +410,11 @@ namespace DataSurge.Source.Login
 
         private void GetData()
         {
-            Stream stream;
+            FileStream stream;
+            string filePath = Environment.CurrentDirectory + "\\Data.xml";
 
-            if (!File.Exists(Environment.CurrentDirectory + "\\Data.xml"))
-                stream = File.Create(Environment.CurrentDirectory + "\\Data.xml");
+            if (!File.Exists(filePath))
+                stream = File.Create(filePath);
             else
                 stream = File.OpenRead(Environment.CurrentDirectory + "\\Data.xml");
 
@@ -435,6 +435,8 @@ namespace DataSurge.Source.Login
                     }
                 }
             }
+
+            stream.Close();
         }
 
         // check if decrypt is needed

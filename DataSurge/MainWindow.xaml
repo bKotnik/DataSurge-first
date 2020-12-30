@@ -43,13 +43,13 @@
                         </MenuItem.Icon>
                     </MenuItem>
 
-                    <MenuItem Header="_Import" x:Name="toolbarImport" Click="btn_import">
+                    <MenuItem Header="_Import" x:Name="toolbarImport" Click="Btn_import">
                         <MenuItem.Icon>
                             <Image x:Name="import_icon" Source="{StaticResource ImportVector}" MaxWidth="13" MaxHeight="13" />
                         </MenuItem.Icon>
                     </MenuItem>
 
-                    <MenuItem Header="_Export" x:Name="toolbarExport" Click="btn_export">
+                    <MenuItem Header="_Export" x:Name="toolbarExport" Click="Btn_export">
                         <MenuItem.Icon>
                             <Image x:Name="export_icon" Source="{StaticResource ExportVector}" MaxWidth="13" MaxHeight="13" />
                         </MenuItem.Icon>
@@ -165,11 +165,11 @@
             </Button>
 
             <Button x:Name="btnImport" Content="IMPORT" Width="125" Grid.Row="1" Focusable="False"
-                    FontWeight="Bold" MinHeight="60" Click="btn_import" Style="{DynamicResource SideMenuBtnStyle}">
+                    FontWeight="Bold" MinHeight="60" Click="Btn_import" Style="{DynamicResource SideMenuBtnStyle}">
             </Button>
 
             <Button x:Name="btnExport" Content="EXPORT" Width="125" Grid.Row="2" Focusable="False"
-                    FontWeight="Bold" MinHeight="60" Click="btn_export" Style="{DynamicResource SideMenuBtnStyle}">
+                    FontWeight="Bold" MinHeight="60" Click="Btn_export" Style="{DynamicResource SideMenuBtnStyle}">
             </Button>
 
             <Button x:Name="btnCMP" Content="CHANGE MASTER &#xa;     PASSWORD" Width="125" ToolTip="{DynamicResource ToolTipCngMP}"
@@ -183,7 +183,7 @@
             </Button>
 
             <Button x:Name="btnAddnew" Content="ADD NEW" Width="125" Style="{DynamicResource AddNewBtnStyle}"
-                    FontWeight="Bold" MinHeight="60" Grid.Row="5" Click="addNew" ToolTip="{DynamicResource ToolTipAddNew}"
+                    FontWeight="Bold" MinHeight="60" Grid.Row="5" Click="AddNew" ToolTip="{DynamicResource ToolTipAddNew}"
                     Focusable="False">
             </Button>
 
@@ -252,7 +252,7 @@
                             </GridViewColumn.CellTemplate>
 
                             <Button Content="EMAILS" Height="30" x:Name="btnEmails"
-                                    FontWeight="Bold" Click="click_emails" Focusable="False"
+                                    FontWeight="Bold" Click="Click_emails" Focusable="False"
                                     Style="{DynamicResource ListViewBtnStyle}">
                             </Button>
                         </GridViewColumn>
@@ -276,7 +276,7 @@
                             </GridViewColumn.CellTemplate>
 
                             <Button Content="USERNAMES" Height="30" x:Name="btnUsernames" Focusable="False"
-                                    FontWeight="Bold" Click="click_usernames" Style="{DynamicResource ListViewBtnStyle}">
+                                    FontWeight="Bold" Click="Click_usernames" Style="{DynamicResource ListViewBtnStyle}">
                             </Button>
                         </GridViewColumn>
 
@@ -299,7 +299,7 @@
                             </GridViewColumn.CellTemplate>
 
                             <Button Content="PASSWORDS" Height="30" x:Name="btnPasswords" Focusable="False"
-                                    FontWeight="Bold" Click="click_passwords" Style="{DynamicResource ListViewBtnStyle}">
+                                    FontWeight="Bold" Click="Click_passwords" Style="{DynamicResource ListViewBtnStyle}">
                             </Button>
                         </GridViewColumn>
 
@@ -322,7 +322,7 @@
                             </GridViewColumn.CellTemplate>
 
                             <Button Content="OTHER" Height="30" x:Name="btnOther" Focusable="False"
-                                    FontWeight="Bold" Click="click_other" Style="{DynamicResource ListViewBtnStyle}">
+                                    FontWeight="Bold" Click="Click_other" Style="{DynamicResource ListViewBtnStyle}">
                             </Button>
                         </GridViewColumn>
 
@@ -345,7 +345,7 @@
                             </GridViewColumn.CellTemplate>
 
                             <Button Content="NOTES" Height="30" x:Name="btnNotes" Focusable="False"
-                                    FontWeight="Bold" Click="click_note" Style="{DynamicResource ListViewBtnStyle}">
+                                    FontWeight="Bold" Click="Click_note" Style="{DynamicResource ListViewBtnStyle}">
                             </Button>
                         </GridViewColumn>
 

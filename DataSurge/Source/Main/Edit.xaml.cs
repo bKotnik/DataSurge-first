@@ -128,7 +128,7 @@ namespace DataSurge.Main
                     Status.Visibility = Visibility.Visible;
 
                     // show ! in toolbar
-                    _mainWindow.setToolbarWarningVisibility(Visibility.Visible);
+                    _mainWindow.SetToolbarWarningVisibility(Visibility.Visible);
                     Properties.Settings.Default.ToolbarWarning = true;
                     Properties.Settings.Default.Save();
                 }
