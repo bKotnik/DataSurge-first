@@ -28,12 +28,17 @@ namespace DataSurge.Source.Login
         {
             InitializeComponent();
 
+            Utility.ListData = new ObservableCollection<DataClass>();
+
             Utility.User = new Registration();
             Utility.rmbPassword = new RememberPassword();
             Utility.OnLoad();
 
             /*get remember password value from file*/
             RememberPass();
+
+            // load data
+            GetData();
         }
 
         private void RememberPass()
@@ -81,7 +86,7 @@ namespace DataSurge.Source.Login
             }
         }
 
-        private void Login(object sender, RoutedEventArgs e)
+        private async void LoginAsync(object sender, RoutedEventArgs e)
         {
             string password = MasterPasswordBox.Password; // kar uporabnik vnese 
 
@@ -110,6 +115,7 @@ namespace DataSurge.Source.Login
 
                 if (password == Utility.User.password)
                 {
+                    await IsDecryptNeededAsync();
                     MainWindow main = new MainWindow();
                     main.Show();
                     Close();
@@ -136,7 +142,7 @@ namespace DataSurge.Source.Login
             RegistrationHelper();
         }
 
-        private void EnterLogin(object sender, KeyEventArgs e)
+        private async void EnterLoginAsync(object sender, KeyEventArgs e)
         {
             if (File.Exists(Environment.CurrentDirectory + "\\Users.xml") && e.Key == Key.Enter)
             {
@@ -166,6 +172,7 @@ namespace DataSurge.Source.Login
 
                     if (password == Utility.User.password)
                     {
+                        await IsDecryptNeededAsync();
                         MainWindow main = new MainWindow();
                         main.Show();
                         Close();
@@ -400,6 +407,96 @@ namespace DataSurge.Source.Login
                     }
                 }
             }
+        }
+
+        private void GetData()
+        {
+            Stream stream;
+
+            if (!File.Exists(Environment.CurrentDirectory + "\\Data.xml"))
+                stream = File.Create(Environment.CurrentDirectory + "\\Data.xml");
+            else
+                stream = File.OpenRead(Environment.CurrentDirectory + "\\Data.xml");
+
+            XmlSerializer xs = new XmlSerializer(typeof(ObservableCollection<DataClass>));
+
+            using (stream)
+            {
+                try
+                {
+                    Utility.ListData = (ObservableCollection<DataClass>)xs.Deserialize(stream);
+                }
+
+                catch
+                {
+                    if (stream.Length != 0)
+                    {
+                        _ = MessageBox.Show("Error occurred when trying to load data", "Error loading data", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+            }
+        }
+
+        // check if decrypt is needed
+        private async Task IsDecryptNeededAsync()
+        {
+            if (Properties.Settings.Default.ToolbarWarning == false) // decrypt needed -> data is encrypted
+            {
+                try
+                {
+                    SetWindowOpacity(0.3);
+                    LoadingUC.Visibility = Visibility.Visible;
+
+                    await RunDecryptionAsync();
+                }
+                catch { }
+            }
+        }
+
+        private async Task RunDecryptionAsync()
+        {
+            ObservableCollection<DataClass> tmp = new ObservableCollection<DataClass>();
+
+            foreach (DataClass data in Utility.ListData)
+            {
+                tmp.Add(await Task.Run(() => Utility.DecryptDataClassAsync(data)));
+            }
+
+            Utility.ListData = tmp;
+        }
+
+        private void SetWindowOpacity(double opacity)
+        {
+            btnExit.Opacity = opacity;
+            btnForgottenPassword.Opacity = opacity;
+            btnLogin.Opacity = opacity;
+            btnRegister.Opacity = opacity;
+
+            LoginLabel.Opacity = opacity;
+            RegisterLabel.Opacity = opacity;
+
+            VortexUC.Opacity = opacity;
+
+            email_box.Opacity = opacity;
+            password_box.Opacity = opacity;
+            chkBoxRememberPass.Opacity = opacity;
+            MasterPasswordBox.Opacity = opacity;
+            password_repeat.Opacity = opacity;
+
+            RmbPassBlock.Opacity = opacity;
+            MasterPassBlock.Opacity = opacity;
+            EnterEmailTxtBlock.Opacity = opacity;
+            EnterPassBlock.Opacity = opacity;
+            RepeatPassTxtblock.Opacity = opacity;
+
+            LogBotLine.Opacity = opacity;
+            LogLeftLine.Opacity = opacity;
+            LogRightLine.Opacity = opacity;
+            LogTopLine.Opacity = opacity;
+            RegBotLine.Opacity = opacity;
+            RegleftLine.Opacity = opacity;
+            RegRightLine.Opacity = opacity;
+            RegTopLine.Opacity = opacity;
         }
     }
 }

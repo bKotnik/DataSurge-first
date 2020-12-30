@@ -107,9 +107,9 @@
         </Grid>
 
         <Button x:Name="btnReplace" Content="Replace" FontWeight="Bold" 
-                Width="75" VerticalAlignment="Center" HorizontalAlignment="Left" 
+                Width="100" VerticalAlignment="Center" HorizontalAlignment="Left" 
                 Style="{DynamicResource MainBtnStyle}" Click="Replace" Grid.Column="0"
-                Margin="10 0 0 5" Grid.Row="4">
+                Margin="10 0 0 5" Grid.Row="4" Grid.ColumnSpan="2">
         </Button>
         <TextBlock Grid.Row="4" Grid.Column="0" Text="Replaced!"
                    Foreground="{DynamicResource TitleColor}" FontWeight="Bold"
@@ -119,8 +119,8 @@
         </TextBlock>
 
         <Button x:Name="btnExit" Content="Exit" Height="30" FontWeight="Bold"
-                Width="75" HorizontalAlignment="Right" VerticalAlignment="Center"
-                Style="{DynamicResource ExitBtnStyle}" Click="Exit" Grid.Column="1"
+                Width="100" HorizontalAlignment="Right" VerticalAlignment="Center"
+                Style="{DynamicResource ExitBtnStyle}" Click="Exit" Grid.Column="2"
                 Margin="0 0 10 5" Grid.Row="4">
         </Button>
 

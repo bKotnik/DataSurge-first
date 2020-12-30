@@ -151,6 +151,9 @@
     <Compile Include="Source\User controls\EncryptionKeyWarning.xaml.cs">
       <DependentUpon>EncryptionKeyWarning.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Source\User controls\LoadingTxt.xaml.cs">
+      <DependentUpon>LoadingTxt.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Source\User controls\Pages\Help.xaml.cs">
       <DependentUpon>Help.xaml</DependentUpon>
     </Compile>
@@ -280,6 +283,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Source\User controls\EncryptionKeyWarning.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Source\User controls\LoadingTxt.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

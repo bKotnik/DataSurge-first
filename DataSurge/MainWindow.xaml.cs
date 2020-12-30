@@ -11,6 +11,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -43,8 +44,7 @@ namespace DataSurge
         {
             InitializeComponent();
 
-            // Initialize lists
-            Utility.ListData = new ObservableCollection<DataClass>();
+            // Initialize list
             Utility.preferences = new PreferencesClass();
 
             // quick casts
@@ -63,9 +63,6 @@ namespace DataSurge
 
             // get data
             GetData();
-
-            // check if decrypt is needed
-            IsDecryptNeeded();
         }
 
         private void GetPreferences()
@@ -87,41 +84,16 @@ namespace DataSurge
             }
         }
 
-        private void GetData()
+        private void GetData() // loads edit/delete icons and assigns ItemsSource of listview
         {
-            Stream stream;
-
-            if (!File.Exists(Environment.CurrentDirectory + "\\Data.xml"))
-                stream = File.Create(Environment.CurrentDirectory + "\\Data.xml");
-            else
-                stream = File.OpenRead(Environment.CurrentDirectory + "\\Data.xml");
-
-            XmlSerializer xs = new XmlSerializer(typeof(ObservableCollection<DataClass>));
-
-            using (stream)
+            //assign icons to objects
+            foreach (DataClass data in Utility.ListData)
             {
-                try
-                {
-                    Utility.ListData = (ObservableCollection<DataClass>)xs.Deserialize(stream);
-
-                    //assign icons to objects
-                    foreach (DataClass data in Utility.ListData)
-                    {
-                        data.EditPath = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\resources\\edit_icon.ico", UriKind.Absolute)).ToString();
-                        data.DeletePath = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\resources\\delete_icon_red.ico", UriKind.Absolute)).ToString();
-                    }
-
-                    lvDataMain.ItemsSource = Utility.ListData;
-                }
-
-                catch
-                {
-                    if (stream.Length != 0)
-                    {
-                        _ = MessageBox.Show("Error occurred when trying to load data", "Error loading data", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
-                }
+                data.EditPath = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\resources\\edit_icon.ico", UriKind.Absolute)).ToString();
+                data.DeletePath = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\resources\\delete_icon_red.ico", UriKind.Absolute)).ToString();
             }
+
+            lvDataMain.ItemsSource = Utility.ListData;
         }
 
         /* LISTVIEW BUTTONS */
@@ -639,15 +611,16 @@ namespace DataSurge
         }
 
         // decrypt data.xml file (from toolbar)
-        private void DecryptToolbar(object sender, RoutedEventArgs e)
+        private async void DecryptToolbarAsync(object sender, RoutedEventArgs e)
         {
-            Mouse.OverrideCursor = Cursors.Wait;
+            LoadingState("Decrypting");
 
             File.WriteAllText(Environment.CurrentDirectory + "\\Data.xml", string.Empty); // clear file
 
             try
             {
-                Utility.decryptListData(Utility.ListData);
+                //Utility.decryptListData(Utility.ListData);
+                await RunDecryptionAsync();
             }
 
             catch
@@ -675,28 +648,28 @@ namespace DataSurge
                 _ = MessageBox.Show("Error occurred when trying to serialize data", "Error serializing", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
-            Mouse.OverrideCursor = null;
+            StateGrid.Visibility = Visibility.Collapsed;
         }
 
         // encrypt data.xml file (from toolbar)
-        private void EncryptToolbar(object sender, RoutedEventArgs e)
+        private async void EncryptToolbarAsync(object sender, RoutedEventArgs e)
         {
+            LoadingState("Encrypting");
+
             if (Properties.Settings.Default.ToolbarWarning == true)
             {
-                Mouse.OverrideCursor = Cursors.Wait;
-
                 // overwrite data.xml with empty string
                 File.WriteAllText(Environment.CurrentDirectory + "\\Data.xml", string.Empty);
 
                 // first decryption so that encrypted string doesnt stack
                 try
                 {
-                    Utility.decryptListData(Utility.ListData);
+                    await RunDecryptionAsync();
                 }
                 catch { }
 
                 //encryption
-                Utility.encryptListData(Utility.ListData);
+                await RunEncryptionAsync();
 
                 //serialization of ListData
                 Stream stream = File.OpenWrite(Environment.CurrentDirectory + "\\Data.xml");
@@ -720,18 +693,19 @@ namespace DataSurge
                     _ = MessageBox.Show("Error occurred when trying to serialize data", "Error serializing", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
 
-                //decrypt observable collection, so you dont have to manually decrypt again
+                //decrypt observable collection
                 try
                 {
-                    Utility.ListData = Utility.decryptListData(Utility.ListData);
+                    await RunDecryptionAsync();
+                    GetData(); // get source for edit/delete icons
                 }
                 catch
                 {
                     _ = MessageBox.Show("Error occurred when trying to decrypt data", "Error decrypting", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
-
-                Mouse.OverrideCursor = null;
             }
+
+            StateGrid.Visibility = Visibility.Collapsed;
         }
 
         /*HELP*/
@@ -927,17 +901,35 @@ namespace DataSurge
                 CloseAllWindows();
         }
 
-        // check if decrypt is needed
-        private void IsDecryptNeeded()
+        private async Task RunDecryptionAsync()
         {
-            if (Properties.Settings.Default.ToolbarWarning == false) // decrypt needed -> data is encrypted
+            ObservableCollection<DataClass> tmp = new ObservableCollection<DataClass>();
+
+            foreach (DataClass data in Utility.ListData)
             {
-                try
-                {
-                    Utility.decryptListData(Utility.ListData);
-                }
-                catch { }
+                tmp.Add(await Task.Run(() => Utility.DecryptDataClassAsync(data)));
             }
+
+            Utility.ListData = tmp;
+        }
+
+        private async Task RunEncryptionAsync()
+        {
+            ObservableCollection<DataClass> tmp = new ObservableCollection<DataClass>();
+
+            foreach (DataClass data in Utility.ListData)
+            {
+                tmp.Add(await Task.Run(() => Utility.EncryptDataClassAsync(data)));
+            }
+
+            Utility.ListData = tmp;
+        }
+
+        private void LoadingState(string state)
+        {
+            StateGrid.Visibility = Visibility.Visible;
+
+            StateLbl.Content = state;
         }
     }
 }

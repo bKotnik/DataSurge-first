@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 
@@ -49,6 +50,31 @@ namespace DataSurge.Classes
 
             return clearText;
         }
+        public static async Task<string> EncryptAsync(string clearText)
+        {
+            string EncryptionKey = Properties.Settings.Default.EncryptionKey; // it was abc123
+            byte[] clearBytes = Encoding.Unicode.GetBytes(clearText);
+
+            using (Aes encryptor = Aes.Create())
+            {
+                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
+                encryptor.Key = pdb.GetBytes(32);
+                encryptor.IV = pdb.GetBytes(16);
+
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateEncryptor(), CryptoStreamMode.Write))
+                    {
+                        await cs.WriteAsync(clearBytes, 0, clearBytes.Length);
+                        cs.Close();
+                    }
+
+                    clearText = Convert.ToBase64String(ms.ToArray());
+                }
+            }
+
+            return clearText;
+        }
 
         public static string Decrypt(string cipherText)
         {
@@ -76,6 +102,32 @@ namespace DataSurge.Classes
 
             return cipherText;
         }
+        public static async Task<string> DecryptAsync(string cipherText)
+        {
+            string EncryptionKey = Properties.Settings.Default.EncryptionKey;
+            cipherText = cipherText.Replace(" ", "+");
+            byte[] cipherBytes = Convert.FromBase64String(cipherText);
+
+            using (Aes encryptor = Aes.Create())
+            {
+                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
+                encryptor.Key = pdb.GetBytes(32);
+                encryptor.IV = pdb.GetBytes(16);
+
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateDecryptor(), CryptoStreamMode.Write))
+                    {
+                        await cs.WriteAsync(cipherBytes, 0, cipherBytes.Length);
+                        cs.Close();
+                    }
+
+                    cipherText = Encoding.Unicode.GetString(ms.ToArray());
+                }
+            }
+
+            return cipherText;
+        }
 
         public static ObservableCollection<DataClass> decryptListData(ObservableCollection<DataClass> data)
         {
@@ -91,6 +143,20 @@ namespace DataSurge.Classes
 
             return data;
         }
+        public static async Task<DataClass> DecryptDataClassAsync(DataClass data)
+        {
+            DataClass decrypted = new DataClass();
+            decrypted.Email = await DecryptAsync(data.Email);
+            decrypted.Username = await DecryptAsync(data.Username);
+            decrypted.Password = await DecryptAsync(data.Password);
+            decrypted.Other = await DecryptAsync(data.Other);
+            decrypted.Note = await DecryptAsync(data.Note);
+            decrypted.NoteDetails = await DecryptAsync(data.NoteDetails);
+
+            return decrypted;
+        }
+        
+
         public static ObservableCollection<DataClass> encryptListData(ObservableCollection<DataClass> data)
         {
             foreach (DataClass tmp in data)
@@ -104,6 +170,18 @@ namespace DataSurge.Classes
             }
 
             return data;
+        }
+        public static async Task<DataClass> EncryptDataClassAsync(DataClass data)
+        {
+            DataClass encrypted = new DataClass();
+            encrypted.Email = await EncryptAsync(data.Email);
+            encrypted.Username = await EncryptAsync(data.Username);
+            encrypted.Password = await EncryptAsync(data.Password);
+            encrypted.Other = await EncryptAsync(data.Other);
+            encrypted.Note = await EncryptAsync(data.Note);
+            encrypted.NoteDetails = await EncryptAsync(data.NoteDetails);
+
+            return encrypted;
         }
 
         public static void OnLoad()
