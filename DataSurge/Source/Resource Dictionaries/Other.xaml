@@ -88,7 +88,7 @@
                 Width="7" Height="7" 
                 x:Name="CheckMark"
                 SnapsToDevicePixels="False" 
-                Stroke="{DynamicResource MainColor}"
+                Stroke="{DynamicResource SecondaryColor}"
                 StrokeThickness="2"
                 Data="F1 M 0.98732,3.36838L 2.03345,6.95443L 7.28127,0" />
                             </Border>
