@@ -354,7 +354,7 @@ namespace DataSurge
         }
 
         /* EDIT COLUMN BUTTONS */
-        private void DeleteItem(object sender, RoutedEventArgs e)
+        private async void DeleteItem(object sender, RoutedEventArgs e)
         {
             if (lvDataMain.SelectedItems.Count <= 0)
             {
@@ -372,7 +372,7 @@ namespace DataSurge
 
                     if (Utility.confirm == true)
                     {
-                        HelperDeleteItem();
+                        await HelperDeleteItem();
                     }
 
                     Utility.confirm = false;
@@ -380,19 +380,18 @@ namespace DataSurge
 
                 else
                 {
-                    HelperDeleteItem();
+                    await HelperDeleteItem();
                 }
             }
         }
 
-        private void HelperDeleteItem()
+        private async Task HelperDeleteItem()
         {
             while (lvDataMain.SelectedItems.Count > 0)
             {
                 Utility.ListData.Remove((DataClass)lvDataMain.SelectedItem);
             }
 
-            //Utility.ListData.Remove((DataClass)lvDataMain.SelectedItem);
             File.WriteAllText(Environment.CurrentDirectory + "\\Data.xml", string.Empty);
 
             Stream stream = File.OpenWrite(Environment.CurrentDirectory + "\\Data.xml");
@@ -402,15 +401,17 @@ namespace DataSurge
             {
                 using (stream)
                 {
-                    xs.Serialize(stream, Utility.ListData);
-
-                    //show ! in toolbar
-                    if (Utility.ListData.Count > 0)
+                    if(Properties.Settings.Default.ToolbarWarning == false) // data needs to be encrypted
                     {
-                        toolbarWarning.Visibility = Visibility.Visible;
-                        Properties.Settings.Default.ToolbarWarning = true;
-                        Properties.Settings.Default.Save();
+                        await RunEncryptionAsync();
+                        xs.Serialize(stream, Utility.ListData);
+
+                        // decrypt - otherwise encryption stacks
+                        await RunDecryptionAsync();
                     }
+
+                    else
+                        xs.Serialize(stream, Utility.ListData);
                 }
             }
 
@@ -617,8 +618,9 @@ namespace DataSurge
 
             try
             {
-                //Utility.decryptListData(Utility.ListData);
                 await RunDecryptionAsync();
+                lvDataMain.ItemsSource = Utility.ListData;
+                GetData();
             }
 
             catch
@@ -796,7 +798,7 @@ namespace DataSurge
             }
         }
 
-        private void CloseAllWindows()
+        private void  CloseAllWindows()
         {
             // save order of ListView data
             LoadingState("Saving State");

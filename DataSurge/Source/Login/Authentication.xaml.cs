@@ -416,24 +416,20 @@ namespace DataSurge.Source.Login
             if (!File.Exists(filePath))
                 stream = File.Create(filePath);
             else
-                stream = File.OpenRead(Environment.CurrentDirectory + "\\Data.xml");
+                stream = File.OpenRead(filePath);
 
             XmlSerializer xs = new XmlSerializer(typeof(ObservableCollection<DataClass>));
 
-            using (stream)
+            try
             {
-                try
-                {
-                    Utility.ListData = (ObservableCollection<DataClass>)xs.Deserialize(stream);
-                }
+                Utility.ListData = (ObservableCollection<DataClass>)xs.Deserialize(stream);
+            }
 
-                catch
-                {
-                    if (stream.Length != 0)
-                    {
-                        _ = MessageBox.Show("Error occurred when trying to load data", "Error loading data", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
-                }
+            catch
+            {
+
+                if (stream.Length != 0)
+                    _ = MessageBox.Show("Error occurred when trying to load data", "Error loading data", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
             stream.Close();
