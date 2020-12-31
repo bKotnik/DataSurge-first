@@ -1,10 +1,6 @@
 ﻿using DataSurge.Classes;
-using System;
 using System.Collections.ObjectModel;
-using System.IO;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Xml.Serialization;
 
 namespace DataSurge.Main
 {
@@ -34,7 +30,7 @@ namespace DataSurge.Main
                         Title = WhichButton.listLabel + "s";
                         label.Text = WhichButton.listLabel;
 
-                        if(data.Email != "/")
+                        if (data.Email != "/")
                         {
                             ListDataClass ldc = new ListDataClass();
                             ldc.Number = i;
@@ -48,7 +44,7 @@ namespace DataSurge.Main
                         Title = WhichButton.listLabel + "s";
                         label.Text = WhichButton.listLabel;
 
-                        if(data.Username != "/")
+                        if (data.Username != "/")
                         {
                             ListDataClass ldc = new ListDataClass();
                             ldc.Number = i;
@@ -78,7 +74,7 @@ namespace DataSurge.Main
                         label.Text = WhichButton.listLabel;
 
 
-                        if(data.Other != "/")
+                        if (data.Other != "/")
                         {
                             ListDataClass ldc = new ListDataClass();
                             ldc.Number = i;
@@ -92,7 +88,7 @@ namespace DataSurge.Main
                         Title = WhichButton.listLabel + "s";
                         label.Text = WhichButton.listLabel;
 
-                        if(data.Note != "/")
+                        if (data.Note != "/")
                         {
                             ListDataClass ldc = new ListDataClass();
                             ldc.Number = i;

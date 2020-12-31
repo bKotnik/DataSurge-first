@@ -155,7 +155,7 @@ namespace DataSurge.Classes
 
             return decrypted;
         }
-        
+
 
         public static ObservableCollection<DataClass> encryptListData(ObservableCollection<DataClass> data)
         {

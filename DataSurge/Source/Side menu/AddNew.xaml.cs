@@ -3,6 +3,7 @@ using DataSurge.Classes.Utils;
 using System;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
@@ -29,7 +30,7 @@ namespace DataSurge.Side_menu
             showPassIcon.Source = new BitmapImage(Assets.SHOW_PASS_ICON);
         }
 
-        private void function()
+        private async Task function()
         {
             //get data from AddNew form
             string email;
@@ -75,8 +76,6 @@ namespace DataSurge.Side_menu
 
                 File.WriteAllText(Environment.CurrentDirectory + "\\Data.xml", string.Empty);
 
-                //File.WriteAllText(Environment.CurrentDirectory + "\\data.txt", string.Empty);
-
                 //serialization of ListData
                 Stream stream = File.OpenWrite(Environment.CurrentDirectory + "\\Data.xml");
 
@@ -85,12 +84,23 @@ namespace DataSurge.Side_menu
                     using (stream)
                     {
                         XmlSerializer xs = new XmlSerializer(typeof(ObservableCollection<DataClass>));
-                        xs.Serialize(stream, Utility.ListData);
 
-                        // show ! in toolbar
-                        _mainWindow.SetToolbarWarningVisibility(Visibility.Visible);
-                        Properties.Settings.Default.ToolbarWarning = true;
-                        Properties.Settings.Default.Save();
+                        if (Properties.Settings.Default.ToolbarWarning == false) // encryption needed
+                        {
+                            LoadingState("Encrypting");
+
+                            await RunEncryptionAsync();
+                            xs.Serialize(stream, Utility.ListData);
+
+                            // decrypt - otherwise encryption stacks
+                            await RunDecryptionAsync();
+
+                            StateGrid.Visibility = Visibility.Collapsed;
+                            GetData();
+                        }
+
+                        else
+                            xs.Serialize(stream, Utility.ListData);
                     }
                 }
 
@@ -103,16 +113,16 @@ namespace DataSurge.Side_menu
             Close();
         }
 
-        private void AddEntry(object sender, RoutedEventArgs e)
+        private async void AddEntry(object sender, RoutedEventArgs e)
         {
-            function();
+            await function();
         }
 
-        private void EnterEntry(object sender, KeyEventArgs e)
+        private async void EnterEntry(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
             {
-                function();
+                await function();
             }
         }
 
@@ -137,6 +147,47 @@ namespace DataSurge.Side_menu
             {
                 enterPass.Visibility = Visibility.Visible;
                 enterPassTxtBox.Visibility = Visibility.Hidden;
+            }
+        }
+
+        // ENCRYPTION & DECRYPTION - ASYNC
+        private async Task RunDecryptionAsync()
+        {
+            ObservableCollection<DataClass> tmp = new ObservableCollection<DataClass>();
+
+            foreach (DataClass data in Utility.ListData)
+            {
+                tmp.Add(await Task.Run(() => Utility.DecryptDataClassAsync(data)));
+            }
+
+            Utility.ListData = tmp;
+        }
+        private async Task RunEncryptionAsync()
+        {
+            ObservableCollection<DataClass> tmp = new ObservableCollection<DataClass>();
+
+            foreach (DataClass data in Utility.ListData)
+            {
+                tmp.Add(await Task.Run(() => Utility.EncryptDataClassAsync(data)));
+            }
+
+            Utility.ListData = tmp;
+        }
+        /* LOADING INDICATOR */
+        private void LoadingState(string state)
+        {
+            StateGrid.Visibility = Visibility.Visible;
+
+            StateLbl.Content = state;
+        }
+
+        private void GetData() // loads edit/delete icons and assigns ItemsSource of listview
+        {
+            //assign icons to objects
+            foreach (DataClass data in Utility.ListData)
+            {
+                data.EditPath = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\resources\\edit_icon.ico", UriKind.Absolute)).ToString();
+                data.DeletePath = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\resources\\delete_icon_red.ico", UriKind.Absolute)).ToString();
             }
         }
     }

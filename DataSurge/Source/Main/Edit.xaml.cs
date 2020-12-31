@@ -2,8 +2,10 @@
 using System;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 using System.Xml.Serialization;
 
 namespace DataSurge.Main
@@ -37,7 +39,7 @@ namespace DataSurge.Main
             Close();
         }
 
-        private void SaveChanges(object sender, RoutedEventArgs e)
+        private async void SaveChanges(object sender, RoutedEventArgs e)
         {
             if (Utility.preferences.MaximumSecurity == true)
             {
@@ -47,17 +49,17 @@ namespace DataSurge.Main
 
                 if (Utility.confirm == true)
                 {
-                    helperFunction();
+                    await helperFunction();
                 }
 
                 Utility.confirm = false;
             }
 
             else
-                helperFunction();
+                await helperFunction();
         }
 
-        private void enterSaveChanges(object sender, KeyEventArgs e)
+        private async void enterSaveChanges(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
             {
@@ -69,18 +71,18 @@ namespace DataSurge.Main
 
                     if (Utility.confirm == true)
                     {
-                        helperFunction();
+                        await helperFunction();
                     }
 
                     Utility.confirm = false;
                 }
 
                 else
-                    helperFunction();
+                    await helperFunction();
             }
         }
 
-        private void helperFunction()
+        private async Task helperFunction()
         {
             // change values of elements of selected item with values from form
             if (EmailForm.Text != "")
@@ -124,13 +126,23 @@ namespace DataSurge.Main
             {
                 using (stream)
                 {
-                    xs.Serialize(stream, Utility.ListData);
-                    Status.Visibility = Visibility.Visible;
+                    if (Properties.Settings.Default.ToolbarWarning == false) // encryption needed
+                    {
+                        LoadingState("Encrypting");
 
-                    // show ! in toolbar
-                    _mainWindow.SetToolbarWarningVisibility(Visibility.Visible);
-                    Properties.Settings.Default.ToolbarWarning = true;
-                    Properties.Settings.Default.Save();
+                        await RunEncryptionAsync();
+                        xs.Serialize(stream, Utility.ListData);
+
+                        // decrypt - otherwise encryption stacks
+                        await RunDecryptionAsync();
+
+                        StateGrid.Visibility = Visibility.Collapsed;
+                        Status.Visibility = Visibility.Visible;
+                        GetData();
+                    }
+
+                    else
+                        xs.Serialize(stream, Utility.ListData);
                 }
             }
 
@@ -144,6 +156,47 @@ namespace DataSurge.Main
         {
             NoteEditor noteEditor = new NoteEditor();
             noteEditor.Show();
+        }
+
+        // ENCRYPTION & DECRYPTION - ASYNC
+        private async Task RunDecryptionAsync()
+        {
+            ObservableCollection<DataClass> tmp = new ObservableCollection<DataClass>();
+
+            foreach (DataClass data in Utility.ListData)
+            {
+                tmp.Add(await Task.Run(() => Utility.DecryptDataClassAsync(data)));
+            }
+
+            Utility.ListData = tmp;
+        }
+        private async Task RunEncryptionAsync()
+        {
+            ObservableCollection<DataClass> tmp = new ObservableCollection<DataClass>();
+
+            foreach (DataClass data in Utility.ListData)
+            {
+                tmp.Add(await Task.Run(() => Utility.EncryptDataClassAsync(data)));
+            }
+
+            Utility.ListData = tmp;
+        }
+        /* LOADING INDICATOR */
+        private void LoadingState(string state)
+        {
+            StateGrid.Visibility = Visibility.Visible;
+
+            StateLbl.Content = state;
+        }
+
+        private void GetData() // loads edit/delete icons and assigns ItemsSource of listview
+        {
+            //assign icons to objects
+            foreach (DataClass data in Utility.ListData)
+            {
+                data.EditPath = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\resources\\edit_icon.ico", UriKind.Absolute)).ToString();
+                data.DeletePath = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\resources\\delete_icon_red.ico", UriKind.Absolute)).ToString();
+            }
         }
     }
 }

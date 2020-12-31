@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DataSurge.Side_menu"
+        xmlns:local1="clr-namespace:DataSurge.Source.User_controls"
         mc:Ignorable="d"
         BorderBrush="{DynamicResource MainColor}"
         BorderThickness="0.75"
@@ -166,6 +167,27 @@
                 Width="100" HorizontalAlignment="Right" Margin="0 0 5 5" VerticalAlignment="Bottom"
                 Style="{DynamicResource ExitBtnStyle}" Click="Exit" Grid.Row="4">
         </Button>
+
+
+        <Grid Grid.Row="4" x:Name="StateGrid" Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <local1:VortexAnimationMini VerticalAlignment="Bottom" Grid.Row="1"
+                                        HorizontalAlignment="Center"
+                                        />
+            
+            <Label Content="" FontSize="14" x:Name="StateLbl" Grid.Row="2"
+                       Foreground="{DynamicResource TitleColor}" VerticalAlignment="Center"
+                       HorizontalAlignment="Center" />
+        </Grid>
 
     </Grid>
 </Window>

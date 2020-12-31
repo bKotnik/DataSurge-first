@@ -1,5 +1,4 @@
 ﻿using DataSurge.Classes;
-using DataSurge.Login;
 using DataSurge.Main;
 using DataSurge.Side_menu;
 using DataSurge.Source.Login;
@@ -8,7 +7,6 @@ using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
@@ -66,6 +64,7 @@ namespace DataSurge
             GetData();
         }
 
+        /* LOAD DATA */
         private void GetPreferences()
         {
             XmlSerializer xsPref = new XmlSerializer(typeof(PreferencesClass));
@@ -84,7 +83,6 @@ namespace DataSurge
                     _ = MessageBox.Show("Error occurred when trying to load preferences", "Error loading preferences", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
         private void GetData() // loads edit/delete icons and assigns ItemsSource of listview
         {
             //assign icons to objects
@@ -97,6 +95,7 @@ namespace DataSurge
             lvDataMain.ItemsSource = Utility.ListData;
         }
 
+
         /* LISTVIEW BUTTONS */
         private void Click_emails(object sender, RoutedEventArgs e)
         {
@@ -106,7 +105,6 @@ namespace DataSurge
 
             emails.ShowDialog();
         }
-
         private void Click_usernames(object sender, RoutedEventArgs e)
         {
             WhichButton.buttonContent = (sender as Button).Content.ToString();
@@ -115,7 +113,6 @@ namespace DataSurge
 
             usernames.ShowDialog();
         }
-
         private void Click_passwords(object sender, RoutedEventArgs e)
         {
             WhichButton.buttonContent = (sender as Button).Content.ToString();
@@ -124,7 +121,6 @@ namespace DataSurge
 
             passwords.ShowDialog();
         }
-
         private void Click_other(object sender, RoutedEventArgs e)
         {
             WhichButton.buttonContent = (sender as Button).Content.ToString();
@@ -133,7 +129,6 @@ namespace DataSurge
 
             other.ShowDialog();
         }
-
         private void Click_note(object sender, RoutedEventArgs e)
         {
             WhichButton.buttonContent = (sender as Button).Content.ToString();
@@ -143,13 +138,13 @@ namespace DataSurge
             notes.ShowDialog();
         }
 
+
         /* SIDE MENU BUTTONS */
         private void click_PG(object sender, RoutedEventArgs e)
         {
             PasswordGenerator passGen = new PasswordGenerator();
             passGen.Show();
         }
-
         private void Btn_import(object sender, RoutedEventArgs e)
         {
             OpenFileDialog fileDialog = new OpenFileDialog()
@@ -228,7 +223,6 @@ namespace DataSurge
 
             else { }
         }
-
         private void Btn_export(object sender, RoutedEventArgs e)
         {
             MessageBoxResult choice = CustomMessageBox.ShowYesNoCancel("How do you want to export data file?\n*Choosing formatted allows you to import the file later",
@@ -323,19 +317,16 @@ namespace DataSurge
 
             else if (choice == MessageBoxResult.Cancel) { }
         }
-
         private void CngMasterPassword(object sender, RoutedEventArgs e)
         {
             ChangeMasterPassword cngMP = new ChangeMasterPassword();
             cngMP.ShowDialog();
         }
-
         private void PasswordMagician(object sender, RoutedEventArgs e)
         {
             PasswordMagician passMag = new PasswordMagician();
             passMag.ShowDialog();
         }
-
         private void AddNew(object sender, RoutedEventArgs e)
         {
             AddNew add_new_window = new AddNew(this);
@@ -352,6 +343,7 @@ namespace DataSurge
             login.Show();
             Close();
         }
+
 
         /* EDIT COLUMN BUTTONS */
         private async void DeleteItem(object sender, RoutedEventArgs e)
@@ -384,7 +376,6 @@ namespace DataSurge
                 }
             }
         }
-
         private async Task HelperDeleteItem()
         {
             while (lvDataMain.SelectedItems.Count > 0)
@@ -401,13 +392,16 @@ namespace DataSurge
             {
                 using (stream)
                 {
-                    if(Properties.Settings.Default.ToolbarWarning == false) // data needs to be encrypted
+                    if (Properties.Settings.Default.ToolbarWarning == false) // data needs to be encrypted
                     {
+                        LoadingState("Encrypting");
                         await RunEncryptionAsync();
                         xs.Serialize(stream, Utility.ListData);
 
                         // decrypt - otherwise encryption stacks
                         await RunDecryptionAsync();
+
+                        StateGrid.Visibility = Visibility.Collapsed;
                     }
 
                     else
@@ -420,7 +414,6 @@ namespace DataSurge
                 _ = MessageBox.Show("Error occurred when trying to serialize data", "Error serializing", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
         private void EditEntry(object sender, RoutedEventArgs e)
         {
             if (lvDataMain.SelectedItems.Count <= 0)
@@ -441,7 +434,6 @@ namespace DataSurge
                 editWindow.ShowDialog();
             }
         }
-
         private void OpenNoteEditor(object sender, RoutedEventArgs e)
         {
             if (lvDataMain.SelectedItems.Count <= 0)
@@ -471,11 +463,11 @@ namespace DataSurge
 
             add_new_window.ShowDialog();
         }
-
         private void CloseApp(object sender, RoutedEventArgs e)
         {
             Close();
         }
+
 
         /*EDIT*/
         private void OpenEditEntry(object sender, RoutedEventArgs e) // orodna vrstica
@@ -498,12 +490,12 @@ namespace DataSurge
                 editWindow.ShowDialog();
             }
         }
-
         private void OpenFindReplace(object sender, RoutedEventArgs e)
         {
             FindReplace findReplace = new FindReplace();
             findReplace.Show();
         }
+
 
         /*VIEW*/
         private void FullScreen(object sender, RoutedEventArgs e)
@@ -518,7 +510,6 @@ namespace DataSurge
                 WindowState = WindowState.Normal;
             }
         }
-
         private void TranslateSlo(object sender, RoutedEventArgs e)
         {
             // Side Menu
@@ -556,7 +547,6 @@ namespace DataSurge
 
             slo.IsChecked = false;
         }
-
         private void TranslateEng(object sender, RoutedEventArgs e)
         {
             // Side Menu
@@ -595,12 +585,12 @@ namespace DataSurge
             //Tooltips
             eng.IsChecked = false;
         }
-
         private void ColorPicker(object sender, RoutedEventArgs e)
         {
             ColorPicker colorPicker = new ColorPicker();
             colorPicker.Show();
         }
+
 
         /*TOOLS*/
         private void OpenSettings(object sender, RoutedEventArgs e)
@@ -608,8 +598,6 @@ namespace DataSurge
             Settings settings = new Settings();
             settings.ShowDialog();
         }
-
-        // decrypt data.xml file (from toolbar)
         private async void DecryptToolbarAsync(object sender, RoutedEventArgs e)
         {
             LoadingState("Decrypting");
@@ -650,8 +638,6 @@ namespace DataSurge
 
             StateGrid.Visibility = Visibility.Collapsed;
         }
-
-        // encrypt data.xml file (from toolbar)
         private async void EncryptToolbarAsync(object sender, RoutedEventArgs e)
         {
             LoadingState("Encrypting");
@@ -708,6 +694,7 @@ namespace DataSurge
             StateGrid.Visibility = Visibility.Collapsed;
         }
 
+
         /*HELP*/
         private void ViewHelp(object sender, RoutedEventArgs e)
         {
@@ -715,20 +702,21 @@ namespace DataSurge
             var file = Path.Combine(path, "Help.txt");
             Process.Start(file);
         }
-
         private void ViewKey(object sender, RoutedEventArgs e)
         {
             ViewKey viewKey = new ViewKey();
             viewKey.Show();
         }
 
-        // to change ! visibility from other windows
+
+        /* TOOLBAR WARNING */
         public void SetToolbarWarningVisibility(Visibility visibility)
         {
             toolbarWarning.Visibility = visibility;
         }
 
-        // QUICK CASTS
+
+        /* QUICK CASTS */
         private void HandleEsc(object sender, KeyEventArgs e)
         {
             if (Utility.preferences.QuickCastEsc == true)
@@ -756,7 +744,7 @@ namespace DataSurge
                 }
             }
         }
-        private void HandleDelete(object sender, KeyEventArgs e)
+        private async void HandleDelete(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Delete)
             {
@@ -776,7 +764,7 @@ namespace DataSurge
 
                         if (Utility.confirm == true)
                         {
-                            HelperDeleteItem();
+                            await HelperDeleteItem();
                         }
 
                         Utility.confirm = false;
@@ -784,7 +772,7 @@ namespace DataSurge
 
                     else
                     {
-                        HelperDeleteItem();
+                        await HelperDeleteItem();
                     }
                 }
             }
@@ -797,63 +785,14 @@ namespace DataSurge
                 addNew.ShowDialog();
             }
         }
+        
 
-        private void  CloseAllWindows()
-        {
-            // save order of ListView data
-            LoadingState("Saving State");
-            File.WriteAllText(Environment.CurrentDirectory + "\\Data.xml", string.Empty);
-
-            if(Properties.Settings.Default.ToolbarWarning == false) // data needs to be encrypted before writing to file
-            {
-                using(Stream stream = File.OpenWrite(Environment.CurrentDirectory + "\\Data.xml"))
-                {
-                    try
-                    {
-                        //await RunEncryptionAsync();
-                        Utility.ListData = Utility.encryptListData(Utility.ListData);
-
-                        XmlSerializer xs = new XmlSerializer(typeof(ObservableCollection<DataClass>));
-                        xs.Serialize(stream, Utility.ListData);
-                    }
-
-                    catch
-                    {
-                        _ = MessageBox.Show("Error occurred when trying to save state", "Error saving state", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
-                }
-            }
-
-            else
-            {
-                using (Stream stream = File.OpenWrite(Environment.CurrentDirectory + "\\Data.xml"))
-                {
-                    try
-                    {
-                        XmlSerializer xs = new XmlSerializer(typeof(ObservableCollection<DataClass>));
-                        xs.Serialize(stream, Utility.ListData);
-                    }
-                    catch 
-                    {
-                        _ = MessageBox.Show("Error occurred when trying to serialize data", "Error serializing", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
-                }
-            }
-
-            for (int i = Application.Current.Windows.Count - 1; i > 0; i--)
-                Application.Current.Windows[i].Close();
-
-            StateGrid.Visibility = Visibility.Collapsed;
-        }
-
-        /*DRAG AND DROP FUNCTIONALITY - Main Data ListView*/
+        /* DRAG AND DROP FUNCTIONALITY - Main Data ListView */
         private void lv_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             // Get current mouse position
             startPoint = e.GetPosition(null);
         }
-
-        // Helper to search up the VisualTree
         private static T FindAncestor<T>(DependencyObject current) where T : DependencyObject
         {
             do
@@ -869,7 +808,6 @@ namespace DataSurge
 
             return null;
         }
-
         private void lv_MouseMove(object sender, MouseEventArgs e)
         {
             // Get the current mouse position
@@ -899,7 +837,6 @@ namespace DataSurge
                 DragDrop.DoDragDrop(listViewItem, dragData, DragDropEffects.Copy | DragDropEffects.Move);
             }
         }
-
         private void lv_DragEnter(object sender, DragEventArgs e)
         {
             if (!e.Data.GetDataPresent("DataClass") || sender != e.Source)
@@ -907,7 +844,6 @@ namespace DataSurge
                 e.Effects = DragDropEffects.None;
             }
         }
-
         private void lv_Drop(object sender, DragEventArgs e)
         {
             int index = -1;
@@ -942,13 +878,63 @@ namespace DataSurge
             }
         }
 
-        // when pressed on X close all other windows
+
+        /* ON CLOSED EVENT */
         protected override void OnClosed(EventArgs e)
         {
             if (logout_pressed == false)
                 CloseAllWindows();
         }
+        private void CloseAllWindows()
+        {
+            // save order of ListView data
+            LoadingState("Saving State");
+            File.WriteAllText(Environment.CurrentDirectory + "\\Data.xml", string.Empty);
 
+            if (Properties.Settings.Default.ToolbarWarning == false) // data needs to be encrypted before writing to file
+            {
+                using (Stream stream = File.OpenWrite(Environment.CurrentDirectory + "\\Data.xml"))
+                {
+                    try
+                    {
+                        //await RunEncryptionAsync();
+                        Utility.ListData = Utility.encryptListData(Utility.ListData);
+
+                        XmlSerializer xs = new XmlSerializer(typeof(ObservableCollection<DataClass>));
+                        xs.Serialize(stream, Utility.ListData);
+                    }
+
+                    catch
+                    {
+                        _ = MessageBox.Show("Error occurred when trying to save state", "Error saving state", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+            }
+
+            else
+            {
+                using (Stream stream = File.OpenWrite(Environment.CurrentDirectory + "\\Data.xml"))
+                {
+                    try
+                    {
+                        XmlSerializer xs = new XmlSerializer(typeof(ObservableCollection<DataClass>));
+                        xs.Serialize(stream, Utility.ListData);
+                    }
+                    catch
+                    {
+                        _ = MessageBox.Show("Error occurred when trying to serialize data", "Error serializing", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+            }
+
+            for (int i = Application.Current.Windows.Count - 1; i > 0; i--)
+                Application.Current.Windows[i].Close();
+
+            StateGrid.Visibility = Visibility.Collapsed;
+        }
+
+
+        // ENCRYPTION & DECRYPTION - ASYNC
         private async Task RunDecryptionAsync()
         {
             ObservableCollection<DataClass> tmp = new ObservableCollection<DataClass>();
@@ -960,7 +946,6 @@ namespace DataSurge
 
             Utility.ListData = tmp;
         }
-
         private async Task RunEncryptionAsync()
         {
             ObservableCollection<DataClass> tmp = new ObservableCollection<DataClass>();
@@ -973,6 +958,7 @@ namespace DataSurge
             Utility.ListData = tmp;
         }
 
+        /* LOADING INDICATOR */
         private void LoadingState(string state)
         {
             StateGrid.Visibility = Visibility.Visible;
