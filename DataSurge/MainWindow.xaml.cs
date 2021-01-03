@@ -2,6 +2,7 @@
 using DataSurge.Main;
 using DataSurge.Side_menu;
 using DataSurge.Source.Login;
+using DataSurge.Source.Nuggets;
 using DataSurge.Toolbar;
 using Microsoft.Win32;
 using System;
@@ -223,7 +224,7 @@ namespace DataSurge
 
             else { }
         }
-        private void Btn_export(object sender, RoutedEventArgs e)
+        private async void Btn_export(object sender, RoutedEventArgs e)
         {
             MessageBoxResult choice = CustomMessageBox.ShowYesNoCancel("How do you want to export data file?\n*Choosing formatted allows you to import the file later",
                 "Export data file", "Formatted", "Plain", "Cancel", MessageBoxImage.Question);
@@ -243,8 +244,10 @@ namespace DataSurge
             {
                 if (saveFile.ShowDialog() == true)
                 {
+                    LoadingState("Exporting");
+
                     //Encrypt
-                    Utility.encryptListData(Utility.ListData);
+                    await RunEncryptionAsync();
 
                     try
                     {
@@ -258,7 +261,7 @@ namespace DataSurge
                     }
 
                     //Decrypt
-                    Utility.decryptListData(Utility.ListData);
+                    await RunDecryptionAsync();
                 }
 
                 else { }
@@ -316,6 +319,8 @@ namespace DataSurge
             }
 
             else if (choice == MessageBoxResult.Cancel) { }
+
+            StateGrid.Visibility = Visibility.Collapsed;
         }
         private void CngMasterPassword(object sender, RoutedEventArgs e)
         {
@@ -693,7 +698,11 @@ namespace DataSurge
 
             StateGrid.Visibility = Visibility.Collapsed;
         }
-
+        private void ChangeKeyToolbar(object sender, RoutedEventArgs e)
+        {
+            ChangeKey changeKey = new ChangeKey();
+            changeKey.Show();
+        }
 
         /*HELP*/
         private void ViewHelp(object sender, RoutedEventArgs e)

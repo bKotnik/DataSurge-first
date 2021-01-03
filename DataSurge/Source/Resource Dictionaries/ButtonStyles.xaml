@@ -159,6 +159,7 @@
         <Setter Property="OverridesDefaultStyle" Value="True"/>
         <Setter Property="Margin" Value="0 40 0 0"/>
         <Setter Property="Height" Value="30"/>
+        <Setter Property="Width" Value="100"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">

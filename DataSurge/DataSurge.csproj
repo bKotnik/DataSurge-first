@@ -93,6 +93,9 @@
     <Compile Include="Source\Classes\Utils\RememberPassword.cs" />
     <Compile Include="Source\Classes\Utils\Utility.cs" />
     <Compile Include="Source\Classes\Utils\WhichButton.cs" />
+    <Compile Include="Source\Nuggets\ChangeKey.xaml.cs">
+      <DependentUpon>ChangeKey.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Source\Nuggets\Confirmation.xaml.cs">
       <DependentUpon>Confirmation.xaml</DependentUpon>
     </Compile>
@@ -166,6 +169,10 @@
     <Compile Include="Source\User controls\VortexAnimationMini.xaml.cs">
       <DependentUpon>VortexAnimationMini.xaml</DependentUpon>
     </Compile>
+    <Page Include="Source\Nuggets\ChangeKey.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Source\Nuggets\Confirmation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
