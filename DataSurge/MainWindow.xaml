@@ -8,6 +8,7 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Icon="logo_icon.ico"
+        Closing="MainWindow_Closing"
         Title="DataSurge" Height="575" Width="1050" MinWidth="700" MinHeight="485" x:Name="mainWindow">
 
     <Grid x:Name="MainGrid">

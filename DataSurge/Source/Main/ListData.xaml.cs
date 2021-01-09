@@ -25,10 +25,10 @@ namespace DataSurge.Main
             {
                 foreach (DataClass data in Utility.ListData)
                 {
-                    if (WhichButton.buttonContent == "EMAILS" || WhichButton.buttonContent == "E-NASLOVI")
+                    if (Helper.buttonContent == "EMAILS" || Helper.buttonContent == "E-NASLOVI")
                     {
-                        Title = WhichButton.listLabel + "s";
-                        label.Text = WhichButton.listLabel;
+                        Title = Helper.listLabel + "s";
+                        label.Text = Helper.listLabel;
 
                         if (data.Email != "/")
                         {
@@ -39,10 +39,10 @@ namespace DataSurge.Main
                         }
                     }
 
-                    else if (WhichButton.buttonContent == "USERNAMES" || WhichButton.buttonContent == "UPORABNIŠKA IMENA")
+                    else if (Helper.buttonContent == "USERNAMES" || Helper.buttonContent == "UPORABNIŠKA IMENA")
                     {
-                        Title = WhichButton.listLabel + "s";
-                        label.Text = WhichButton.listLabel;
+                        Title = Helper.listLabel + "s";
+                        label.Text = Helper.listLabel;
 
                         if (data.Username != "/")
                         {
@@ -53,10 +53,10 @@ namespace DataSurge.Main
                         }
                     }
 
-                    else if (WhichButton.buttonContent == "PASSWORDS" || WhichButton.buttonContent == "GESLA")
+                    else if (Helper.buttonContent == "PASSWORDS" || Helper.buttonContent == "GESLA")
                     {
-                        Title = WhichButton.listLabel + "s";
-                        label.Text = WhichButton.listLabel;
+                        Title = Helper.listLabel + "s";
+                        label.Text = Helper.listLabel;
 
                         ListDataClass ldc = new ListDataClass();
 
@@ -68,10 +68,10 @@ namespace DataSurge.Main
                         }
                     }
 
-                    else if (WhichButton.buttonContent == "OTHER" || WhichButton.buttonContent == "DRUGO")
+                    else if (Helper.buttonContent == "OTHER" || Helper.buttonContent == "DRUGO")
                     {
-                        Title = WhichButton.listLabel;
-                        label.Text = WhichButton.listLabel;
+                        Title = Helper.listLabel;
+                        label.Text = Helper.listLabel;
 
 
                         if (data.Other != "/")
@@ -83,10 +83,10 @@ namespace DataSurge.Main
                         }
                     }
 
-                    else if (WhichButton.buttonContent == "NOTES" || WhichButton.buttonContent == "ZAPISKI")
+                    else if (Helper.buttonContent == "NOTES" || Helper.buttonContent == "ZAPISKI")
                     {
-                        Title = WhichButton.listLabel + "s";
-                        label.Text = WhichButton.listLabel;
+                        Title = Helper.listLabel + "s";
+                        label.Text = Helper.listLabel;
 
                         if (data.Note != "/")
                         {

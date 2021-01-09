@@ -1,6 +1,6 @@
 ﻿namespace DataSurge.Classes
 {
-    static class WhichButton
+    static class Helper
     {
         public static string buttonContent;
         public static string listLabel;

@@ -30,9 +30,6 @@ namespace DataSurge.Source.Login
 
             /*get remember password value from file*/
             RememberPass();
-
-            // load data
-            GetData();
         }
 
         private void RememberPass()
@@ -82,6 +79,8 @@ namespace DataSurge.Source.Login
 
         private async void LoginAsync(object sender, RoutedEventArgs e)
         {
+            GetData();
+
             string password = MasterPasswordBox.Password; // kar uporabnik vnese 
 
             XmlSerializer xs = new XmlSerializer(typeof(Registration));
@@ -138,6 +137,8 @@ namespace DataSurge.Source.Login
 
         private async void EnterLoginAsync(object sender, KeyEventArgs e)
         {
+            GetData();
+
             if (File.Exists(Environment.CurrentDirectory + "\\Users.xml") && e.Key == Key.Enter)
             {
                 if (e.Key == Key.Enter)

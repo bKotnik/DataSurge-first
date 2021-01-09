@@ -3,6 +3,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using System.Xml.Serialization;
@@ -22,9 +23,11 @@ namespace DataSurge.Side_menu
             Utility.PMClass = new ObservableCollection<PasswordMagicianClass>();
         }
 
-        private void analyze(object sender, RoutedEventArgs e)
+        private async void AnalyzeAsync(object sender, RoutedEventArgs e)
         {
-            Mouse.OverrideCursor = Cursors.Wait;
+            // show loading
+            LoadingGrid.Visibility = Visibility.Visible;
+            SetOpacity(0.5);
 
             int i = 1;
             int k = 0; // pomozni za dobit podvojena gesla
@@ -50,7 +53,7 @@ namespace DataSurge.Side_menu
                         //decrypt if it's encrypted
                         try
                         {
-                            Utility.decryptListData(Utility.ListData);
+                            await RunDecryptionAsync();
                         }
                         catch { }
 
@@ -122,10 +125,9 @@ namespace DataSurge.Side_menu
             }
 
             lvListPM.ItemsSource = Utility.PMClass;
-
             isPressed = true;
-
-            Mouse.OverrideCursor = null;
+            LoadingGrid.Visibility = Visibility.Collapsed;
+            SetOpacity(1);
         }
 
         private void Exit(object sender, RoutedEventArgs e)
@@ -152,6 +154,25 @@ namespace DataSurge.Side_menu
                 WarningDetails warningDetails = new WarningDetails();
                 warningDetails.Show();
             }
+        }
+
+        private async Task RunDecryptionAsync()
+        {
+            ObservableCollection<DataClass> tmp = new ObservableCollection<DataClass>();
+
+            foreach (DataClass data in Utility.ListData)
+            {
+                tmp.Add(await Task.Run(() => Utility.DecryptDataClassAsync(data)));
+            }
+
+            Utility.ListData = tmp;
+        }
+
+        private void SetOpacity(double opacity)
+        {
+            lvListPM.Opacity = opacity;
+            btnExit.Opacity = opacity;
+            btnAnalyze.Opacity = opacity;
         }
     }
 }

@@ -30,7 +30,7 @@ namespace DataSurge.Main
         {
             if (Utility.preferences.MaximumSecurity == true)
             {
-                WhichButton.buttonContent = "confirmEdit";
+                Helper.buttonContent = "confirmEdit";
                 Confirmation confirmation = new Confirmation();
                 confirmation.ShowDialog();
 
@@ -52,7 +52,7 @@ namespace DataSurge.Main
             {
                 if (Utility.preferences.MaximumSecurity == true)
                 {
-                    WhichButton.buttonContent = "confirmEdit";
+                    Helper.buttonContent = "confirmEdit";
                     Confirmation confirmation = new Confirmation();
                     confirmation.ShowDialog();
 

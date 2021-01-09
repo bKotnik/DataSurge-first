@@ -8,6 +8,7 @@ using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
@@ -51,6 +52,7 @@ namespace DataSurge
             PreviewKeyDown += new KeyEventHandler(HandleSpace);
             PreviewKeyDown += new KeyEventHandler(HandleDelete);
             PreviewKeyDown += new KeyEventHandler(HandleAddNew);
+            //base.Closing += this.mainWindow_Closing;
 
             // check toolbar warning!
             if (Properties.Settings.Default.ToolbarWarning == false)
@@ -60,9 +62,8 @@ namespace DataSurge
 
             // get preferences
             GetPreferences();
-
-            // get data
-            GetData();
+            // get data for edit
+            GetDataEdit();
         }
 
         /* LOAD DATA */
@@ -84,7 +85,7 @@ namespace DataSurge
                     _ = MessageBox.Show("Error occurred when trying to load preferences", "Error loading preferences", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        private void GetData() // loads edit/delete icons and assigns ItemsSource of listview
+        private void GetDataEdit() // loads edit/delete icons and assigns ItemsSource of listview
         {
             //assign icons to objects
             foreach (DataClass data in Utility.ListData)
@@ -100,40 +101,40 @@ namespace DataSurge
         /* LISTVIEW BUTTONS */
         private void Click_emails(object sender, RoutedEventArgs e)
         {
-            WhichButton.buttonContent = (sender as Button).Content.ToString();
-            WhichButton.listLabel = "Email";
+            Helper.buttonContent = (sender as Button).Content.ToString();
+            Helper.listLabel = "Email";
             ListData emails = new ListData();
 
             emails.ShowDialog();
         }
         private void Click_usernames(object sender, RoutedEventArgs e)
         {
-            WhichButton.buttonContent = (sender as Button).Content.ToString();
-            WhichButton.listLabel = "Username";
+            Helper.buttonContent = (sender as Button).Content.ToString();
+            Helper.listLabel = "Username";
             ListData usernames = new ListData();
 
             usernames.ShowDialog();
         }
         private void Click_passwords(object sender, RoutedEventArgs e)
         {
-            WhichButton.buttonContent = (sender as Button).Content.ToString();
-            WhichButton.listLabel = "Password";
+            Helper.buttonContent = (sender as Button).Content.ToString();
+            Helper.listLabel = "Password";
             ListData passwords = new ListData();
 
             passwords.ShowDialog();
         }
         private void Click_other(object sender, RoutedEventArgs e)
         {
-            WhichButton.buttonContent = (sender as Button).Content.ToString();
-            WhichButton.listLabel = "Other";
+            Helper.buttonContent = (sender as Button).Content.ToString();
+            Helper.listLabel = "Other";
             ListData other = new ListData();
 
             other.ShowDialog();
         }
         private void Click_note(object sender, RoutedEventArgs e)
         {
-            WhichButton.buttonContent = (sender as Button).Content.ToString();
-            WhichButton.listLabel = "Note";
+            Helper.buttonContent = (sender as Button).Content.ToString();
+            Helper.listLabel = "Note";
             ListData notes = new ListData();
 
             notes.ShowDialog();
@@ -340,10 +341,10 @@ namespace DataSurge
 
             lvDataMain.ItemsSource = Utility.ListData;
         }
-        private void Logout(object sender, RoutedEventArgs e)
+        private async void Logout(object sender, RoutedEventArgs e)
         {
             logout_pressed = true;
-            CloseAllWindows();
+            await SaveState();
             Authentication login = new Authentication();
             login.Show();
             Close();
@@ -362,7 +363,7 @@ namespace DataSurge
             {
                 if (Utility.preferences.MaximumSecurity == true)
                 {
-                    WhichButton.buttonContent = "confirmDelete";
+                    Helper.buttonContent = "confirmDelete";
 
                     Confirmation confirmation = new Confirmation();
                     confirmation.ShowDialog();
@@ -613,7 +614,7 @@ namespace DataSurge
             {
                 await RunDecryptionAsync();
                 lvDataMain.ItemsSource = Utility.ListData;
-                GetData();
+                GetDataEdit();
             }
 
             catch
@@ -688,7 +689,7 @@ namespace DataSurge
                 try
                 {
                     await RunDecryptionAsync();
-                    GetData(); // get source for edit/delete icons
+                    GetDataEdit(); // get source for edit/delete icons
                 }
                 catch
                 {
@@ -766,7 +767,7 @@ namespace DataSurge
                 {
                     if (Utility.preferences.MaximumSecurity == true)
                     {
-                        WhichButton.buttonContent = "confirmDelete";
+                        Helper.buttonContent = "confirmDelete";
 
                         Confirmation confirmation = new Confirmation();
                         confirmation.ShowDialog();
@@ -888,13 +889,18 @@ namespace DataSurge
         }
 
 
-        /* ON CLOSED EVENT */
-        protected override void OnClosed(EventArgs e)
+        /* ON CLOSING EVENT */
+        private async void MainWindow_Closing(object sender, CancelEventArgs e)
         {
             if (logout_pressed == false)
-                CloseAllWindows();
+            {
+                //e.Cancel = true;
+                await SaveState();
+
+                
+            }
         }
-        private void CloseAllWindows()
+        private async Task SaveState()
         {
             // save order of ListView data
             LoadingState("Saving State");
@@ -906,8 +912,7 @@ namespace DataSurge
                 {
                     try
                     {
-                        //await RunEncryptionAsync();
-                        Utility.ListData = Utility.encryptListData(Utility.ListData);
+                        await RunEncryptionAsync();
 
                         XmlSerializer xs = new XmlSerializer(typeof(ObservableCollection<DataClass>));
                         xs.Serialize(stream, Utility.ListData);

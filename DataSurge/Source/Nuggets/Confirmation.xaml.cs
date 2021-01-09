@@ -13,10 +13,10 @@ namespace DataSurge
         {
             InitializeComponent();
 
-            if (WhichButton.buttonContent == "confirmDelete")
+            if (Helper.buttonContent == "confirmDelete")
                 Title = "Confirm delete";
 
-            else if (WhichButton.buttonContent == "confirmEdit")
+            else if (Helper.buttonContent == "confirmEdit")
                 Title = "Confirm edit";
 
             else

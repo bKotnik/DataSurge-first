@@ -92,7 +92,7 @@
     <Compile Include="Source\Classes\Utils\Assets.cs" />
     <Compile Include="Source\Classes\Utils\RememberPassword.cs" />
     <Compile Include="Source\Classes\Utils\Utility.cs" />
-    <Compile Include="Source\Classes\Utils\WhichButton.cs" />
+    <Compile Include="Source\Classes\Utils\Helper.cs" />
     <Compile Include="Source\Nuggets\ChangeKey.xaml.cs">
       <DependentUpon>ChangeKey.xaml</DependentUpon>
     </Compile>

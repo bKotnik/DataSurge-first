@@ -34,7 +34,7 @@ namespace DataSurge.Source.Nuggets
 
         private void Confirm(object sender, RoutedEventArgs e)
         {
-            WhichButton.buttonContent = "confirmChangeKey";
+            Helper.buttonContent = "confirmChangeKey";
 
             Confirmation confirmation = new Confirmation();
             confirmation.ShowDialog();

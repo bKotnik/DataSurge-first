@@ -49,7 +49,7 @@
                     <RowDefinition Height="25"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Button Grid.Row="0" Content="Main Color" VerticalAlignment="Bottom"
-                        Click="ApplyMain" Style="{DynamicResource MainBtnStyle}">
+                        Click="ApplyMain" Style="{DynamicResource MainBtnStyle}" Width="125">
                 </Button>
                 <TextBox Grid.Row="1" Text="Current color: " x:Name="currentColorMain"
                          VerticalAlignment="Top" Foreground="{DynamicResource TextColor}"
@@ -65,7 +65,7 @@
                     <RowDefinition Height="25"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Button Grid.Row="0" Content="Secondary Color" VerticalAlignment="Bottom"
-                        Click="ApplySecondary" Style="{DynamicResource MainBtnStyle}">
+                        Click="ApplySecondary" Style="{DynamicResource MainBtnStyle}" Width="125">
                 </Button>
                 <TextBox Grid.Row="1" Text="Current color: " x:Name="currentColorSecondary"
                          VerticalAlignment="Top" Foreground="{DynamicResource TextColor}"
@@ -81,7 +81,7 @@
                     <RowDefinition Height="25"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Button Grid.Row="0" Content="Text Color" VerticalAlignment="Bottom"
-                        Click="ApplyText" Style="{DynamicResource MainBtnStyle}">
+                        Click="ApplyText" Style="{DynamicResource MainBtnStyle}" Width="125">
                 </Button>
                 <TextBox Grid.Row="1" Text="Current color: " x:Name="currentColorText"
                          VerticalAlignment="Top" Foreground="{DynamicResource TextColor}"
@@ -97,7 +97,7 @@
                     <RowDefinition Height="25"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Button Grid.Row="0" Content="Background Color" VerticalAlignment="Bottom"
-                        Click="ApplyBackground" Style="{DynamicResource MainBtnStyle}">
+                        Click="ApplyBackground" Style="{DynamicResource MainBtnStyle}" Width="125">
                 </Button>
                 <TextBox Grid.Row="1" Text="Current color: " x:Name="currentColorBg"
                          VerticalAlignment="Top" Foreground="{DynamicResource TextColor}"
@@ -120,7 +120,7 @@
                     <RowDefinition Height="25"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Button Grid.Row="0" Content="Title Color" VerticalAlignment="Bottom"
-                        Click="ApplyTitle" Style="{DynamicResource MainBtnStyle}">
+                        Click="ApplyTitle" Style="{DynamicResource MainBtnStyle}" Width="125">
                 </Button>
                 <TextBox Grid.Row="1" Text="Current color: " x:Name="currentColorTitle"
                          VerticalAlignment="Top" Foreground="{DynamicResource TextColor}"
@@ -136,7 +136,7 @@
                     <RowDefinition Height="25"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Button Grid.Row="0" Content="Exit Color" VerticalAlignment="Bottom"
-                        Click="ApplyExit" Style="{DynamicResource MainBtnStyle}">
+                        Click="ApplyExit" Style="{DynamicResource MainBtnStyle}" Width="125">
                 </Button>
                 <TextBox Grid.Row="1" Text="Current color: " x:Name="currentColorExit"
                          VerticalAlignment="Top" Foreground="{DynamicResource TextColor}"
@@ -152,7 +152,7 @@
                     <RowDefinition Height="25"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Button Grid.Row="0" Content="Default" VerticalAlignment="Bottom"
-                        Click="ApplyDefault" Style="{DynamicResource MainBtnStyle}">
+                        Click="ApplyDefault" Style="{DynamicResource MainBtnStyle}" Width="125">
                 </Button>
                 <TextBlock Grid.Row="1" Text="*Green theme*" Opacity="0.75"
                            VerticalAlignment="Top" Foreground="{DynamicResource TextColor}"
@@ -167,7 +167,7 @@
                     <RowDefinition Height="25"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Button Grid.Row="0" Content="Warning Color" VerticalAlignment="Bottom"
-                        Click="ApplyWarning" Style="{DynamicResource MainBtnStyle}">
+                        Click="ApplyWarning" Style="{DynamicResource MainBtnStyle}" Width="125">
                 </Button>
                 <TextBox Grid.Row="1" Text="Current color: " x:Name="currentColorWarning"
                          VerticalAlignment="Top" Foreground="{DynamicResource TextColor}"
