@@ -142,7 +142,10 @@ namespace DataSurge.Main
                     }
 
                     else
+                    {
                         xs.Serialize(stream, Utility.ListData);
+                        Status.Visibility = Visibility.Visible;
+                    }
                 }
             }
 

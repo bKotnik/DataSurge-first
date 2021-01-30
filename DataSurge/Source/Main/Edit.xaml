@@ -159,7 +159,7 @@
 
         <TextBlock Grid.Row="4" Grid.ColumnSpan="2" Text="Changes applied successfully"
                    Foreground="#4db5a7" HorizontalAlignment="Center" VerticalAlignment="Bottom"
-                   Margin="0 0 0 10" Visibility="Hidden" x:Name="Status">
+                   Margin="0 0 0 8" Visibility="Visible" x:Name="Status">
         </TextBlock>
 
         <Button x:Name="btnExit" Content="EXIT" Height="30" FontWeight="Bold" Grid.Column="1"

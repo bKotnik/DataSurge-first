@@ -58,6 +58,7 @@
         <Setter Property="Background" Value="{DynamicResource BackgroundColor}"/>
         <Setter Property="Foreground" Value="{DynamicResource TextColor}"/>
         <Setter Property="SelectionBrush" Value="{DynamicResource SelectionBrushColor}"/>
+
     </Style>
 
 </ResourceDictionary>

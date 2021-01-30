@@ -1,8 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     
-    <!--MAIN, SECONDARY, EXIT, TITLE, TEXT, BACKGROUND, WARNING-->
-
     <!--MAIN COLOR-->
     <SolidColorBrush x:Key="MainColor" Color="#059401"/>
     <SolidColorBrush x:Key="MainColor50" Color="#50059401" /> <!--50 opacity-->
