@@ -8,8 +8,8 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Source/Resource Dictionaries/Colors.xaml"/>
-                <ResourceDictionary Source="Source/Resource Dictionaries/Other.xaml"/>
                 <ResourceDictionary Source="Source/Resource Dictionaries/ButtonStyles.xaml"/>
+                <ResourceDictionary Source="Source/Resource Dictionaries/Other.xaml"/>
                 <ResourceDictionary Source="Source/Resource Dictionaries/ScrollbarStyles.xaml"/>
                 <ResourceDictionary Source="Source/Resource Dictionaries/InputFieldsStyles.xaml"/>
                 <ResourceDictionary Source="Source/Resource Dictionaries/ListViewStyles.xaml"/>

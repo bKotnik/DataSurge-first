@@ -169,6 +169,12 @@
     <Compile Include="Source\User controls\VortexAnimationMini.xaml.cs">
       <DependentUpon>VortexAnimationMini.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Test.xaml.cs">
+      <DependentUpon>Test.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TestRegister.xaml.cs">
+      <DependentUpon>TestRegister.xaml</DependentUpon>
+    </Compile>
     <Page Include="Source\Nuggets\ChangeKey.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -310,6 +316,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Source\User controls\VortexAnimationMini.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Test.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TestRegister.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

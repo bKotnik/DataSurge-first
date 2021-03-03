@@ -216,7 +216,8 @@
 
             <TextBox Grid.Row="2" Grid.Column="0" Text="Enter email (backup reasons):" x:Name="EnterEmailTxtBlock"
                        Foreground="{DynamicResource TextColor}" VerticalAlignment="Center" Padding="10 0 0 0"
-                       FontSize="13" FontWeight="Bold" Style="{DynamicResource ReadOnlyTextBox}">
+                       FontSize="13" FontWeight="Bold" Style="{DynamicResource ReadOnlyTextBox}"
+                     FontFamily="Vivaldi">
             </TextBox>
 
             <Grid Grid.Row="0" Grid.Column="1">

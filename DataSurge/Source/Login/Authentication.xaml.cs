@@ -423,7 +423,6 @@ namespace DataSurge.Source.Login
 
             catch
             {
-
                 if (stream.Length != 0)
                     _ = MessageBox.Show("Error occurred when trying to load data", "Error loading data", MessageBoxButton.OK, MessageBoxImage.Error);
             }

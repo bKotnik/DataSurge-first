@@ -187,5 +187,72 @@
     </Style>
 
     <!--WINDOW STYLE-->
+    <Style x:Key="CustomWindowStyle" TargetType="{x:Type Window}">
+        <Setter Property="WindowChrome.WindowChrome">
+            <Setter.Value>
+                <WindowChrome CaptionHeight="30"
+                              CornerRadius="0"
+                              GlassFrameThickness="0"
+                              NonClientFrameEdges="None"
+                              ResizeBorderThickness="5"
+                              UseAeroCaptionButtons="False" />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="BorderBrush" Value="#090c0f" />
+        <Setter Property="Background" Value="Gray" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Window}">
+                    <Grid>
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="5,30,5,5">
+                            <AdornerDecorator>
+                                <ContentPresenter />
+                            </AdornerDecorator>
+                        </Border>
+
+                        <DockPanel Height="32"
+                                   VerticalAlignment="Top"
+                                   LastChildFill="False">
+
+                            <Image Margin="3,3,0,0"
+                                   VerticalAlignment="Center"
+                                   DockPanel.Dock="Left"
+                                   MaxHeight="30"
+                                   MaxWidth="30"
+                                   Source="C:\Users\Kecktz\source\repos\DataSurge\DataSurge\logo_icon.ico"/>
+
+                            <Button x:Name="btnClose"
+                                    Style="{StaticResource WindowCloseBtnStyle}"
+                                    Content="X"
+                                    DockPanel.Dock="Right"
+                                    WindowChrome.IsHitTestVisibleInChrome="True" />
+
+
+                            <Button x:Name="btnRestore"
+                                    Style="{StaticResource WindowRestoreBtnStyle}"
+                                    DockPanel.Dock="Right"
+                                    WindowChrome.IsHitTestVisibleInChrome="True">
+                                <Rectangle Stroke="{DynamicResource TextColor}" StrokeThickness="1" 
+                                           Height="10" Width="10" />
+                            </Button>
+
+                            <Button x:Name="btnMinimize"
+                                     Style="{StaticResource WindowRestoreBtnStyle}"
+                                     DockPanel.Dock="Right"
+                                     WindowChrome.IsHitTestVisibleInChrome="True">
+                                <Line Width="10" Stroke="{DynamicResource TextColor}" 
+                                      StrokeThickness="1.6" X1="10">
+                                </Line>
+                            </Button>
+                        </DockPanel>
+
+                    </Grid>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 
 </ResourceDictionary>

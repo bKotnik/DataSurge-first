@@ -219,7 +219,6 @@
         </Grid>
 
         <!--meni podatkov-->
-
         <Grid Grid.Row="2" Grid.Column="1" Background="{DynamicResource BackgroundColor}" x:Name="DataGrid">
 
             <Grid.RowDefinitions>
