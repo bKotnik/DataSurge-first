@@ -12,10 +12,7 @@ namespace DataSurge.Classes
         private string _email;
         public string Email
         {
-            get
-            {
-                return _email;
-            }
+            get => _email;
             set
             {
                 _email = value;
@@ -27,10 +24,7 @@ namespace DataSurge.Classes
         private string _password;
         public string Password
         {
-            get
-            {
-                return _password;
-            }
+            get => _password;
             set
             {
                 _password = value;
@@ -42,10 +36,7 @@ namespace DataSurge.Classes
         private string _username;
         public string Username
         {
-            get
-            {
-                return _username;
-            }
+            get => _username;
             set
             {
                 _username = value;
@@ -57,10 +48,7 @@ namespace DataSurge.Classes
         private string _other;
         public string Other
         {
-            get
-            {
-                return _other;
-            }
+            get => _other;
             set
             {
                 _other = value;
@@ -72,10 +60,7 @@ namespace DataSurge.Classes
         private string _note;
         public string Note
         {
-            get
-            {
-                return _note;
-            }
+            get => _note;
             set
             {
                 _note = value;
@@ -87,10 +72,7 @@ namespace DataSurge.Classes
         private string _noteDetails;
         public string NoteDetails
         {
-            get
-            {
-                return _noteDetails;
-            }
+            get => _noteDetails;
             set
             {
                 _noteDetails = value;
